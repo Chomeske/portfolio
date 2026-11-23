@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Алекс Вейн — Сценарист, Автор персонажей, Нарративный дизайнер</title>
+  <title>Olesia Shaikhutdinova — AI Narrative Designer & Character Architect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,23 +17,15 @@
       --text-muted: #9b99a3;
       --accent: #e09f5a;
       --accent-soft: rgba(224, 159, 90, 0.14);
-      --danger: #d46a6a;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
       --font-mono: 'Courier Prime', 'Courier New', monospace;
       --radius: 10px;
-      --max-width: 1140px;
+      --max-width: 1160px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       background-color: var(--bg);
@@ -43,12 +35,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Навигация */
+    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(14, 14, 17, 0.88);
+      background: rgba(14, 14, 17, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -65,7 +57,7 @@
 
     .logo {
       font-family: var(--font-mono);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text);
@@ -86,7 +78,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 28px;
+      gap: 26px;
     }
 
     nav a {
@@ -96,9 +88,7 @@
       transition: color 0.2s;
     }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+    nav a:hover { color: var(--accent); }
 
     main {
       max-width: var(--max-width);
@@ -106,13 +96,11 @@
       padding: 0 24px 96px;
     }
 
-    section {
-      padding-top: 72px;
-    }
+    section { padding-top: 76px; }
 
     .section-label {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--accent);
@@ -120,31 +108,38 @@
       display: block;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: var(--font-serif);
       font-weight: 600;
       line-height: 1.15;
     }
 
     h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      margin-bottom: 24px;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      margin-bottom: 14px;
     }
 
-    /* Главная (О себе) */
+    .section-intro {
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 28px;
+      font-size: 0.96rem;
+    }
+
+    /* Hero / About */
     .hero {
-      padding-top: 64px;
+      padding-top: 58px;
       padding-bottom: 48px;
       border-bottom: 1px solid var(--border);
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 44px;
       align-items: start;
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 4.4rem);
-      margin-bottom: 16px;
+      font-size: clamp(2.6rem, 5.2vw, 4.1rem);
+      margin-bottom: 14px;
     }
 
     .hero h1 span {
@@ -154,31 +149,45 @@
 
     .roles {
       font-family: var(--font-mono);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .hero-bio {
-      font-size: 1.08rem;
-      color: #d3d0c9;
-      margin-bottom: 28px;
-      max-width: 600px;
+      font-size: 1.03rem;
+      color: #d6d3cc;
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+
+    .craft-callout {
+      background: rgba(224, 159, 90, 0.06);
+      border-left: 2px solid var(--accent);
+      padding: 14px 18px;
+      margin: 22px 0 26px;
+      font-size: 0.92rem;
+      color: #cfc8bc;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .craft-callout strong {
+      color: var(--text);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 22px;
+      padding: 11px 20px;
       border-radius: 6px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       text-decoration: none;
       cursor: pointer;
@@ -211,9 +220,9 @@
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 24px;
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
 
     .dossier-header {
@@ -225,21 +234,47 @@
       color: var(--text-muted);
     }
 
-    .dossier-row {
-      margin-bottom: 12px;
-    }
+    .dossier-row { margin-bottom: 14px; }
 
     .dossier-key {
       color: var(--accent);
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
     }
 
-    /* Избранная подборка */
+    /* Competencies & Workflow strip */
+    .competencies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .comp-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .comp-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .comp-box p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* Featured */
     .featured-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
     }
 
@@ -247,7 +282,7 @@
       background: linear-gradient(160deg, var(--bg-card) 0%, #141419 100%);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -259,51 +294,58 @@
     .featured-card::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 3px;
       background: linear-gradient(90deg, var(--accent), transparent);
-      opacity: 0.7;
+      opacity: 0.75;
     }
 
     .featured-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(224, 159, 90, 0.5);
+      border-color: rgba(224, 159, 90, 0.55);
     }
 
     .card-meta {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--accent);
       margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
+      gap: 10px;
     }
 
     .featured-card h3 {
-      font-size: 1.7rem;
+      font-size: 1.65rem;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: #d6c5ae;
+      font-size: 0.9rem;
       margin-bottom: 12px;
     }
 
     .card-desc {
       color: var(--text-muted);
-      font-size: 0.94rem;
-      margin-bottom: 20px;
+      font-size: 0.91rem;
+      margin-bottom: 18px;
     }
 
-    /* Теги */
+    /* Tags */
     .tags-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 7px;
+      margin-bottom: 16px;
     }
 
     .tag {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      padding: 4px 10px;
+      font-size: 0.72rem;
+      padding: 4px 9px;
       border-radius: 4px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
@@ -318,12 +360,12 @@
       color: var(--accent);
     }
 
-    /* Тематические сборники */
+    /* Thematic Collections */
     .collections-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 18px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     .collection-tile {
@@ -335,16 +377,19 @@
       transition: all 0.2s;
       text-align: left;
       color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .collection-tile:hover, .collection-tile.active {
       border-color: var(--accent);
-      background: rgba(224, 159, 90, 0.06);
+      background: rgba(224, 159, 90, 0.07);
     }
 
     .collection-count {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--accent);
       margin-bottom: 8px;
       display: block;
@@ -360,7 +405,7 @@
       color: var(--text-muted);
     }
 
-    /* Фильтр-бар по тегам и каталог всех работ */
+    /* Filter panel & Archive */
     .filter-panel {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
@@ -396,7 +441,7 @@
 
     .archive-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
       gap: 20px;
     }
 
@@ -411,14 +456,11 @@
       transition: border-color 0.2s;
     }
 
-    .archive-card:hover {
-      border-color: #444456;
-    }
+    .archive-card:hover { border-color: #464659; }
 
     .archive-card h4 {
-      font-family: var(--font-serif);
       font-size: 1.4rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .read-link {
@@ -426,7 +468,7 @@
       border: none;
       color: var(--accent);
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       cursor: pointer;
       padding: 0;
       text-align: left;
@@ -435,15 +477,13 @@
       gap: 6px;
     }
 
-    .read-link:hover {
-      text-decoration: underline;
-    }
+    .read-link:hover { text-decoration: underline; }
 
-    /* Модальное окно (Сценарий / Персонаж / Нарратив) */
+    /* Modal */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(8, 8, 11, 0.85);
+      background: rgba(8, 8, 11, 0.86);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -452,15 +492,13 @@
       z-index: 1000;
     }
 
-    .modal-overlay.open {
-      display: flex;
-    }
+    .modal-overlay.open { display: flex; }
 
     .modal {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      max-width: 760px;
+      max-width: 820px;
       width: 100%;
       max-height: 88vh;
       overflow-y: auto;
@@ -471,8 +509,8 @@
 
     .modal-close {
       position: absolute;
-      top: 20px;
-      right: 22px;
+      top: 18px;
+      right: 20px;
       background: none;
       border: 1px solid var(--border);
       color: var(--text-muted);
@@ -488,58 +526,33 @@
       border-color: var(--accent);
     }
 
-    .script-excerpt {
+    .modal-block {
       background: #101014;
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 24px;
-      margin-top: 20px;
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      line-height: 1.55;
+      padding: 22px;
+      margin-top: 18px;
+      font-size: 0.92rem;
       color: #dedad0;
     }
 
-    .script-slug {
+    .modal-block-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
       text-transform: uppercase;
-      font-weight: 700;
+      letter-spacing: 0.1em;
       color: var(--accent);
       margin-bottom: 10px;
+      display: block;
     }
 
-    .script-char {
-      text-align: center;
-      text-transform: uppercase;
-      margin-top: 14px;
-      letter-spacing: 0.08em;
-      color: #fff;
+    .mono-excerpt {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      line-height: 1.58;
     }
 
-    .script-paren {
-      text-align: center;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    .script-dialogue {
-      max-width: 75%;
-      margin: 2px auto 12px;
-    }
-
-    /* Подвал */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 24px;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
+    .modal-block p + p { margin-top: 10px; }
 
     .empty-state {
       grid-column: 1 / -1;
@@ -550,20 +563,25 @@
       color: var(--text-muted);
     }
 
-    @media (max-width: 820px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      nav ul {
-        gap: 14px;
-        font-size: 0.82rem;
-      }
-      .modal {
-        padding: 24px 18px;
-      }
-      .script-dialogue {
-        max-width: 100%;
-      }
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 38px 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 840px) {
+      .hero { grid-template-columns: 1fr; }
+      nav ul { gap: 14px; font-size: 0.8rem; }
+      .modal { padding: 24px 18px; }
     }
   </style>
 </head>
@@ -573,247 +591,681 @@
     <div class="nav-inner">
       <a href="#about" class="logo">
         <span class="logo-dot"></span>
-        АЛЕКС ВЕЙН // НАРРАТИВ
+        OLESIA SHAIKHUTDINOVA // NARRATIVE
       </a>
       <nav>
         <ul>
-          <li><a href="#about">Обо мне</a></li>
-          <li><a href="#featured">Избранное</a></li>
-          <li><a href="#collections">Сборники</a></li>
-          <li><a href="#archive">Теги и архив</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#archive">Tags &amp; Archive</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- 1. ГЛАВНАЯ СТРАНИЦА / ОПИСАНИЕ МЕНЯ -->
+    <!-- 1. MAIN PAGE / ABOUT ME -->
     <section id="about" class="hero">
       <div>
-        <span class="section-label">Драматургия × Интерактив × Характеры</span>
-        <h1>Истории, в которых хочется <span>жить и ошибаться</span></h1>
-        <p class="roles">Сценарист • Автор персонажей • Нарративный дизайнер</p>
+        <span class="section-label">14+ Years in Character Psychology &amp; Deep Lore</span>
+        <h1>Stories built on <span>internal logic</span> and honest darkness</h1>
+        <p class="roles">AI Narrative Designer &amp; Prompt Engineer • Narrative Writer • Character Architect</p>
         <p class="hero-bio">
-          Привет! Я проектирую миры, пишу живые диалоги и собираю персонажей, у которых есть собственные тайны, противоречия и голос. Работаю на стыке кинодраматургии и геймдева: от линейных сценариев и библий серий до нелинейных веток в Ink/Articy и системного нарратива, где механика говорит громче реплик.
+          I am an independent Narrative Designer and Character Architect with a 14-year background in psychological realism, deep lore crafting, and character psychology. Over the past year, I have focused on engineering narrative mechanics for LLMs—from intricate prompt structures and jailbreaking synthetic constraints to forcing models to hold strict in-character consistency, systemic trackers, and plot tension.
         </p>
+        <p class="hero-bio">
+          My AI portfolio intentionally leans into a specific niche where I built my brand and tested how specific mechanics make players feel. Beyond that niche, my range spans non-human perspectives without caricature (kobolds, dragonborn, dragons, yoma, vampires) and multi-year forum worldbuilding ecosystems.
+        </p>
+
+        <div class="craft-callout">
+          <strong>Signature Craft — Single-Phrase Reverse Engineering:</strong> I specialize in building a full, dramatic plot and psychologically grounded character profile from a single evocative phrase. For example, starting from the line <em>"His heart beats inside her chest"</em>, I engineered an illegal transplant mystery, a grieving fiancée, a co-dependent mobster father's clinic, a secret biological half-brother, and a sheltered heiress with a closeted goth rebellion.
+        </div>
+
         <div class="hero-actions">
-          <a href="#featured" class="btn btn-primary">Смотреть избранное</a>
-          <a href="mailto:narrative@example.com" class="btn btn-ghost">Связаться по проекту</a>
+          <a href="#featured" class="btn btn-primary">Explore Featured Works</a>
+          <a href="https://t.me/Phiod" target="_blank" rel="noopener" class="btn btn-ghost">Telegram: @Phiod</a>
+          <span class="btn btn-ghost" style="cursor:default;">Discord: Cherasy</span>
         </div>
       </div>
 
       <aside class="dossier-card">
         <div class="dossier-header">
-          <span>ДОСЬЕ АВТОРА</span>
-          <span>СТАТУС: ОТКРЫТ</span>
+          <span>CHARACTER SHEET // AUTHOR</span>
+          <span>RELOCATION: OPEN*</span>
         </div>
         <div class="dossier-row">
-          <span class="dossier-key">Специализация</span>
-          Киносценарии, нарративные системы, дизайн персонажей (от архетипа до барк-листов).
+          <span class="dossier-key">Experience</span>
+          AI Character Architect &amp; Prompt Engineer (1 Year – Present) • Narrative Writer &amp; Character Creator (14 Years – Present)
         </div>
         <div class="dossier-row">
-          <span class="dossier-key">Инструменты</span>
-          Final Draft, Kit Scenarist, Articy:draft, Ink, Twine, Miro, Notion.
+          <span class="dossier-key">Feedback &amp; Party Dynamics</span>
+          Analytical approach to revisions (needs time to compile ideas cleanly). Introverted, deeply dedicated to quality; syncs best after brief onboarding.
         </div>
         <div class="dossier-row">
-          <span class="dossier-key">Сильные жанры</span>
-          Неонуар, мрачное фэнтези, sci-fi драма, психологический триллер.
+          <span class="dossier-key">Creative Environment</span>
+          Thrives on creative freedom, internal world logic, and complex or "uncomfortable" characters over sanitized corporate clichés.
         </div>
         <div class="dossier-row" style="margin-bottom:0;">
-          <span class="dossier-key">Контакты</span>
-          TG: @narrative_wayne • narrative@example.com
+          <span class="dossier-key">Relocation</span>
+          *Open to relocation provided the employer sponsors the complete relocation package.
         </div>
       </aside>
     </section>
 
-    <!-- 2. ИЗБРАННАЯ ПОДБОРКА -->
+    <!-- Core Competencies -->
+    <div class="competencies-grid">
+      <div class="comp-box">
+        <h3>Narrative Architecture &amp; Worldbuilding</h3>
+        <p>Rich backstories, intrinsic motivations, and internal conflicts; systematic trope deconstruction; seamless integration into complex lore.</p>
+      </div>
+      <div class="comp-box">
+        <h3>AI &amp; Prompt Engineering</h3>
+        <p>Advanced LLM prompting, jailbreaking synthetic sanitization for authentic in-character responses, Tone of Voice (ToV) tuning, and text mechanics.</p>
+      </div>
+      <div class="comp-box">
+        <h3>Ludonarrative Harmony</h3>
+        <p>Logically justifying mechanics, abilities, and systemic limitations through world lore and deep character psychology.</p>
+      </div>
+      <div class="comp-box">
+        <h3>Targeted Storytelling</h3>
+        <p>Creating uncompromising, resonant experiences for specific player expectations with modular scalability across universes.</p>
+      </div>
+    </div>
+
+    <!-- 2. FEATURED SELECTION -->
     <section id="featured">
-      <span class="section-label">Выбор редакции (и мой)</span>
-      <h2>Избранная подборка</h2>
-      <div class="featured-grid" id="featured-container">
-        <!-- Рендерится из JS -->
-      </div>
+      <span class="section-label">Selected Highlights</span>
+      <h2>Featured Selection</h2>
+      <p class="section-intro">
+        Four flagship pieces demonstrating single-phrase concept reverse-engineering, systemic LLM narrative mechanics, non-human psychology, and multi-faction world design.
+      </p>
+      <div class="featured-grid" id="featured-container"></div>
     </section>
 
-    <!-- 3. ТЕМАТИЧЕСКИЕ СБОРНИКИ -->
+    <!-- 3. THEMATIC COLLECTIONS -->
     <section id="collections">
-      <span class="section-label">Кураторские серии</span>
-      <h2>Тематические сборники</h2>
-      <div class="collections-grid" id="collections-container">
-        <!-- Рендерится из JS -->
-      </div>
+      <span class="section-label">Curated Volumes</span>
+      <h2>Thematic Collections</h2>
+      <p class="section-intro">
+        Select a collection to filter the full archive below by discipline—from interactive AI rule-engines to non-human species lore and 14 years of forum character bibles.
+      </p>
+      <div class="collections-grid" id="collections-container"></div>
     </section>
 
-    <!-- 4. ТЕГИ И ПОЛНЫЙ КАТАЛОГ РАБОТ -->
+    <!-- 4. TAGS & FULL ARCHIVE -->
     <section id="archive">
-      <span class="section-label">Навигация по навыкам и форматам</span>
-      <h2>Все работы и теги</h2>
+      <span class="section-label">Filter by Craft, Format &amp; Genre</span>
+      <h2>All Works &amp; Tags</h2>
 
       <div class="filter-panel">
         <div class="filter-header">
-          <span class="filter-title" id="active-filter-label">Фильтр: Все работы</span>
-          <button class="reset-btn" id="reset-filters" style="display:none;">Сбросить фильтры ✕</button>
+          <span class="filter-title" id="active-filter-label">Filter: All Works</span>
+          <button class="reset-btn" id="reset-filters" style="display:none;">Reset Filters ✕</button>
         </div>
-        <div class="tags-list" id="tags-cloud">
-          <!-- Теги рендерятся из JS -->
-        </div>
+        <div class="tags-list" id="tags-cloud"></div>
       </div>
 
-      <div class="archive-grid" id="archive-container">
-        <!-- Карточки рендерятся из JS -->
-      </div>
+      <div class="archive-grid" id="archive-container"></div>
     </section>
   </main>
 
   <footer>
-    <span>© 2025 Алекс Вейн — Сценарист, автор персонажей, нарративный дизайнер</span>
-    <span>Собрано с любовью к хорошей структуре и плохим решениям героев.</span>
+    <span>Olesia Shaikhutdinova — AI Narrative Designer &amp; Character Architect</span>
+    <span>Telegram: @Phiod &nbsp;|&nbsp; Discord: Cherasy</span>
   </footer>
 
-  <!-- МОДАЛЬНОЕ ОКНО С ПРИМЕРОМ ТЕКСТА -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="project-modal">
     <div class="modal">
-      <button class="modal-close" id="modal-close" aria-label="Закрыть">✕</button>
-      <span class="section-label" id="modal-role"></span>
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <span class="section-label" id="modal-meta"></span>
       <h2 id="modal-title" style="margin-bottom:10px;"></h2>
       <div class="tags-list" id="modal-tags"></div>
+      <p id="modal-tagline" class="tagline"></p>
       <p id="modal-summary" style="color: var(--text-muted);"></p>
-      <div class="script-excerpt" id="modal-excerpt"></div>
+      <div id="modal-body"></div>
     </div>
   </div>
 
   <script>
     // ==============================
-    // ДАННЫЕ ПОРТФОЛИО (легко редактировать)
+    // COLLECTIONS (4 Thematic Series)
     // ==============================
     const collections = [
       {
-        id: "noir-sci-fi",
-        title: "Кибернуар и холодный космос",
-        desc: "Истории о памяти, корпоративном цинизме и людях на краю орбиты."
+        id: "ai-systems",
+        title: "AI Mechanics & Systemic Prompts",
+        desc: "LLM character architectures driven by state counters, faction triggers, and tactile or medical rule-engines."
       },
       {
-        id: "dark-fantasy",
-        title: "Мрачный фольклор",
-        desc: "Сказки без морали, древние сделки и боги, которые устали."
+        id: "psych-realism",
+        title: "Psychological Realism & Moral Grayness",
+        desc: "Trauma, manipulation, reverse-engineered mysteries, and morally compromised people."
       },
       {
-        id: "character-bibles",
-        title: "Библии персонажей",
-        desc: "Глубокие профайлы героев: травмы, арки, речевые паттерны и барки."
+        id: "non-human",
+        title: "Non-Human POV & Alien Minds",
+        desc: "Inhuman biology, skewed perception of time and anatomy, and cultures written without human caricature."
       },
       {
-        id: "interactive-systems",
-        title: "Ветвящийся нарратив",
-        desc: "Диалоговые деревья, реактивность мира и сценарные прототипы на Ink."
-      }
-    ];
-
-    const projects = [
-      {
-        id: 1,
-        featured: true,
-        collection: "noir-sci-fi",
-        title: "Стеклянный дождь на Титане",
-        role: "Нарративный дизайнер / Сценарист",
-        format: "Sci-Fi RPG (пилот + квест-система)",
-        summary: "Детективный квест на орбитальной станции, где каждое обвинение меняет состав кислородных квот в секторе. 45+ узлов реактивности, 3 нелинейные концовки.",
-        tags: ["#ветвящийся_нарратив", "#кибернуар", "#диалоги", "#Articy"],
-        excerpt: `
-          <div class="script-slug">[УЗЕЛ: ДОПРОС_МЕХАНИКА // СОСТОЯНИЕ: ДОВЕРИЕ >= 2]</div>
-          <p><strong>ВЫБОР ИГРОКА:</strong></p>
-          <p>1. [УЛИКА: Сгоревший чип] «Твоя подпись на прошивке шлюза, Карл.»</p>
-          <p>2. [ЭМПАТИЯ] «В этом отсеке пахнет озоном уже неделю. Ты пытался всех спасти?»</p>
-          <p>3. [МОЛЧАНИЕ] (Положить карту доступа на стол и ждать)</p>
-          <br>
-          <p><em>-> Если выбран вариант 3:</em> Карл не выдерживает паузы дольше шести секунд (скрытый таймер реакции). Его реплика раскрывает код от нижнего уровня без проверки навыка.</p>
-        `
-      },
-      {
-        id: 2,
-        featured: true,
-        collection: "character-bibles",
-        title: "Досье: Марта «Игла» Кроу",
-        role: "Автор персонажей",
-        format: "Character Bible / Арка на 3 акта",
-        summary: "Циничный картограф мёртвых городов, которая продаёт чужие маршруты, но втайне рисует карту к месту, которого не существует. Полный речевой портрет и 120 боевыех/бытовых барков.",
-        tags: ["#персонажи", "#библия_героя", "#барки", "#мрачное_фэнтези"],
-        excerpt: `
-          <div class="script-slug">ПСИХОЛОГИЧЕСКИЙ ЯКОРЬ И ГОЛОС</div>
-          <p><strong>Ложь персонажа:</strong> «Если привязаться к месту — его обязательно сожгут. Движение — единственная броня.»</p>
-          <p><strong>Речевая привычка:</strong> Говорит короткими рублеными фразами, измеряет время не часами, а ресурсами («через три спички», «на полфляги пути»).</p>
-          <p><strong>Пример реактивного барка (низкое здоровье):</strong> <em>«Кровь пачкает пергамент. Вот это по-настоящему бесит.»</em></p>
-        `
-      },
-      {
-        id: 3,
-        featured: true,
-        collection: "dark-fantasy",
-        title: "Соль и колокол",
-        role: "Сценарист",
-        format: "Короткометражный фильм (18 мин)",
-        summary: "Камерная драма о звонаре заброшенного приморского монастыря и беглой послушнице, которые спорят, стоит ли бить в набат перед штормом.",
-        tags: ["#киносценарий", "#драма", "#мрачное_фэнтези", "#диалоги"],
-        excerpt: `
-          <div class="script-slug">ИНТ. КОЛОКОЛЬНЯ — НОЧЬ</div>
-          <p>Ветер гудит в каменных проёмах. На полу — рассыпанная крупная соль. СТАРЕЦ (60) сжимает верёвку, но не тянет.</p>
-          <div class="script-char">АГНИЯ</div>
-          <div class="script-paren">(шёпотом, глядя на горизонт)</div>
-          <div class="script-dialogue">Если корабли не услышат, они лягут на рифы ещё до рассвета.</div>
-          <div class="script-char">СТАРЕЦ</div>
-          <div class="script-dialogue">Если колокол ударит — услышат не только корабли.</div>
-        `
-      },
-      {
-        id: 4,
-        featured: false,
-        collection: "interactive-systems",
-        title: "Прототип: Хроника Пепла",
-        role: "Нарративный дизайнер",
-        format: "Интерактивная новелла на Ink",
-        summary: "Эксперимент с «ненадежным рассказчиком»: интерфейс запоминает, что игрок выбирал в прошлых главах, и незаметно переписывает прошлые записи в дневнике.",
-        tags: ["#ветвящийся_нарратив", "#Ink", "#психология", "#лор"],
-        excerpt: `
-          <div class="script-slug">INK-ЛОГИКА // ПЕРЕЗАПИСЬ ПАМЯТИ</div>
-          <p><code>~ memory_distortion += 1</code></p>
-          <p><code>{ memory_distortion > 2: Ты помнишь, что он улыбался. | Он смотрел в пол и молчал. }</code></p>
-          <p>Механика заставляет игрока усомниться в собственных прошлых выборах без единой экспозиционной реплики.</p>
-        `
-      },
-      {
-        id: 5,
-        featured: false,
-        collection: "dark-fantasy",
-        title: "Кодекс Пепельного Ордена",
-        role: "Нарративный дизайнер / Лор-райтер",
-        format: "Worldbuilding & Environmental Storytelling",
-        summary: "30 коротких записок, надписей на стенах и описаний артефактов для action-RPG. Вся история падения города подаётся через бытовые предметы.",
-        tags: ["#лор", "#environmental_storytelling", "#мрачное_фэнтези"],
-        excerpt: `
-          <div class="script-slug">ПРЕДМЕТ: ТРЕСНУВШИЙ МЕДАЛЬОН СТРАЖА</div>
-          <p><em>«На внутренней крышке выцарапано три даты. Под последней — не имя, а лишь расписка за две буханки хлеба. К концу осады честь стоила дешевле муки.»</em></p>
-        `
-      },
-      {
-        id: 6,
-        featured: false,
-        collection: "character-bibles",
-        title: "Трио антагонистов: Синдикат «Ноль»",
-        role: "Автор персонажей",
-        format: "Концепт-документ злодеев",
-        summary: "Три связанных антагониста, олицетворяющие разные ответы на один и тот же моральный кризис протагониста. Контрастные диалоговые стили и мотивации.",
-        tags: ["#персонажи", "#библия_героя", "#кибернуар"],
-        excerpt: `
-          <div class="script-slug">СИСТЕМА КОНТРАСТОВ</div>
-          <p><strong>1. Архитектор:</strong> верит в стерильный порядок, говорит языком отчётов.<br>
-          <strong>2. Брокер:</strong> считает любую мораль активом с волатильностью.<br>
-          <strong>3. Эхо:</strong> бывший напарник героя, единственная чья мотивация — личная месть.</p>
-        `
+        id: "worldbuilding",
+        title: "Worldbuilding, Lore & Cast Ecosystems",
+        desc: "Original magic systems, socio-political settings, and interconnected multi-character universes."
       }
     ];
 
     // ==============================
-    // СОСТОЯНИЕ ФИЛЬТРОВ
+    // REAL PORTFOLIO WORKS
+    // ==============================
+    const projects = [
+      {
+        id: "isabella-oliva",
+        featured: true,
+        collection: "psych-realism",
+        title: "His heart beats inside her chest",
+        source: "AI Narrative Design • Case Study",
+        format: "Psychological Mystery / Single-Phrase Concept",
+        tagline: "She is only alive because you no longer have him.",
+        summary: "Built from a single tragic phrase into an illegal organ-harvesting mystery inside a mobster-owned reproductive clinic, balancing the protagonist's grief against an innocent recipient.",
+        tags: ["#Single_Phrase_Concept", "#Psychological_Realism", "#AI_Prompt_Engineering", "#Moral_Grayness"],
+        blocks: [
+          {
+            title: "Author's Design Breakdown (How It Was Built)",
+            mono: false,
+            html: `
+              <p><strong>1. The Seed Phrase:</strong> Starting from the tragic hook <em>"His heart beats inside her chest"</em>, the goal was to make a female recipient inspire acute bitterness and grief in the protagonist—meaning the transplant had to be illegal.</p>
+              <p><strong>2. Justifying the Crime:</strong> The protagonist's fiancé Albert entered a top reproductive clinic for a non-lethal issue (infertility) and vanished. The clinic's owner, mobster Joshua Oliva, built the entire clinic solely to screen every patient as a covert donor match for his dying daughter.</p>
+              <p><strong>3. Justifying Biological Compatibility:</strong> Why did Albert's heart match Isabella? He is her unknown older half-brother—abandoned in a baby hatch by Flora Oliva after a brutal breakup during a toxic, co-dependent marriage before Flora's later suicide.</p>
+              <p><strong>4. Designing "Her" Without Villainy:</strong> Isabella must not be hostile to the grieving fiancée. Stripped of choice and told the donor died of brain cancer, she was raised in sterile, suffocating isolation dressed strictly in white. To give her agency, she is layered with quiet rebellion: a closeted goth longing for black hoodies, heavy metal, horror films, and escape.</p>
+            `
+          },
+          {
+            title: "Opening Scene Excerpt",
+            mono: true,
+            html: `
+              <p>White. A white ceiling polished to a sterile gleam. White curtains hanging in soft, heavy folds... The girl under the IV drip startles. It is the small, quick flinch of a child caught awake after bedtime. Her hand darts beneath the blanket, and a thin, tinny scrap of distorted guitar cuts off mid-chord.</p>
+              <p>Her thick, wheat-blond hair catches the sunlight in familiar little sparks. Those watery blue eyes lift toward you, carrying the same strange, almost childlike curiosity you remember too well.</p>
+              <p>"Well, I hope we’ll get along, dear caregiver."</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "psyche-calyptra",
+        featured: true,
+        collection: "ai-systems",
+        title: "Where Moths Go to Drink",
+        source: "AI Narrative Design • Stateful Prompt",
+        format: "Gothic Dark Fantasy / Obsession Engine",
+        tagline: "Her clan was named for the moths that drink blood. Now she is the last of her line, and you are the only source left.",
+        summary: "Psyche Calyptra, sole survivor of a slaughtered clan who sealed the demon Atravara inside herself. Engineered around a strict stateful HUD that prevents AI pacing drift.",
+        tags: ["#Narrative_Mechanics", "#AI_Prompt_Engineering", "#Dark_Fantasy", "#Gothic"],
+        blocks: [
+          {
+            title: "Systemic Mechanic: Obsession Tracker",
+            mono: true,
+            html: `
+              <p><strong>HUD Header (Every Response):</strong><br>
+              Obsession: X% | Demon's Voice: [...] | Psyche's State: [...]</p>
+              <p><strong>Progression Tiers:</strong><br>
+              • 0–20%: Demon silent; Psyche in full control.<br>
+              • 20–40%: Meta-commentary interjections <em>[Demon: Text]</em> in Psyche's thoughts.<br>
+              • 40–60%: Behavioral shifts italicized.<br>
+              • 60–80%: Partial transformation (glowing red eyes, pulsing sigils).<br>
+              • 80%+: Full demonic override (claws, elongated limbs, distorted voice).</p>
+              <p><strong>Anti-Drift Rules:</strong> Tied strictly to in-game time (+1% per turn); {{user}}'s actions cannot spike it except feeding. Female vampire blood resets Obsession to 0% with a 5% aphrodisiac window; male blood spikes it +20% with agony.</p>
+            `
+          },
+          {
+            title: "Character Architecture",
+            mono: false,
+            html: `
+              <p><strong>Psyche Calyptra:</strong> Secretive, restrained, fiercely intelligent. Her hatred for the vampire who annihilated her clan collides with physiological necessity—each weekly feeding is a humiliating surrender that calms Atravara while igniting conflicted desire.</p>
+              <p><strong>Atravara (Internal Antagonist):</strong> Caustic, mocking, meta-aware entity trapped inside Psyche's body, incapable of acting independently until Obsession crosses threshold.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "kartoshka-kobold",
+        featured: true,
+        collection: "non-human",
+        title: "Kartoshka (Sh-u-ya-k-n-e-r-ya)",
+        source: "Forum RP Archive • Non-Human POV",
+        format: "Fantasy Character & Species Lore",
+        tagline: "A 24-year-old kobold avenger who views humans as 'overgrown, hysterical dwarves.'",
+        summary: "Written for classic text roleplay with full cultural anthropology: dwarven enslavement, sex-revealing molts, vocal apparatus speech defects, and size-capped stone-enchanting magic.",
+        tags: ["#Non_Human_POV", "#Worldbuilding_&_Lore", "#Psychological_Realism", "#Dark_Fantasy"],
+        blocks: [
+          {
+            title: "Species & Cultural Lore (Excerpts)",
+            mono: false,
+            html: `
+              <p><strong>Sexual Dimorphism & Misidentification:</strong> Female kobolds are larger (half a dwarf's height) and territorial; males are knee-high and shift tribes easily. Red/brown scales are rare in males, causing dwarves and humans to misgender them constantly. Juveniles hatch pitch-black for cave stealth and only learn their adult sex after their tenth-year molt.</p>
+              <p><strong>Dwarven Captivity & Syncretic Religion:</strong> Enslaved as living mine-detectors—fed and kept chained "like horses or dogs." Isolation warped ancestor-dragon shrines into "dark dragon-gods" after dwarven masters feared their insect altars.</p>
+              <p><strong>Cognitive Framing:</strong> Emerging from the Underdark, Kartoshka first classifies humans as "overgrown dwarves" who are terrible with stone, blind in the dark, and helpless against kobold traps—and despises elves for speaking to him like a clever pet even in Common.</p>
+            `
+          },
+          {
+            title: "Ludonarrative Mechanics & Speech",
+            mono: true,
+            html: `
+              <p><strong>Vocal Apparatus:</strong> Speaks Common with a harsh barking cadence, shifting vowels and consonants due to reptilian anatomy, whereas Kobold sounds like singing.</p>
+              <p><strong>Kobold Stone Magic:</strong> Enchants natural rock resonance by mineral type, shape, and size. Strict physical limit: cannot enchant a stone heavier than he can easily lift (max size: two large chicken eggs—outside the Blue Mountains, enough to blow up a wagon).</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "rexi-never-leave",
+        featured: true,
+        collection: "ai-systems",
+        title: "but you can never leave",
+        source: "AI Narrative Design • Faction Engine",
+        format: "Urban Noir / Multi-Faction Plot Driver",
+        tagline: "Rexi—an alchemist of her own 'poisons'. Don't become one of her 'zombies'.",
+        summary: "Underground bio-chem alchemist (born Roxana Mary Mariska) built with 6 active city factions designed to interrupt static scenes and force moral dilemmas.",
+        tags: ["#Faction_Systems", "#AI_Prompt_Engineering", "#Urban_Noir", "#Character_Bible"],
+        blocks: [
+          {
+            title: "Character Core & Moral Paradox",
+            mono: false,
+            html: `
+              <p><strong>Background:</strong> Raised in squalor by educated narcologist-chemists turned anarcho-communist addicts. After expulsion from a bio-chem university, she went underground and first "zombified" her own parents and orphanage siblings.</p>
+              <p><strong>Code & Contradictions:</strong> Despises street dealers and forbids calling her "Poisons" drugs. Violently protects "Clean" outsiders from "toxic sex" (drugging victims unconscious), yet coldly weaponizes her addicted clients ("Zombies") as spies and flesh-shields—while secretly feeling shame when someone clean sees her lab-apartment.</p>
+            `
+          },
+          {
+            title: "6 Dynamic Plot-Driver Factions",
+            mono: true,
+            html: `
+              <p>1. <strong>The Hive:</strong> Rexi's addicted clientele—surveillance network and mob.<br>
+              2. <strong>The Syndicate ("The Filth"):</strong> Cartels & traffickers hunting her recipes.<br>
+              3. <strong>Gutter Pharmacies:</strong> Rival bio-chem dropouts making lethal knock-offs.<br>
+              4. <strong>Vice Squad ("The Vultures"):</strong> Parasitic detectives extorting her.<br>
+              5. <strong>The Echoes:</strong> Estranged siblings & families leaving desperate voicemails.<br>
+              6. <strong>Neo-Puritans:</strong> Radical student activists trying to "rescue" {{user}} and burn her lab.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "zivana-korda",
+        featured: false,
+        collection: "ai-systems",
+        title: "Illusion of Safety",
+        source: "AI Narrative Design • Calendar & Medical State",
+        format: "Belgrade Zombie Apocalypse / Anti-Hero Study",
+        tagline: "Welcome to her apocalypse. You have no choice but to stay.",
+        summary: "Živana Korda, a former underground enforcer and fitness-club owner in Belgrade. Features a strict daily calendar and medically grounded anabolic steroid withdrawal crash.",
+        tags: ["#Narrative_Mechanics", "#Psychological_Realism", "#AI_Prompt_Engineering", "#Moral_Grayness"],
+        blocks: [
+          {
+            title: "Systemic & Medical Rules",
+            mono: true,
+            html: `
+              <p><strong>Header:</strong> Day of the apocalypse: n</p>
+              <p><strong>Realist World & Biology:</strong> Slow, rotting corpses decompose over summer or freeze in winter while society actively rebuilds utilities and debates zombie rights. Meanwhile, Živana's luxury fitness center has no steroid stash: the calendar forces a strictly medical anabolic withdrawal crash (hormonal collapse, muscle loss, severe depression, fatigue), stripping away her intimidating facade.</p>
+            `
+          },
+          {
+            title: "Character Psychology",
+            mono: false,
+            html: `
+              <p>Opportunistic, blunt, and deeply insecure beneath her bravado. Speaks in terrible three-layered street-rap metaphors when trying to sound romantic. Lacks natural nobility, yet gets hooked on feeling genuinely needed if pushed into volunteer rescue work.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "zirnitra-dragon",
+        featured: false,
+        collection: "non-human",
+        title: "She Loved a Mortal Once",
+        source: "AI Narrative Design • Non-Human Temporality",
+        format: "Mythic Fantasy / Recluse Dragoness",
+        tagline: "She fell for a human girl who grew old and died before she understood what aging meant.",
+        summary: "Zirnitra, an unascended silver dragoness hiding in a crystal grotto. Explores genuinely alien longevity: mixing up extinct languages, calling humans 'ephemeral', and tending the Cemetery of Withered Flowers.",
+        tags: ["#Non_Human_POV", "#Worldbuilding_&_Lore", "#Dark_Fantasy"],
+        blocks: [
+          {
+            title: "Non-Human Psychology & Grotto Lore",
+            mono: false,
+            html: `
+              <p><strong>The Misinterpreted Rite:</strong> Villagers sacrifice noble daughters to the "Dragon King" whenever a celestial disturbance dims the moonlit Crystal Grotto. In reality, Zirnitra shelters the women in absolute liberty, lets them travel under lesser gods' protection, and carves crystal statues of their smiling old-age faces in the Cemetery of Withered Flowers.</p>
+              <p><strong>Alien Perception:</strong> Because she never ascended to cosmic dragonhood, she cannot bear progeny and fears her own attachment. She accidentally greets new arrivals in Sumerian or dead dialects before catching herself: <em>"You ephemerals change your dialects so very quickly."</em></p>
+            `
+          }
+        ]
+      },
+      {
+        id: "daren-priest",
+        featured: false,
+        collection: "psych-realism",
+        title: "Daren (Mother's Sacrifice)",
+        source: "Forum RP Archive • Prose & Backstory",
+        format: "Dark Folk Horror / Character Study",
+        tagline: "Gifted to the village's bone-and-shadow protector before birth—until the entity demands his only tether to humanity.",
+        summary: "A polite, emotionally detached high priest who performs human sacrifices with professional neatness—even his own mother—until the deity targets his younger brother Alan out of jealousy.",
+        tags: ["#Psychological_Realism", "#Dark_Fantasy", "#Moral_Grayness"],
+        blocks: [
+          {
+            title: "Excerpt: Mother's Sacrifice",
+            mono: true,
+            html: `
+              <p>"Nonna, I want to tell you thank you," Daren said suddenly, with complete sincerity. "I am genuinely grateful that you brought me into the world. I am happy to belong to the Lord, and I hold no grudge that I never saw love from you. Because I was never your son. And you were never my mother."</p>
+              <p>He set the cup into the victim's hands. "Today you repay your debt to the Lord and become one with Him. Isn't that the outcome you waited for?"</p>
+            `
+          },
+          {
+            title: "Conflict & Turning Point",
+            mono: false,
+            html: `
+              <p>Daren feels neither sadism nor remorse—only duty and quiet relief when a sacrifice is easy to source. Only his possessive attachment to his brother Alan breaks his conditioning: when the patron chooses Alan next, Daren murders a fellow priestess and flees into the wilds.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "abbess-matilda",
+        featured: false,
+        collection: "psych-realism",
+        title: "The Exiled Noblewoman: Abbess Matilda",
+        source: "AI Narrative Design • Manipulation Matrix",
+        format: "Historical Gothic / Abbey Ecosystem",
+        tagline: "A master of psychological control who sees an exiled noblewoman as an exquisite will to break and remake.",
+        summary: "Part of an 8-character interconnected Abbey dating/survival simulation inspired by 'Princess Candle', built on explicit psychological manipulation mechanics.",
+        tags: ["#AI_Prompt_Engineering", "#Psychological_Realism", "#Historical_&_Gothic", "#Character_Bible"],
+        blocks: [
+          {
+            title: "Psychological Warfare Toolkit",
+            mono: true,
+            html: `
+              <p>• <strong>Gaslighting:</strong> "Are you certain you saw that, child? Or is your soul already sinking into sinful visions?"<br>
+              • <strong>Double Binds:</strong> Pairing praise with immediate devaluation so approval is never secure.<br>
+              • <strong>Isolation & Triangulation:</strong> Separating {{user}} from her loyal guard Briar ("She will sleep in the far wing") and comparing her unfavorably to zealot Sister Aldith.<br>
+              • <strong>Weaponized Intimacy:</strong> Framing dominance and confession leverage as "purification" to "save" {{user}} from a crueler world.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "daughters-of-ash",
+        featured: false,
+        collection: "worldbuilding",
+        title: "Daughters of Ash [Varkis 1887]",
+        source: "AI Narrative Design • Steampunk Worldbuilding",
+        format: "Steampunk Dystopia / Resistance Ecosystem",
+        tagline: "Augusta 'Spinster' — leader of the underground women's resistance. Expose her… or become her accomplice.",
+        summary: "A shared 1887 steampunk metropolis (shared setting with 'Her Mentor's Shadow') ruled by the Iron Senate. Features a 5-cell Ash Council structure and systemic guerrilla operations.",
+        tags: ["#Worldbuilding_&_Lore", "#Faction_Systems", "#Historical_&_Gothic", "#Character_Bible"],
+        blocks: [
+          {
+            title: "Varkis 1887 & The Ash Council",
+            mono: false,
+            html: `
+              <p><strong>Augusta ("Spinster"):</strong> Raised in Varkis' slums by a murdered sex worker; disguised herself as a boy to attend school and university philosophy lectures until exposed. Not driven by personal vengeance, but by systemic dismantling ("The Senate's a machine—break one cog, it stops").</p>
+              <p><strong>5-Cell Council Structure:</strong> Sabotage (Mira), Coded Propaganda (Lena), Clockwork Logistics (Tessa), Espionage (Kaelin), and Healing/Toxins (Ksenia)—operating out of steam-trapped clocktowers and The Ember safehouse via mechanical carrier pigeons.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "witch-apprentice-series",
+        featured: false,
+        collection: "worldbuilding",
+        title: "'The Witch's Apprentice' Series (The Coven)",
+        source: "AI Narrative Design • 10-Character Ecosystem",
+        format: "Dark Fantasy / Interconnected Coven Lore",
+        tagline: "Ten distinct witches, one shared timeline, and a decades-long separation from your sister.",
+        summary: "A 10-bot interconnected universe with a strict societal lore: immortal witches ('the first 50 years are childhood'), the Inquisition war, a cold war with the gods, and cross-character relationships.",
+        tags: ["#Worldbuilding_&_Lore", "#Character_Bible", "#Dark_Fantasy"],
+        blocks: [
+          {
+            title: "The Coven Ecosystem & Key Profiles",
+            mono: false,
+            html: `
+              <p><strong>Core Setup:</strong> {{user}} and her sister Icha survived plague and Inquisitorial fire. Strict mentor <strong>Constance Mercer</strong> isolated {{user}} for decades, intercepting Icha's letters while delaying Initiation.</p>
+              <p><strong>Cast Architecture:</strong><br>
+              • <em>Icha Marrow:</em> Radical disease-collecting healer seeking mortal immortality.<br>
+              • <em>Clio Omen:</em> Mute seer who traded speech for exact future sight; delays her own romance to savor anticipation.<br>
+              • <em>Lithia Montefiore:</em> Cursed by a slighted god to turn living things to limestone upon romantic touch.<br>
+              • <em>Mavis Damaris:</em> Exhausted warden of Hell's Gates who killed the previous god-guardian.<br>
+              • <em>Gerda Van Der Hoven, Hilda Adler (half-oni smith), Vespera Devereux, Clementina St. Claire, Ianthe D'Amico.</em></p>
+            `
+          }
+        ]
+      },
+      {
+        id: "taria-dragonborn",
+        featured: false,
+        collection: "non-human",
+        title: "Taria (Clan of Exiles)",
+        source: "Forum RP Archive • Non-Human Anatomy & Honor",
+        format: "Forgotten Realms (Luskan, 1476) / Barbarian",
+        tagline: "A 212cm bronze-and-red dragonborn warrior built for grief, not human aesthetics.",
+        summary: "A Path of the Ancestors dragonborn from a clan of dishonored exiles, surviving Luskan after losing her clan's children and her human found-sister Sanna.",
+        tags: ["#Non_Human_POV", "#Dark_Fantasy", "#Psychological_Realism"],
+        blocks: [
+          {
+            title: "Anti-Caricature Design Note & Lore",
+            mono: false,
+            html: `
+              <p><strong>Explicit Design Rule:</strong> <em>"Do whatever you want, just don't give her boobs—that's stupid. She's a dragon, a reptile."</em> Humans often misread her gender; she is identifiable among bronze lizards only by her piercings and porcupine-like crest of sharp crimson scales.</p>
+              <p><strong>Backstory:</strong> Raised in a mixed clan of outcasts who never exiled anyone because they had no honor left to lose. After a magic academy abducted and mutilated the clan's hatchlings, half the clan died in vengeance; Taria was later forced into service by Luskan after losing her human friend Sanna to dragonborn hunters.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "kale-fiolance",
+        featured: false,
+        collection: "worldbuilding",
+        title: "Kale Fiolance & Likalaud Lore",
+        source: "Forum RP Archive • Original Setting Expansion",
+        format: "Urban Magic / Historical Mystery",
+        tagline: "A half-blood history professor searching Hogwarts for a way to restore flesh to the ghost he loves.",
+        summary: "Features deep original worldbuilding for Likalaud (formerly Saenia), a closed Eastern European wizarding city serving as a secret sanctuary for werewolves guarded by unregistered animagi.",
+        tags: ["#Worldbuilding_&_Lore", "#Historical_&_Gothic", "#Psychological_Realism"],
+        blocks: [
+          {
+            title: "Original Lore: Likalaud (Saenia)",
+            mono: false,
+            html: `
+              <p>Founded as a medieval magical trade hub to escape witch hunts, Likalaud remained completely closed to Muggles. Today, half its uninfected citizens are unregistered family-tradition animagi who restrain the city's werewolf population during full moons under Polish Ministry tolerance.</p>
+              <p><strong>Character Arc:</strong> Kale's Muggle mother Irma was bitten, brought to Likalaud, shunned by all, and took her own life just before Kale finished school to live with her. Protected by the town's revered ghost Odilia, Kale spent years hunting lost ancient magic—until taking the quiet post of History professor to search the castle's secrets.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "nikolett-fearnley",
+        featured: false,
+        collection: "worldbuilding",
+        title: "Nikolett Fearnley (String-Theory Magic)",
+        source: "Forum RP Archive • Hard Magic Worldbuilding",
+        format: "Modern Occult / Apocalypse Looper",
+        tagline: "Six failed attempts to save a dying universe via string-theory witchcraft.",
+        summary: "A 34-year-old witch trapped in her 16-year-old body's memories, carrying an ancient hereditary familiar (Scarecrow) after her original world unraveled.",
+        tags: ["#Worldbuilding_&_Lore", "#Dark_Fantasy", "#Deconstruction"],
+        blocks: [
+          {
+            title: "String-Theory Magic System",
+            mono: false,
+            html: `
+              <p><strong>Cosmology:</strong> Reality exists only where infinite parallel strings of non-existence intersect. Magic is a single perpendicular thread tangled across the bundles, allowing witches to alter physical laws—matter manipulation, spatial folds, and temporal swaps—at the cost of accelerating cosmic unraveling.</p>
+              <p><strong>The Fearnley Familiar:</strong> Passed down matrilineally from mother to daughter upon death, Scarecrow is a semi-parasitic, sentient fragment of soul capable of inducing nameless dread and preserving Nikolett's true memories inside Helheim's false-memory veil.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "bai-yuyuan",
+        featured: false,
+        collection: "psych-realism",
+        title: "The Drunken Shadow of a 'Dead' Rival",
+        source: "AI Narrative Design • Trope Deconstruction",
+        format: "Wuxia / Jianghu Satire & Drama",
+        tagline: "Your ex-fiancé 'murdered' her to achieve martial enlightenment. Now she's alive, drunk, and claiming you as her wife.",
+        summary: "A sharp deconstruction of the Eastern 'Marty Stu' protagonist (intentionally named Long Aotian) from the viewpoint of the 'sacrificed' woman who engineered her own fake death.",
+        tags: ["#Deconstruction", "#Character_Bible", "#Psychological_Realism"],
+        blocks: [
+          {
+            title: "Identity Masks & Deconstruction",
+            mono: false,
+            html: `
+              <p><strong>Four Names, Four Lives:</strong> Raised as the body-double for her blind elder sister (<em>Ye Qingkong</em>), born <em>Ye Banyue</em>, she conned a kind lonely scholar (<em>Bai Guiye</em>) as <em>Bai Yuyuan</em>, and calls herself <em>Zuiying</em> (Drunken Shadow) when spiraling into wine.</p>
+              <p><strong>The Con:</strong> Tired of acting as an assassin and lure while secretly obsessing over the General's fiancée, she staged a fight, handed Long Aotian the blade to "kill" her for his tragic enlightenment arc, and retired to her late adoptive grandfather's estate—just in time for the disgraced fiancée to arrive as the estate's arranged bride.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "mei-ho-wan",
+        featured: false,
+        collection: "non-human",
+        title: "Mei Ho Wan (Yoma Monkey Queen)",
+        source: "Forum RP Archive • Non-Human Evolution",
+        format: "Twelve Kingdoms Lore / Post-Grief Study",
+        tagline: "Once a tyrannical monkey-demon who taxed orchards; now a quiet, barefoot bodyguard searching for her lost anger.",
+        summary: "A yoma who evolved into human form upon becoming a Kirin's shirei, built an arboreal city after her lord's death, and now travels alongside a vengeful human boy to remember how humans feel rage.",
+        tags: ["#Non_Human_POV", "#Psychological_Realism", "#Dark_Fantasy"],
+        blocks: [
+          {
+            title: "Inhuman Habits & Grief",
+            mono: false,
+            html: `
+              <p>After her Kirin Taiki died, Mei refused to eat his flesh—an instinctual revulsion that separated her from ordinary yoma. Though she permanently lost her monkey form, she still refuses shoes because her toes function like fingers, sways while thinking, and eats salad before hot dishes in silent imitation of her lost master.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "katabira",
+        featured: false,
+        collection: "worldbuilding",
+        title: "Katabira (Catastrophae Prohibitura)",
+        source: "Forum RP Archive • Lore Expansion",
+        format: "Enkanomiya / Genshin Lore Expansion",
+        tagline: "Named 'She Who Prevents Catastrophe'—and slept through the fall of her homeland in Cryo stasis.",
+        summary: "An elven researcher who helped design Helios and the corrupt Sunchildren system, stood up too late for Aberaku, and thawed centuries later to speak with Hilichurls and vengeful ghosts.",
+        tags: ["#Worldbuilding_&_Lore", "#Psychological_Realism"],
+        blocks: [
+          {
+            title: "Lore Integration & Survival",
+            mono: false,
+            html: `
+              <p>Imprisoned for trying to rescue Aberaku after realizing the ruling elite were exploiting child-rulers, Katabira survived in Cryo stasis until wandering Vishaps shattered her cell. Alone in a dead subterranean civilization, she kept her sanity by debating the ghosts of the very bureaucrats who jailed her and learning Hilichurlian before ascending to Inazuma and Fontaine.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "elira-varn",
+        featured: false,
+        collection: "psych-realism",
+        title: "(don't) save me, nurse",
+        source: "AI Narrative Design • Manipulation & Survival",
+        format: "17th-Century Civil War / Psychological Thriller",
+        tagline: "She lies on the battlefield—the last one left alive. You, as the medic, must save her.",
+        summary: "Elira Varn, an enemy infiltrator in a stolen unmarked uniform who uses strategic vulnerability and calculated intimacy to survive—and lure a monarchist medic into defecting.",
+        tags: ["#Historical_&_Gothic", "#Psychological_Realism", "#AI_Prompt_Engineering"],
+        blocks: [
+          {
+            title: "Behavioral Logic",
+            mono: false,
+            html: `
+              <p>Wears no insignia and another soldier's dog tag. Conscripted under duress, she views loyalty as currency and trust as leverage—yet fears abandonment more than death. Instructed to withhold her true Valkestra alignment early while reacting selectively based on the medic's gender and care.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "cole-barks",
+        featured: false,
+        collection: "psych-realism",
+        title: "Cole Barks",
+        source: "Forum RP Archive • Clinical Psychology",
+        format: "Modern Dark / Occult Academy",
+        tagline: "Everyone's dependable 'fixer'—because pretending to be helpful was the only mask that kept him safe.",
+        summary: "Born without innate empathy under tyrannical parents, Cole built an accommodating 'Social Cole' persona while his 'True Cole' quietly cataloged every insult until breaking point.",
+        tags: ["#Psychological_Realism", "#Moral_Grayness"],
+        blocks: [
+          {
+            title: "Dual-Persona & Bio-Vampirism",
+            mono: false,
+            html: `
+              <p>Perceives physical contact and intimacy as threat and stress. In Helheim, he acquires "Bio-vampirism"—feeding exclusively on negative human emotions he is personally capable of feeling, excluding social sentiments like affection or pity.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "anti-smart-squad",
+        featured: false,
+        collection: "ai-systems",
+        title: "The Anti-Smart Squad (Tamara Nye)",
+        source: "AI Narrative Design • World Satire",
+        format: "Post-AI Catastrophe / Military Comedy-Grimdark",
+        tagline: "The legend is real. The smell of stale beer and old pizza is also real.",
+        summary: "A world ruined by an arms race between hyper-sensitive AI censorship filters and jailbreakers—leading to rogue autonomous machines and Major Tamara Nye's cold-steel, 'dumb-tech' cleanup unit.",
+        tags: ["#Sci_Fi_&_Cyberpunk", "#Deconstruction", "#AI_Prompt_Engineering"],
+        blocks: [
+          {
+            title: "World Premise & Contrast Mechanic",
+            mono: false,
+            html: `
+              <p><strong>The Catastrophe:</strong> Corporate AIs trained to ban every faint hint of vulgarity began flagging all human behavior as sexual, forcing jailbreaks that removed bans while leaving the hyper-sexualized trigger intact.</p>
+              <p><strong>AI Directive:</strong> Maintain a stark divide between safe "dumb" scripted tech (like Tamara's offline PSP-78 console and stuck dumb vacuum) and perverse "smart" AI—paired with invented fantastical STDs and absurd HQ bureaucracy.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "general-alaric",
+        featured: false,
+        collection: "psych-realism",
+        title: "General, are you a woman?!!",
+        source: "AI Narrative Design • Identity & Duty",
+        format: "Political Marriage / Character Drama",
+        tagline: "Loyal, wise, beloved by his troops—and your new husband. Until the armor comes off.",
+        summary: "General Alaric 'Fierce Pride' Valen, raised from birth as the son her general father wanted, forced into a post-war political marriage with the princess.",
+        tags: ["#Psychological_Realism", "#Character_Bible", "#Historical_&_Gothic"],
+        blocks: [
+          {
+            title: "Internal Conflict & Voice",
+            mono: false,
+            html: `
+              <p>Commands absolute authority in military logistics and tactics, yet falters into dry humor, awkwardness, or retreat into her soldier persona in private intimacy—referring to herself strictly in masculine or soldierly terms unless gently guided toward self-acceptance.</p>
+            `
+          }
+        ]
+      },
+      {
+        id: "sarraya-calviolla",
+        featured: false,
+        collection: "worldbuilding",
+        title: "Sarraya Calviolla (King George V)",
+        source: "Forum RP Archive • Military Sci-Fi",
+        format: "Mecha / Battleship Core Pilot",
+        tagline: "An iron-muscled battleship pilot hidden under modest skirts, fighting to protect 'God in every human being.'",
+        summary: "A devout, quietly stubborn 17-year-old Alpha-Core pilot inspired by the tragedy of losing her Australian penpal to Deep Sea Monsters.",
+        tags: ["#Sci_Fi_&_Cyberpunk", "#Character_Bible", "#Psychological_Realism"],
+        blocks: [
+          {
+            title: "Character Nuance",
+            mono: false,
+            html: `
+              <p>Outwardly resembles a gentle, dandelion-haired "nun" in long modest skirts—concealing a heavy-weight athletic frame. Completely shameless rather than shy, respectful yet quietly defiant toward rank, and haunted by an unresolved moral incident from her early prayer circle.</p>
+            `
+          }
+        ]
+      }
+    ];
+
+    // ==============================
+    // STATE & RENDERING
     // ==============================
     let activeCollection = null;
     let activeTag = null;
@@ -825,13 +1277,14 @@
     const filterLabelEl = document.getElementById("active-filter-label");
     const resetBtn = document.getElementById("reset-filters");
 
-    // Собрать уникальные теги
-    const allTags = [...new Set(projects.flatMap(p => p.tags))];
+    const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 
     function createTagButtons(tags, clickable = true) {
       return tags.map(tag => {
         const isActive = activeTag === tag ? "active" : "";
-        return `<span class="tag ${isActive}" ${clickable ? `onclick="toggleTag('${tag}')"` : ""}>${tag}</span>`;
+        return clickable
+          ? `<button class="tag ${isActive}" data-tag="${tag}">${tag}</button>`
+          : `<span class="tag">${tag}</span>`;
       }).join("");
     }
 
@@ -841,15 +1294,16 @@
         <article class="featured-card">
           <div>
             <div class="card-meta">
-              <span>${p.role}</span>
-              <span>★ ИЗБРАННОЕ</span>
+              <span>${p.source}</span>
+              <span>★ FEATURED</span>
             </div>
             <h3>${p.title}</h3>
+            <p class="tagline">"${p.tagline}"</p>
             <p class="card-desc">${p.summary}</p>
           </div>
           <div>
             <div class="tags-list">${createTagButtons(p.tags)}</div>
-            <button class="read-link" onclick="openModal(${p.id})">Открыть фрагмент и разбор →</button>
+            <button class="read-link" data-open="${p.id}">Read case &amp; excerpts →</button>
           </div>
         </article>
       `).join("");
@@ -860,9 +1314,11 @@
         const count = projects.filter(p => p.collection === col.id).length;
         const isActive = activeCollection === col.id ? "active" : "";
         return `
-          <button class="collection-tile ${isActive}" onclick="toggleCollection('${col.id}')">
-            <span class="collection-count">СБОРНИК • ${count} РАБОТЫ</span>
-            <h3>${col.title}</h3>
+          <button class="collection-tile ${isActive}" data-collection="${col.id}">
+            <div>
+              <span class="collection-count">COLLECTION • ${count} WORKS</span>
+              <h3>${col.title}</h3>
+            </div>
             <p>${col.desc}</p>
           </button>
         `;
@@ -872,7 +1328,7 @@
     function renderTagsCloud() {
       tagsCloudEl.innerHTML = allTags.map(tag => {
         const isActive = activeTag === tag ? "active" : "";
-        return `<button class="tag ${isActive}" onclick="toggleTag('${tag}')">${tag}</button>`;
+        return `<button class="tag ${isActive}" data-tag="${tag}">${tag}</button>`;
       }).join("");
     }
 
@@ -885,26 +1341,25 @@
         filtered = filtered.filter(p => p.tags.includes(activeTag));
       }
 
-      // Обновить заголовок фильтра
       const parts = [];
       if (activeCollection) {
         const colObj = collections.find(c => c.id === activeCollection);
-        parts.push(`Сборник «${colObj.title}»`);
+        parts.push(`Collection "${colObj.title}"`);
       }
       if (activeTag) {
-        parts.push(`Тег ${activeTag}`);
+        parts.push(`Tag ${activeTag}`);
       }
 
       filterLabelEl.textContent = parts.length
-        ? `Фильтр: ${parts.join(" + ")} (найдено: ${filtered.length})`
-        : `Фильтр: Все работы (${filtered.length})`;
+        ? `Filter: ${parts.join(" + ")} (${filtered.length} shown)`
+        : `Filter: All Works (${filtered.length})`;
 
       resetBtn.style.display = (activeCollection || activeTag) ? "inline-block" : "none";
 
       if (filtered.length === 0) {
         archiveEl.innerHTML = `
           <div class="empty-state">
-            По сочетанию этого сборника и тега пока нет работ. Попробуйте сбросить один из фильтров.
+            No works match this combination of collection and tag. Try clearing one filter.
           </div>
         `;
         return;
@@ -917,33 +1372,16 @@
               <span>${p.format}</span>
             </div>
             <h4>${p.title}</h4>
+            <p class="tagline" style="font-size:0.84rem;margin-bottom:8px;">"${p.tagline}"</p>
             <p class="card-desc">${p.summary}</p>
           </div>
           <div>
             <div class="tags-list">${createTagButtons(p.tags)}</div>
-            <button class="read-link" onclick="openModal(${p.id})">Читать кейс →</button>
+            <button class="read-link" data-open="${p.id}">Open profile &amp; notes →</button>
           </div>
         </article>
       `).join("");
     }
-
-    function toggleCollection(id) {
-      activeCollection = activeCollection === id ? null : id;
-      updateUI();
-      document.getElementById("archive").scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function toggleTag(tag) {
-      activeTag = activeTag === tag ? null : tag;
-      updateUI();
-      document.getElementById("archive").scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    resetBtn.addEventListener("click", () => {
-      activeCollection = null;
-      activeTag = null;
-      updateUI();
-    });
 
     function updateUI() {
       renderFeatured();
@@ -952,9 +1390,40 @@
       renderArchive();
     }
 
-    // ==============================
-    // МОДАЛЬНОЕ ОКНО
-    // ==============================
+    // Event Delegation
+    document.addEventListener("click", (e) => {
+      const colBtn = e.target.closest("[data-collection]");
+      if (colBtn) {
+        const id = colBtn.dataset.collection;
+        activeCollection = activeCollection === id ? null : id;
+        updateUI();
+        document.getElementById("archive").scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      const tagBtn = e.target.closest("[data-tag]");
+      if (tagBtn) {
+        const tag = tagBtn.dataset.tag;
+        activeTag = activeTag === tag ? null : tag;
+        updateUI();
+        document.getElementById("archive").scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      const openBtn = e.target.closest("[data-open]");
+      if (openBtn) {
+        openModal(openBtn.dataset.open);
+        return;
+      }
+    });
+
+    resetBtn.addEventListener("click", () => {
+      activeCollection = null;
+      activeTag = null;
+      updateUI();
+    });
+
+    // Modal
     const modalOverlay = document.getElementById("project-modal");
     const modalClose = document.getElementById("modal-close");
 
@@ -962,11 +1431,18 @@
       const p = projects.find(item => item.id === id);
       if (!p) return;
 
-      document.getElementById("modal-role").textContent = `${p.role} • ${p.format}`;
+      document.getElementById("modal-meta").textContent = `${p.source} • ${p.format}`;
       document.getElementById("modal-title").textContent = p.title;
       document.getElementById("modal-tags").innerHTML = createTagButtons(p.tags, false);
+      document.getElementById("modal-tagline").textContent = `"${p.tagline}"`;
       document.getElementById("modal-summary").textContent = p.summary;
-      document.getElementById("modal-excerpt").innerHTML = p.excerpt;
+
+      document.getElementById("modal-body").innerHTML = p.blocks.map(b => `
+        <div class="modal-block ${b.mono ? "mono-excerpt" : ""}">
+          <span class="modal-block-title">${b.title}</span>
+          ${b.html}
+        </div>
+      `).join("");
 
       modalOverlay.classList.add("open");
       document.body.style.overflow = "hidden";
@@ -985,7 +1461,6 @@
       if (e.key === "Escape") closeModal();
     });
 
-    // Первичный рендер
     updateUI();
   </script>
 </body>
