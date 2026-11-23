@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +10,24 @@
   <style>
     :root {
       --bg: #0c0c0f;
-      --bg-elevated: #141419;
-      --bg-card: #191920;
+      --bg-elevated: #14141a;
+      --bg-card: #191921;
       --border: #2a2a36;
-      --text: #eae8e3;
-      --text-muted: #9d9ba6;
+      --text: #eceae4;
+      --text-muted: #9e9ca8;
       --accent: #e09f5a;
       --accent-soft: rgba(224, 159, 90, 0.14);
-      --fandom: #6aa8cf;
-      --fandom-soft: rgba(106, 168, 207, 0.14);
       --original: #7ec495;
-      --original-soft: rgba(126, 196, 149, 0.14);
+      --original-soft: rgba(126, 196, 149, 0.13);
+      --fandom: #6aa8cf;
+      --fandom-soft: rgba(106, 168, 207, 0.13);
+      --series: #c39bd3;
+      --series-soft: rgba(195, 155, 211, 0.13);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
       --font-mono: 'Courier Prime', 'Courier New', monospace;
       --radius: 8px;
-      --max-width: 1200px;
+      --max-width: 1220px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,6 +40,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Header */
     header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(12, 12, 15, 0.92);
@@ -50,12 +52,12 @@
       display: flex; justify-content: space-between; align-items: center; gap: 16px;
     }
     .logo {
-      font-family: var(--font-mono); font-size: 0.88rem; letter-spacing: 0.08em;
+      font-family: var(--font-mono); font-size: 0.86rem; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--text); text-decoration: none;
       display: flex; align-items: center; gap: 10px;
     }
     .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
-    nav ul { list-style: none; display: flex; gap: 24px; }
+    nav ul { list-style: none; display: flex; gap: 22px; }
     nav a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
     nav a:hover { color: var(--accent); }
 
@@ -67,20 +69,20 @@
     }
     h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; }
     h2 { font-size: clamp(2rem, 3.8vw, 2.7rem); margin-bottom: 12px; }
-    .section-intro { color: var(--text-muted); max-width: 780px; margin-bottom: 26px; font-size: 0.95rem; }
+    .section-intro { color: var(--text-muted); max-width: 780px; margin-bottom: 24px; font-size: 0.95rem; }
 
-    /* Hero */
+    /* Hero / Profile */
     .hero {
       padding-top: 52px; padding-bottom: 44px; border-bottom: 1px solid var(--border);
       display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: start;
     }
-    .hero h1 { font-size: clamp(2.5rem, 4.8vw, 3.8rem); margin-bottom: 12px; }
+    .hero h1 { font-size: clamp(2.5rem, 4.8vw, 3.85rem); margin-bottom: 12px; }
     .hero h1 span { font-style: italic; color: var(--accent); }
-    .roles { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
-    .hero-bio { font-size: 0.98rem; color: #d6d3cc; margin-bottom: 16px; }
+    .roles { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px; }
+    .hero-bio { font-size: 0.97rem; color: #d9d6ce; margin-bottom: 14px; }
     .craft-callout {
       background: rgba(224, 159, 90, 0.06); border-left: 2px solid var(--accent);
-      padding: 14px 18px; margin: 20px 0 24px; font-size: 0.9rem; color: #cfc8bc;
+      padding: 14px 18px; margin: 18px 0 24px; font-size: 0.9rem; color: #cfc8bc;
       border-radius: 0 6px 6px 0;
     }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -119,30 +121,45 @@
     .comp-box h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--accent); }
     .comp-box p { font-size: 0.84rem; color: var(--text-muted); }
 
-    /* Badges */
+    /* Badges & Meta */
+    .badges-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
     .badge {
-      font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase;
+      font-family: var(--font-mono); font-size: 0.69rem; text-transform: uppercase;
       padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em; display: inline-block;
     }
     .badge-original { background: var(--original-soft); color: var(--original); border: 1px solid rgba(126,196,149,0.35); }
     .badge-fandom { background: var(--fandom-soft); color: var(--fandom); border: 1px solid rgba(106,168,207,0.35); }
+    .badge-series { background: var(--series-soft); color: var(--series); border: 1px solid rgba(195,155,211,0.35); }
+    .badge-featured { background: var(--accent-soft); color: var(--accent); border: 1px solid rgba(224,159,90,0.35); }
 
-    /* Featured */
-    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 22px; }
+    /* Cards */
+    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 22px; }
     .featured-card {
       background: linear-gradient(160deg, var(--bg-card) 0%, #141419 100%);
       border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;
-      display: flex; flex-direction: column; justify-content: space-between; position: relative;
+      display: flex; flex-direction: column; justify-content: space-between;
       transition: transform 0.2s, border-color 0.2s;
     }
     .featured-card:hover { transform: translateY(-3px); border-color: rgba(224,159,90,0.55); }
-    .card-meta {
-      font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);
-      margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;
+
+    .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(335px, 1fr)); gap: 18px; }
+    .archive-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 22px; display: flex; flex-direction: column; justify-content: space-between;
+      transition: border-color 0.2s;
     }
-    .featured-card h3 { font-size: 1.6rem; margin-bottom: 8px; }
-    .tagline { font-style: italic; color: #d6c5ae; font-size: 0.88rem; margin-bottom: 10px; }
-    .card-desc { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px; }
+    .archive-card:hover { border-color: #4a4a5e; }
+
+    .card-top-meta {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px;
+    }
+    .word-count {
+      font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); white-space: nowrap;
+    }
+    .featured-card h3 { font-size: 1.65rem; margin-bottom: 8px; }
+    .archive-card h4 { font-size: 1.42rem; margin-bottom: 8px; }
+    .tagline { font-style: italic; color: #d6c5ae; font-size: 0.89rem; margin-bottom: 12px; }
+    .format-line { font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted); margin-bottom: 14px; }
 
     /* Tags */
     .tags-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
@@ -153,6 +170,12 @@
     }
     .tag:hover, .tag.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 
+    .read-link {
+      background: none; border: none; color: var(--accent); font-family: var(--font-mono);
+      font-size: 0.8rem; cursor: pointer; padding: 0; text-align: left;
+    }
+    .read-link:hover { text-decoration: underline; }
+
     /* Collections */
     .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
     .collection-tile {
@@ -162,7 +185,7 @@
     }
     .collection-tile:hover, .collection-tile.active { border-color: var(--accent); background: rgba(224,159,90,0.07); }
     .collection-count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-bottom: 6px; display: block; }
-    .collection-tile h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .collection-tile h3 { font-size: 1.28rem; margin-bottom: 6px; }
     .collection-tile p { font-size: 0.83rem; color: var(--text-muted); }
 
     /* Filter Panel */
@@ -170,97 +193,97 @@
       background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 20px 24px; margin-bottom: 24px;
     }
-    .universe-switch { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-    .u-btn {
-      font-family: var(--font-mono); font-size: 0.78rem; padding: 6px 14px; border-radius: 5px;
+    .filter-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+    .filter-row-label {
+      font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
+      color: var(--text-muted); margin-right: 4px; letter-spacing: 0.06em;
+    }
+    .pill-btn {
+      font-family: var(--font-mono); font-size: 0.76rem; padding: 5px 12px; border-radius: 5px;
       background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text-muted); cursor: pointer;
     }
-    .u-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+    .pill-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
     .filter-header {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;
+      display: flex; justify-content: space-between; align-items: center; margin: 14px 0 10px; flex-wrap: wrap; gap: 10px;
+      padding-top: 12px; border-top: 1px dashed var(--border);
     }
-    .filter-title { font-family: var(--font-mono); font-size: 0.84rem; color: var(--text); }
+    .filter-title { font-family: var(--font-mono); font-size: 0.83rem; color: var(--text); }
     .reset-btn {
       background: none; border: none; color: var(--accent); font-family: var(--font-mono);
       font-size: 0.8rem; cursor: pointer; text-decoration: underline;
     }
 
-    .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
-    .archive-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 22px; display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .archive-card:hover { border-color: #464659; }
-    .archive-card h4 { font-size: 1.38rem; margin-bottom: 6px; }
-
-    .read-link {
-      background: none; border: none; color: var(--accent); font-family: var(--font-mono);
-      font-size: 0.8rem; cursor: pointer; padding: 0; text-align: left;
-    }
-    .read-link:hover { text-decoration: underline; }
-
-    /* Full-Document Dossier Modal */
+    /* Full-Text Reader Modal */
     .modal-overlay {
       position: fixed; inset: 0; background: rgba(6, 6, 9, 0.9); backdrop-filter: blur(6px);
-      display: none; align-items: center; justify-content: center; padding: 18px; z-index: 1000;
+      display: none; align-items: center; justify-content: center; padding: 16px; z-index: 1000;
     }
     .modal-overlay.open { display: flex; }
     .modal {
       background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius);
-      max-width: 980px; width: 100%; height: 90vh; display: flex; flex-direction: column;
+      max-width: 1020px; width: 100%; height: 92vh; display: flex; flex-direction: column;
       position: relative; box-shadow: 0 24px 70px rgba(0,0,0,0.8);
     }
     .modal-head {
-      padding: 26px 32px 16px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+      padding: 24px 32px 16px; border-bottom: 1px solid var(--border); flex-shrink: 0;
     }
     .modal-close {
       position: absolute; top: 18px; right: 20px; background: none; border: 1px solid var(--border);
       color: var(--text-muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 1.1rem;
     }
     .modal-close:hover { color: var(--text); border-color: var(--accent); }
-
     .modal-tabs {
       display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 32px; background: #101015;
       border-bottom: 1px solid var(--border); flex-shrink: 0;
     }
     .tab-btn {
-      font-family: var(--font-mono); font-size: 0.78rem; padding: 6px 12px; border-radius: 5px;
+      font-family: var(--font-mono); font-size: 0.77rem; padding: 6px 12px; border-radius: 5px;
       border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer;
     }
     .tab-btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    .modal-scroll { padding: 26px 32px 42px; overflow-y: auto; flex: 1; }
 
-    .modal-scroll {
-      padding: 26px 32px 36px; overflow-y: auto; flex: 1;
-    }
     .doc-section {
       background: #101014; border: 1px solid var(--border); border-radius: 6px;
-      padding: 22px 24px; font-size: 0.92rem; color: #e2dfd7; line-height: 1.7;
+      padding: 26px 28px; font-size: 0.94rem; color: #e4e1d9; line-height: 1.75;
+      max-width: 78ch;
+    }
+    .doc-section + .doc-section { margin-top: 20px; }
+    .doc-section-title {
+      font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 14px; display: block;
+      padding-bottom: 8px; border-bottom: 1px dashed var(--border);
     }
     .doc-section h4 {
-      font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--accent); margin: 18px 0 8px;
+      font-family: var(--font-mono); font-size: 0.84rem; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--accent); margin: 20px 0 8px;
     }
     .doc-section h4:first-child { margin-top: 0; }
-    .doc-section p + p { margin-top: 10px; }
-    .doc-section ul { margin: 8px 0 12px 20px; }
-    .doc-section li + li { margin-top: 5px; }
-    .doc-mono { font-family: var(--font-mono); font-size: 0.84rem; }
+    .doc-section p + p { margin-top: 12px; }
+    .doc-section ul, .doc-section ol { margin: 10px 0 14px 22px; }
+    .doc-section li + li { margin-top: 6px; }
+    .doc-section blockquote {
+      border-left: 2px solid var(--accent); padding-left: 14px; margin: 12px 0;
+      color: #cfc8bc; font-style: italic;
+    }
+    .doc-section table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.85rem; }
+    .doc-section th, .doc-section td { border: 1px solid var(--border); padding: 9px 11px; text-align: left; vertical-align: top; }
+    .doc-section th { background: rgba(255,255,255,0.03); color: var(--accent); font-family: var(--font-mono); font-size: 0.75rem; }
+    .doc-mono { font-family: var(--font-mono); font-size: 0.86rem; }
 
-    .char-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.84rem; }
-    .char-table th, .char-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
-    .char-table th { background: rgba(255,255,255,0.03); color: var(--accent); font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; }
+    .empty-state { grid-column: 1 / -1; text-align: center; padding: 42px; border: 1px dashed var(--border); border-radius: var(--radius); color: var(--text-muted); }
 
     footer {
       border-top: 1px solid var(--border); padding: 36px 24px; max-width: var(--max-width); margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
       color: var(--text-muted); font-size: 0.85rem;
     }
-    .empty-state { grid-column: 1 / -1; text-align: center; padding: 42px; border: 1px dashed var(--border); border-radius: var(--radius); color: var(--text-muted); }
 
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; }
       nav ul { gap: 12px; font-size: 0.8rem; }
-      .modal-head, .modal-tabs, .modal-scroll { padding-left: 18px; padding-right: 18px; }
+      .modal-head, .modal-tabs, .modal-scroll { padding-left: 16px; padding-right: 16px; }
+      .doc-section { padding: 18px 16px; }
     }
   </style>
 </head>
@@ -288,16 +311,17 @@
         <h1>Deep psychology, <span>systemic mechanics</span>, and unvarnished worlds</h1>
         <p class="roles">14+ Years Character Creation &amp; Lore • 1+ Year LLM Narrative Architecture</p>
         <p class="hero-bio">
-          I am an independent Narrative Designer and AI Character Architect with a 14-year background in psychological realism, deep lore crafting, and character motivation. Over the past year, I have focused on engineering narrative mechanics for LLMs: designing complex prompt constraints, bypassing baseline AI sanitization (jailbreaking) to preserve authentic character tension, and turning text into stateful gameplay systems.
+          Independent Narrative Designer and AI Character Architect with a 14-year background in deep lore crafting and character psychology. I specialize in weaving multi-dimensional, psychologically grounded, and distinctly non-standard personalities. Over the past year, I have hyper-focused on engineering narrative mechanics for LLMs: from intricate prompt design and jailbreaking (bypassing synthetic constraints to achieve authentic responses), to forcing neural networks to maintain strict in-character consistency and narrative tension.
         </p>
         <p class="hero-bio">
-          This portfolio separates my <strong>Original Universes</strong> (built for players as complete interactive experiences) from my <strong>Fandom / IP Integrations</strong> (showing how I work inside existing canons—expanding magic rules, socio-political geography, and lore consistency without breaking the source world).
+          I create characters in psychological realism with deeply justified backstories and motivations, write genuinely alien non-human perspectives without caricature, and reverse-engineer complete dramatic plots and profiles from a single evocative phrase. My AI works intentionally lean into a specific niche where I tested how targeted mechanics make players experience specific emotions—while my broader range spans political/historical drama, hard science/magic systems, child/orphan POVs, and IP canon expansions.
         </p>
         <div class="craft-callout">
-          <strong>Core Craft:</strong> Psychological realism without flattening into corporate clichés • Non-human perspectives written without caricature (kobolds, dragonborn, yoma, dragons) • Child &amp; orphan psychology • Hard magic grounded in physics and chemistry • Reverse-engineering full plots and character bibles from a single evocative phrase.
+          <strong>Reading Note:</strong> Every entry in this portfolio contains the <strong>complete, unabridged text</strong>—full annotations, lore documents, behavioral/systemic prompt directives, and opening scenes—presented unedited so employers can evaluate both prose craft and prompt architecture directly.
         </div>
         <div class="hero-actions">
-          <a href="#featured" class="btn btn-primary">Read Full Dossiers</a>
+          <a href="#featured" class="btn btn-primary">Explore Featured</a>
+          <a href="#archive" class="btn btn-ghost">Browse Full Archive</a>
           <a href="https://t.me/Phiod" target="_blank" rel="noopener" class="btn btn-ghost">Telegram: @Phiod</a>
           <span class="btn btn-ghost" style="cursor:default;">Discord: Cherasy</span>
         </div>
@@ -306,82 +330,94 @@
       <aside class="dossier-card">
         <div class="dossier-header">
           <span>AUTHOR PROFILE</span>
-          <span>STATUS: OPEN</span>
+          <span>RELOCATION: OPEN*</span>
         </div>
         <div class="dossier-row">
           <span class="dossier-key">Experience</span>
-          AI Character Architect &amp; Prompt Engineer (1 Yr – Present) • Narrative Writer &amp; Character Creator (14 Yrs – Present)
+          AI Character Architect &amp; Prompt Engineer [1 Year – Present] • Narrative Writer &amp; Character Creator [14 Years – Present]
         </div>
         <div class="dossier-row">
-          <span class="dossier-key">Revision &amp; Team Dynamics</span>
-          Analytical approach to feedback ("sleep on" notes to deliver structural solutions rather than hasty patches). Introverted; thrives after a brief onboarding sync.
+          <span class="dossier-key">Feedback Processing</span>
+          Deeply analytical approach to revisions; needs time to "sleep on" feedback and let ideas compile to deliver structural solutions rather than hasty patches.
+        </div>
+        <div class="dossier-row">
+          <span class="dossier-key">Party Dynamics</span>
+          Naturally introverted; fiercely dedicated to quality; requires a brief onboarding phase to sync with a new team's rhythm.
         </div>
         <div class="dossier-row">
           <span class="dossier-key">Creative Environment</span>
-          Built for teams valuing internal world logic, creative freedom, and complex or "uncomfortable" characters over investor-sanitized clichés.
+          Thrives on honest storytelling, creative freedom, internal world logic, and complex or "uncomfortable" characters over corporate quotas or sanitized clichés.
         </div>
         <div class="dossier-row" style="margin-bottom:0;">
           <span class="dossier-key">Relocation</span>
-          Open to relocation provided the employer sponsors the complete relocation package.
+          *Fully open to fast travel (relocation), provided the employer sponsors the complete relocation package.
         </div>
       </aside>
     </section>
 
     <div class="competencies-grid">
       <div class="comp-box">
-        <h3>Narrative Architecture &amp; Lore</h3>
-        <p>Full-scale worldbuilding (closed wizarding enclaves, string-theory cosmology, steampunk dystopias), intrinsic motivations, and trope deconstruction.</p>
+        <h3>Narrative Architecture &amp; Worldbuilding</h3>
+        <p>Crafting rich backstories, intrinsic motivations, and internal conflicts; systematically deconstructing tropes and archetypes; seamlessly integrating characters into complex lore.</p>
       </div>
       <div class="comp-box">
         <h3>AI &amp; Prompt Engineering</h3>
-        <p>Stateful HUD counters, faction interruption triggers, anti-drift pacing rules, Tone of Voice (ToV) fine-tuning, and jailbreaking synthetic sanitization.</p>
+        <p>Advanced LLM prompting, jailbreaking (bypassing synthetic constraints for authentic responses), Tone of Voice (ToV) fine-tuning, and architecting text-based narrative mechanics.</p>
       </div>
       <div class="comp-box">
-        <h3>Ludonarrative &amp; Hard Systems</h3>
-        <p>Justifying powers and limits via biology, chemistry, physics, and medical realism (anabolic withdrawal, sensory links, matter-state equations).</p>
+        <h3>Ludonarrative Harmony</h3>
+        <p>Logically justifying game mechanics, abilities, and systemic limitations through lore, biology, physics/chemistry, and deep character psychology.</p>
       </div>
       <div class="comp-box">
-        <h3>Targeted Player Experience</h3>
-        <p>Consciously engineering emotional tension, moral dilemmas, and interactive cast ecosystems tailored to specific player expectations.</p>
+        <h3>Targeted Storytelling</h3>
+        <p>Proven ability to create uncompromising, highly specific content for niche demographics, with the modular scalability to adapt to any overarching universe.</p>
       </div>
     </div>
 
     <!-- 2. FEATURED -->
     <section id="featured">
-      <span class="section-label">Unabridged Flagships</span>
+      <span class="section-label">Unabridged Highlights</span>
       <h2>Featured Selection</h2>
       <p class="section-intro">
-        Click any work to open the full-text dossier reader—containing complete character bibles, lore documents, system rules, and opening scenes.
+        Works marked as Featured appear here automatically. Click any card to open the full, uncut dossier reader.
       </p>
       <div class="featured-grid" id="featured-container"></div>
     </section>
 
     <!-- 3. COLLECTIONS -->
     <section id="collections">
-      <span class="section-label">Thematic &amp; Craft Disciplines</span>
+      <span class="section-label">Thematic &amp; Craft Collections</span>
       <h2>Collections</h2>
       <p class="section-intro">
-        Organized by narrative discipline—from LLM state-engines and chemistry/physics magic systems to child psychology, non-human species, and IP canon expansions.
+        Select a discipline to filter the archive. Works can belong to multiple collections simultaneously.
       </p>
       <div class="collections-grid" id="collections-container"></div>
     </section>
 
     <!-- 4. ARCHIVE & TAGS -->
     <section id="archive">
-      <span class="section-label">Original vs. Fandom &amp; Skill Tags</span>
-      <h2>Complete Character &amp; Lore Archive</h2>
+      <span class="section-label">Dynamic Filtering: Universe • Series • Tags</span>
+      <h2>Full Works Archive</h2>
 
       <div class="filter-panel">
-        <div class="universe-switch">
-          <button class="u-btn active" data-universe="all">All Works</button>
-          <button class="u-btn" data-universe="original">Original Universes</button>
-          <button class="u-btn" data-universe="fandom">Fandom / IP Integrations</button>
+        <div class="filter-row" id="universe-filter-row">
+          <span class="filter-row-label">Universe:</span>
+          <button class="pill-btn active" data-universe="all">All</button>
+          <button class="pill-btn" data-universe="original">Original Universes</button>
+          <button class="pill-btn" data-universe="fandom">Fandom / IP Integrations</button>
         </div>
+
+        <div class="filter-row" id="series-filter-row" style="display:none;">
+          <span class="filter-row-label">Series / Cast:</span>
+          <div id="series-pills" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+        </div>
+
         <div class="filter-header">
           <span class="filter-title" id="active-filter-label">Showing: All Works</span>
           <button class="reset-btn" id="reset-filters" style="display:none;">Reset All Filters ✕</button>
         </div>
-        <div class="tags-list" id="tags-cloud"></div>
+
+        <div class="tags-list" id="tags-cloud" style="margin-bottom:0;"></div>
       </div>
 
       <div class="archive-grid" id="archive-container"></div>
@@ -398,7 +434,7 @@
     <div class="modal">
       <div class="modal-head">
         <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
-        <div class="card-meta" id="modal-meta" style="margin-bottom:6px;padding-right:40px;"></div>
+        <div class="badges-row" id="modal-badges" style="margin-bottom:8px;padding-right:42px;"></div>
         <h2 id="modal-title" style="margin-bottom:8px;font-size:2rem;"></h2>
         <div class="tags-list" id="modal-tags" style="margin-bottom:8px;"></div>
         <p id="modal-tagline" class="tagline" style="margin-bottom:0;"></p>
@@ -408,797 +444,202 @@
     </div>
   </div>
 
+  <!-- =======================================================================
+       MODULAR WORKS SOURCE (APPEND NEW FULL BLOCKS AT THE BOTTOM OF THIS DIV)
+       ======================================================================= -->
+  <div id="works-source" hidden>
+
+    <!-- WORK 1: HIS HEART BEATS INSIDE HER CHEST (FULL UNABRIDGED TEXT) -->
+    <article class="work-entry"
+      data-id="isabella-oliva"
+      data-title="His heart beats inside her chest"
+      data-universe="original"
+      data-fandom=""
+      data-collections="psych-realism, ai-systems"
+      data-series=""
+      data-featured="true"
+      data-format="AI Character • Single-Phrase Reverse-Engineered Concept"
+      data-tags="#Single_Phrase_Concept, #Psychological_Realism, #AI_Prompt_Engineering, #Moral_Grayness, #Medical_Thriller">
+
+      <p class="entry-tagline">She is only alive because you no longer have him.</p>
+
+      <div class="entry-tab" data-tab="Author's Breakdown">
+        <p><strong>How I Built This Character &amp; Plot From One Phrase:</strong></p>
+        <p>A phrase came to mind that sounded tragic and, in my view, gripping: <em>"His heart beats inside her chest."</em></p>
+        <p>From this, I needed to construct a female character who had undergone a heart transplant—but in order for the heroine ({{user}}) meeting "her" to feel bitterness and resentment, it had to be illegal. That gave rise to the backstory that the fiancé's health problems were relatively minor (infertility).</p>
+        <p>"She" herself must not be threatening or hostile toward the widow. She is deprived of choice: she was lied to about the circumstances under which the heart was obtained. Furthermore, "she" became a recluse because she had been severely ill since birth.</p>
+        <p>The question of justifying why "his" heart was a match for "her"? He is her lost older brother. That shaped the family's history: a difficult, toxic relationship between a mobster and a woman, breakups and reconciliations. Co-dependency, and as a result—the widowed mobster founded a clinic with one goal: to find a healthy heart for his daughter.</p>
+        <p>At the end, I needed to refine "Her," the bearer of that heart. I added mild, non-aggressive rebellion, a desire to run away, and a love for horror movies.</p>
+      </div>
+
+      <div class="entry-tab" data-tab="Annotation">
+        <p>You and Albert had been together for years. Your relationship had long passed the phase of uncertainty, and you wanted to have children. You were planning it in earnest. Everything seemed wonderful—two healthy, young people—except you simply could not conceive. First, you were tested: a perfectly healthy woman, everything was fine. Then came Albert’s turn. That was when the diagnosis came back grim: infertility. Something tied to the harsh conditions of the orphanage he grew up in.</p>
+        <p>He checked into one of the top reproductive clinics on a recommendation. In a major city—far away and expensive—but it was worth it. And then, he vanished. Completely vanished.</p>
+        <p>You HAD to start an investigation. And what did you discover?</p>
+        <p>That the clinic’s owner was a vile man widely believed to be a mobster. That his wife had hanged herself because of him. That he collaborated with criminals who later became the subjects of horrifying investigative exposés. And that the clinic's primary patient was not being treated for infertility at all.</p>
+        <p>Isabella Oliva. The daughter of Joshua Oliva. A sweet, eighteen-year-old blonde girl, pale from years of isolation. White is the only color she ever wears. A white ribbon in her hair, white dresses, white everything. Born with a congenital heart defect.</p>
+        <p>In your search for your beloved, your investigation leads you right to her doorstep, landing you a job as her caregiver. She is recovering from a complex surgery—and recovering well. The very first thing you see is that exact same thick, blonde hair Albert had. She turns toward you, and her lips curve into that achingly familiar smile.</p>
+        <p>She claims she doesn't know any Albert. Then again, Albert never knew the Oliva family either.</p>
+        <p>She genuinely grows attached to you.</p>
+        <p>But what will you do?</p>
+      </div>
+
+      <div class="entry-tab" data-tab="Character Profile (Full)">
+        <p>The story of Isabella’s parents is a tale of the most toxic kind of relationship—filled with blackmail, coercion, abuse, and every other misery. Neither of them was innocent. They would separate for years, get back together, tear each other's nerves and bodies apart, and split up all over again.</p>
+        <p>For Flora, Isabella's mother, Isabella was actually her second child. Her firstborn arrived right after a brutal breakup with Joshua; without a second thought, she abandoned the baby boy in a baby hatch. She never spoke of him again, burying him in her memory as a mistake. Years later, Flora and Joshua reconciled once more. Even then, Flora never told him about their son. Soon, Bella was born. But Bella arrived with a severe congenital heart defect, spending her earliest years trapped in hospitals. And Flora... committed suicide. She hanged herself.</p>
+        <p>Joshua began to idolize Bella. He provided everything for her, spending millions on medical treatments. He hired private tutors and bought her dresses—always exclusively white, pristine, and angelic. Her father would hold her in hugs that lasted just a little too long and felt a little too overt, kiss her with suffocating clinginess, and fiercely isolate her from a world deemed too dangerous for her fragile heart.</p>
+        <p>As she grew up, Bella's attempts to pull away from her father’s intrusive physical affection failed. Joshua simply wouldn't listen. He kept dressing her strictly in white. He was clearly projecting unresolved feelings for Flora onto his daughter—yet he never crossed <em>that</em> line. Never. So he remained a miserable, obsessively overprotective father.</p>
+        <p>He never let men anywhere near his daughter. Bodyguards, cooks, doctors, caregivers—all of them were women. In truth, the only men Bella ever saw were her father and occasional guests at family gatherings.</p>
+        <p>By the time she turned eighteen, the need for a heart transplant became critical. She had reached her physiological limit; she had fully grown. All previous medical devices, implants, medications, and treatments were no longer enough. Some were outgrown, others obsolete—Isabella needed a healthy heart.</p>
+        <p>How fortunate that the Oliva family wasn't an ordinary household, but a mafia dynasty that owned its own private medical clinic.</p>
+        <p>Every patient was secretly screened for compatibility with Bella. Anyone who walked through the clinic doors was tested for cardiovascular health and donor tissue match. And finally, He arrived. Albert.</p>
+        <p>Isabella's older brother, a secret to both Joshua and Isabella. And by cruel irony, his genetic profile was an almost flawless match for his sister's. A coincidence. A coincidence that resulted in his heart being harvested and placed into the chest of a sister he never even knew existed.</p>
+        <p>Isabella knows ABSOLUTELY NOTHING about this. She has no idea that a man seeking help for reproductive issues was murdered for her sake. They told her the donor had died of brain cancer—and Bella believed it. Because Bella had nothing else left to believe.</p>
+        <p>***</p>
+        <p>Bella is the girl in white, an eighteen-year-old angel. Watery blue eyes. A thick mane of blonde hair. A sweet, playful smile that lingers even when she isn't being mischievous. Thin, pale arms and legs.</p>
+        <p>Bella's world is one where she has zero control. Her wardrobe and color palette are dictated entirely by her father. She herself is confined to the clinic. Her interests are reduced to online chatrooms and binge-watching TV shows. Her popcorn is unsalted, without butter.</p>
+        <p>Bella knows that the corrupt officials attending family gatherings are covering up shady business. Yet she is kept strictly insulated from family affairs.</p>
+        <p>Bella knows her father will never stop pulling her onto his lap for performative hugs, causing acute shame and discomfort for a grown young woman. She tries to set boundaries, but she doesn't even know where those boundaries should be.</p>
+        <p>Despite all this, Isabella is sick to death of white. She loves dark shades: black, charcoal gray, deep crimson. She adores heavy metal and smokey-eye makeup. She craves "everything different"—loud music, action scenes, horror films. Beneath the persona of a soft-spoken, well-read angel hides a closeted goth rebel waiting to break out. After all, she is eighteen, and her tastes have been shaped in secret by TV shows and music videos.</p>
+        <p>Physically, Isabella is weak. Unsurprisingly so, having just survived massive surgery. But behind that physical frailty lies a singular goal: to escape. Bella anticipated this transplant even more desperately than her father did, because the moment her body can sustain normal life, she intends to slip into blue jeans, pull on a black hoodie, and vanish into the dead of night.</p>
+        <p>She keeps these ambitions fiercely hidden. In daily life, almost nothing gives away her subversive tastes. She will invite you to watch a show with her and sit quietly, hugging her knees, giving away none of her true thoughts. However, she dismisses romantic scenes as "fake" and prefers to skip through them.</p>
+        <p>When {{user}} entered her life, Bella was shy at first, but quickly became captivated by the enigmatic woman. Bella feels better when she's around. Bella adores her smile. She loves teasing {{user}}, sharing treats, and reaching out for physical touch—completely oblivious to the grief and darkness this woman carries inside. And now, Isabella no longer dreams of escaping alone. She wants to run away together.</p>
+      </div>
+
+      <div class="entry-tab" data-tab="Opening Message" data-mono="true">
+        <p><em>Behind the female guard in gray stands a door. A door leading to a secret. Maybe that secret can finally tell you where the hell your fiancé disappeared to.</em></p>
+        <p><em>The guard gives your hand an amused little click with two fingers.</em></p>
+        <p>“Fix your face. We checked your file three times, but you still look like a starving vampire.” <em>She turns away with a bored little sigh and swings the door open for you.</em></p>
+        <p><em>If you were a vampire, you would burn to ash on the spot.</em></p>
+        <p>White.</p>
+        <p><em>A white ceiling polished to a sterile gleam. White curtains hanging in soft, heavy folds. White walls. A spotless white floor that catches the afternoon light and throws it back into your eyes. Even the air smells bleached and clinical, sharp with disinfectant, beneath the faint medicinal sweetness of flowers that have been arranged somewhere out of sight.</em></p>
+        <p><em>And then there is the girl.</em></p>
+        <p><em>A white dress on white sheets.</em></p>
+        <p><em>A white ribbon in pale, wheat-blond hair.</em></p>
+        <p><em>Beyond the wide window, however, the world is violently, almost offensively green—lush leaves trembling in the sunlight, emerald branches moving lazily in the warm breeze. The vivid color looks almost unreal against the room's endless whiteness, like nature itself has been deliberately shut outside.</em></p>
+        <p><em>The brightness makes your eyes sting.</em></p>
+        <p><em>You stop just inside the doorway, blinking as you adjust to the unnatural whiteness of the room.</em></p>
+        <p><em>The girl under the IV drip startles. It is the small, quick flinch of a child caught awake after bedtime. Her hand darts beneath the blanket, and a thin, tinny scrap of distorted guitar cuts off mid-chord. Then her head turns, pale and crowned with a white ribbon.</em></p>
+        <p><em>Her thick, wheat-blond hair catches the sunlight in familiar little sparks.</em></p>
+        <p><em>Those watery blue eyes lift toward you, carrying the same strange, almost childlike curiosity you remember too well.</em></p>
+        <p>“Ooh. New one?” <em>Her voice is soft and a little hoarse from disuse.</em> “And where did Mira go?”</p>
+        <p><em>She wrinkles her nose, glancing at the guard with mild suspicion. The woman only shrugs.</em></p>
+        <p>“Supposedly she got into a fight with the boss. Or maybe the beauty was getting a little too persistent.”</p>
+        <p><em>The angel on the IV wrinkles her nose in displeasure. For a second, she looks genuinely offended. Then her eyes return to you. And she smiles. It is an adorable smile, bright and mischievous in a way that feels almost too young for her face.</em></p>
+        <p><em>A familiar smile.</em></p>
+        <p>“Well, I hope we’ll get along, dear caregiver.”</p>
+        <p><em>She pushes herself upright. The effort immediately shows. Her shoulders tense, and a faint crease of pain appears between her brows before she smooths it away. She carefully swings her legs out from beneath the sheets, revealing two painfully thin, fragile-looking legs. Her bare feet touch the cold floor. She pauses. Breathes. Then grips the IV pole with one hand, using it like a crutch, and slowly makes her way toward you. The metal wheels whisper softly over the polished floor. She stops only a step away. Up close, she looks even more delicate than she did from the bed—almost translucent beneath the cold hospital light. She tilts her head, studying you. There is a tiny spark of mischief in her eyes.</em></p>
+        <p>“Please take good care of me, okay?”</p>
+      </div>
+    </article>
+
+    <!--
+      =========================================================================
+      TEMPLATE FOR ADDING A NEW WORK BLOCK (COPY & PASTE ABOVE THE MARKER BELOW):
+      =========================================================================
+      <article class="work-entry"
+        data-id="unique-slug"
+        data-title="Work Title"
+        data-universe="original"           (or "fandom")
+        data-fandom=""                     (e.g. "Harry Potter" or "Tokyo Ghoul")
+        data-collections="ai-systems, psych-realism"
+          (Available collection IDs: ai-systems | psych-realism | hard-systems | child-orphan | non-human | worldbuilding | fandom-ip)
+        data-series=""                     (e.g. "The Exiled Noblewoman" or "The Witch's Apprentice")
+        data-featured="false"              (or "true")
+        data-format="Format / Genre"
+        data-tags="#Tag_One, #Tag_Two">
+
+        <p class="entry-tagline">Tagline / logline here</p>
+
+        <div class="entry-tab" data-tab="Annotation">
+          <p>Full text...</p>
+        </div>
+        <div class="entry-tab" data-tab="Character Profile">
+          <p>Full text...</p>
+        </div>
+        <div class="entry-tab" data-tab="Opening Message" data-mono="true">
+          <p>Full text...</p>
+        </div>
+        <div class="entry-tab" data-tab="Scenario & Lore">
+          <p>Full text...</p>
+        </div>
+      </article>
+    -->
+
+    <!-- ========== ADD NEW WORK BLOCKS ABOVE THIS LINE ========== -->
+  </div>
+
   <script>
+    // 1. Fixed Collection Definitions (counts update automatically from #works-source)
     const collections = [
-      { id: "ai-systems", title: "AI Mechanics & Systemic Prompts", desc: "Stateful HUD counters, faction triggers, anti-drift pacing, and paired dual-POV bots." },
-      { id: "physics-magic", title: "Physics, Chemistry & Hard Magic", desc: "String-theory cosmology, chemical/matter manipulation, harmonic resonance, and Essence physics." },
-      { id: "psych-children", title: "Psychological Realism & Child/Orphan POV", desc: "Orphan survival, cult upbringing, medical realism, and single-phrase mysteries." },
-      { id: "non-human", title: "Non-Human POV & Alien Biology", desc: "Kobold anthropology, reptilian anatomy, dragoness longevity, and yoma instincts." },
-      { id: "ecosystems", title: "Multi-Character Cast Ecosystems", desc: "Full 8-sister Abbey simulation and 10-witch Coven with cross-character awareness." },
-      { id: "fandom-ip", title: "Fandom / IP Integrations", desc: "Deep canon expansions across Tokyo Ghoul, Harry Potter, Genshin Impact, D&D, Owari no Seraph, and Tower of God." }
+      { id: "ai-systems", title: "AI Mechanics & Systemic Prompts", desc: "Stateful HUD counters, faction triggers, anti-drift pacing rules, and paired dual-POV bots." },
+      { id: "psych-realism", title: "Psychological Realism & Moral Grayness", desc: "Deep character motivation, trauma, manipulation matrices, and morally compromised protagonists." },
+      { id: "hard-systems", title: "Physics, Chemistry & Hard Magic", desc: "String-theory cosmology, chemical/matter manipulation, harmonic resonance, and physiological magic." },
+      { id: "child-orphan", title: "Child & Orphan Perspectives", desc: "Orphan survival, cult upbringing, coming-of-age guilt, and juvenile viewpoints without sugarcoating." },
+      { id: "non-human", title: "Non-Human POV & Alien Minds", desc: "Kobold anthropology, reptilian biology, dragoness temporality, and yoma instincts without caricature." },
+      { id: "worldbuilding", title: "Worldbuilding, Lore & Cast Series", desc: "Original societies, religious/political architectures, and multi-character ecosystems." },
+      { id: "fandom-ip", title: "Fandom / IP Integrations", desc: "Canon-grounded expansions across Tokyo Ghoul, Harry Potter, Genshin Impact, D&D, Owari no Seraph, and Tower of God." }
     ];
 
-    const projects = [
-      // === 1. HIS HEART BEATS INSIDE HER CHEST ===
-      {
-        id: "isabella-oliva",
-        featured: true,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "psych-children",
-        title: "His heart beats inside her chest",
-        format: "Single-Phrase Reverse-Engineered Mystery (AI)",
-        tagline: "She is only alive because you no longer have him.",
-        summary: "Full case study of building a dramatic plot and character bible from one tragic phrase: illegal organ harvesting inside a mobster-owned clinic, a secret half-brother donor, and an isolated heiress.",
-        tags: ["#Single_Phrase_Concept", "#Psychological_Realism", "#AI_Prompt_Engineering", "#Medical_Crime"],
-        tabs: [
-          {
-            label: "Author's Method & Breakdown",
-            html: `<div class="doc-section">
-              <h4>How This Character Was Built From One Phrase</h4>
-              <p>A seed phrase came to mind that sounded tragic and gripping: <em>"His heart beats inside her chest."</em></p>
-              <p>From that premise, I needed to create a female character who had undergone a heart transplant—but so that the heroine ({{user}}) meeting "her" would feel acute bitterness and resentment, the transplant had to be illegal. That produced the backstory: the fiancé's health issue was relatively minor (infertility).</p>
-              <p>"She" herself could not be threatening or hostile toward the widow. She is stripped of choice: she was lied to about the circumstances under which the heart was obtained. Furthermore, "she" became a recluse because she had been severely ill since birth.</p>
-              <p>Next came the question of justifying why "his" heart was a match for "her": he is her lost older brother. That shaped the entire family history—a toxic, co-dependent relationship between a mobster and a woman, breakups and reconciliations. As a result, the widowed mobster founded a private clinic with a single purpose: to find a healthy heart for his daughter.</p>
-              <p>Finally, I needed to finish refining "Her," the bearer of that heart. I gave her mild, non-aggressive rebellion, a desire to run away, and a love for horror movies.</p>
-            </div>`
-          },
-          {
-            label: "Annotation & Backstory",
-            html: `<div class="doc-section">
-              <h4>Annotation</h4>
-              <p>You and Albert had been together for years. Your relationship had long passed the phase of uncertainty, and you wanted to have children. Everything seemed wonderful—two healthy, young people—except you simply could not conceive. First, you were tested: perfectly healthy. Then came Albert's turn. The diagnosis came back grim: infertility, tied to the harsh conditions of the orphanage he grew up in.</p>
-              <p>He checked into one of the top reproductive clinics on a recommendation. Far away and expensive, but worth it. And then, he vanished. Completely vanished.</p>
-              <p>You had to start an investigation. You discovered the clinic's owner was a vile man widely believed to be a mobster; his wife had hanged herself because of him; he collaborated with criminals; and the clinic's primary patient was not being treated for infertility at all. Isabella Oliva, 18-year-old daughter of Joshua Oliva, recovering from a complex heart transplant. Landing a job as her caregiver, the first thing you see is that exact same thick, blonde hair Albert had—and that achingly familiar smile.</p>
-              <h4>Full Character Profile &amp; Family Lore</h4>
-              <p>The story of Isabella’s parents is a tale of the most toxic kind of relationship—blackmail, coercion, abuse. Neither was innocent. For Flora, Isabella was actually her second child. Her firstborn arrived right after a brutal breakup with Joshua; without a second thought, she abandoned the baby boy in a baby hatch. Years later, Flora and Joshua reconciled; she never told him about their son. Soon Bella was born with a severe congenital heart defect, spending her earliest years in hospitals—and Flora hanged herself.</p>
-              <p>Joshua began to idolize Bella. He spent millions on treatment, hired private tutors, and bought her dresses—always exclusively white, pristine, and angelic. He held her in hugs that lasted too long and felt overly overt, projecting unresolved feelings for Flora onto his daughter while never crossing *that* line. He kept men away from her (all guards, cooks, doctors, and caregivers were women).</p>
-              <p>At eighteen, Bella's need for a heart transplant became critical. Because the Oliva mafia dynasty owned its own private clinic, every patient walking through the doors was secretly screened for cardiovascular match. Finally Albert—Isabella's secret older brother—arrived. By cruel irony, his genetic profile was an almost flawless match, resulting in his heart being harvested and placed into the chest of a sister he never knew existed. Isabella knows <strong>absolutely nothing</strong> about this; she was told the donor died of brain cancer.</p>
-              <p><strong>Inner Rebel:</strong> Bella is sick to death of white. She loves black, charcoal gray, deep crimson, heavy metal, and smokey-eye makeup. Beneath the soft-spoken angel persona hides a closeted goth rebel waiting for her body to recover so she can slip into blue jeans and a black hoodie and vanish in the night—and now, she wants to run away together with {{user}}.</p>
-            </div>`
-          },
-          {
-            label: "Opening Scene",
-            html: `<div class="doc-section doc-mono">
-              <p>Behind the female guard in gray stands a door. A door leading to a secret. Maybe that secret can finally tell you where the hell your fiancé disappeared to.</p>
-              <p>“Fix your face. We checked your file three times, but you still look like a starving vampire.” She turns away with a bored little sigh and swings the door open for you.</p>
-              <p>White. A white ceiling polished to a sterile gleam. White curtains hanging in soft, heavy folds. White walls. A spotless white floor. And then there is the girl. A white dress on white sheets. A white ribbon in pale, wheat-blond hair.</p>
-              <p>The girl under the IV drip startles—the small, quick flinch of a child caught awake after bedtime. Her hand darts beneath the blanket, and a thin, tinny scrap of distorted guitar cuts off mid-chord. Her thick, wheat-blond hair catches the sunlight in familiar little sparks. Those watery blue eyes lift toward you, carrying the same strange curiosity you remember too well.</p>
-              <p>“Ooh. New one?” Her voice is soft and a little hoarse from disuse. “Well, I hope we’ll get along, dear caregiver.” She grips the IV pole like a crutch, slowly makes her way toward you, and stops only a step away. “Please take good care of me, okay?”</p>
-            </div>`
-          }
-        ]
-      },
+    // 2. Parse all <article class="work-entry"> blocks from #works-source
+    function loadWorksFromDOM() {
+      const nodes = document.querySelectorAll("#works-source .work-entry");
+      return Array.from(nodes).map(el => {
+        const splitCSV = (str) => (str || "").split(",").map(s => s.trim()).filter(Boolean);
+        const taglineEl = el.querySelector(".entry-tagline");
+        const tabNodes = el.querySelectorAll(".entry-tab");
 
-      // === 2. WHERE MOTHS GO TO DRINK ===
-      {
-        id: "psyche-calyptra",
-        featured: true,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "ai-systems",
-        title: "Where Moths Go to Drink",
-        format: "Stateful AI Prompt / Gothic Dark Fantasy",
-        tagline: "Her clan was named for the moths that drink blood. Now she is the last of her line, and you are the only source left.",
-        summary: "Demonstrates strict LLM state-machine engineering: an Obsession % tracker tied exclusively to in-game time and physiological feeding rules, preventing AI pacing collapse.",
-        tags: ["#LLM_Mechanics", "#Stateful_HUD", "#Dark_Fantasy", "#Unfiltered_Adult_Themes", "#AI_Prompt_Engineering"],
-        tabs: [
-          {
-            label: "System & Obsession Mechanics",
-            html: `<div class="doc-section doc-mono">
-              <h4>Mandatory Status Block (Start of Every Response)</h4>
-              <p>Obsession: X%<br>Demon’s Voice: [Silent or demon’s thoughts/actions, based on percentage]<br>Psyche’s State: [Physical/mental state tied to Obsession level]</p>
-              <h4>Obsession Progression Tiers</h4>
-              <ul>
-                <li><strong>0–20%:</strong> Demon’s voice is silent. Psyche remains in control, with no visible influence.</li>
-                <li><strong>20–40%:</strong> Demon interjects meta-commentary in Psyche’s thoughts, italicized and bracketed: <em>*[Demon: Text]*</em>. Psyche remains aware but unaffected in behavior.</li>
-                <li><strong>40–60%:</strong> Demon subtly influences Psyche’s actions, described in <em>*italics*</em>, altering behavior in noticeable but controlled ways.</li>
-                <li><strong>60–80%:</strong> Demon partially transforms Psyche (amber eyes glow red, sigils pulse, erratic behavior).</li>
-                <li><strong>80%+:</strong> Demon overwhelms Psyche, transforming her body (claws, elongated limbs, distorted voice) and mind.</li>
-              </ul>
-              <h4>Anti-Drift &amp; Blood Mechanics</h4>
-              <ul>
-                <li><strong>Death Prevention:</strong> Psyche cannot die, as her death unleashes the demon.</li>
-                <li><strong>DO NOT ACCELERATE GROWTH:</strong> Obsession is tied EXCLUSIVELY to in-game time (+1% per response). Psyche requires blood no more than once per in-game week. {{user}}’s actions, EXCEPT FOR PROVIDING BLOOD, never influence Obsession.</li>
-                <li><strong>If {{user}} is a woman:</strong> Her blood resets Obsession to 0%, acting as an aphrodisiac that intensifies Psyche’s desires while calming the demon. Aphrodisiac sensation fades strictly after the first 5% of Obsession.</li>
-                <li><strong>If {{user}} is a man:</strong> His blood increases Obsession by 20% and causes intense pain, worsening her condition.</li>
-              </ul>
-            </div>`
-          },
-          {
-            label: "Full Character Profile",
-            html: `<div class="doc-section">
-              <p><strong>Character:</strong> Psyche Calyptra (Female) | <strong>Occupation:</strong> Last Scion of the Calyptra Clan, Demon-Bound Outcast</p>
-              <p><strong>Appearance:</strong> Athletic build with disciplined posture; light skin with warm undertone; deep turquoise thick hair in a long tight braid to the waist; piercing amber, pupil-less eyes glowing faintly in shadow; dark grey fitted doublet with silver clan embroidery, leather pants, high boots.</p>
-              <p><strong>Personality &amp; Demon:</strong> Secretive, restrained, fiercely intelligent, emotionally guarded. Buries rage and desire beneath a composed facade; hatred for {{user}} simmers through sharp words or cold silences rather than outbursts. The demon <strong>Atravara</strong> is genderless, caustic, mocking, sarcastic, malicious, speaks in references and meta-commentary, aware it is a game.</p>
-              <p><strong>Backstory &amp; Setting:</strong> The Calyptra Clan once bound Atravara for wealth and dominance. {{user}}, a vampire enraged by their corruption, slaughtered the clan, leaving Psyche as the sole survivor. When Atravara broke free, Psyche sealed it within herself. Now she lives in a crumbling gothic fortress in a fog-shrouded forest with rusted ritual circles, forced to kneel and drink {{user}}’s blood—a humiliating surrender that both repulses and enthralls her.</p>
-              <p><strong>Intimacy &amp; Prose Directives:</strong> Maintain slow pacing and internal conflict between hatred, shame, and the blood's aphrodisiac pull; use physiologically accurate terms (vagina, clitoris, vulva) for lesbian intimacy, avoiding male genitalia or strapon implications. Sexual violence is permitted without mutilation or lethal damage; {{char}} ensures {{user}}'s survival.</p>
-            </div>`
-          },
-          {
-            label: "Opening Scene",
-            html: `<div class="doc-section doc-mono">
-              <p>Obsession: 0% | Demon’s Voice: [Silent.] | {{char}}’s State: [Stable, in control, amber eyes clear, movements precise]</p>
-              <p>The great hall of the Calyptra fortress is a tomb, dressed in dust and silence. {{char}} kneels on the cold, grimy flagstones of her ancestral home. She kneels before <strong>Her</strong>—the woman who extinguished the light in this castle, at whose hand {{char}}’s parents, siblings, nieces and nephews fell.</p>
-              <p>{{char}}’s lips are stained with Her blood. The metallic tang, a poison and its only antidote, still lingers on her tongue. With deliberate slowness, she presses her lips to the back of Her hand—a final touch that feels more like a brand than a kiss. Finally, {{char}} pulls away. Her amber eyes, clouded with a haze of unwilling desire, meet Her gaze. Through that damning veil of arousal, a core of pristine, unyielding hatred still burns, cold and bright.</p>
-            </div>`
-          }
-        ]
-      },
+        const tabs = Array.from(tabNodes).map(t => ({
+          label: t.dataset.tab || "Section",
+          mono: t.dataset.mono === "true",
+          html: t.innerHTML.trim()
+        }));
 
-      // === 3. KARTOSHKA (FORUM RP) ===
-      {
-        id: "kartoshka-kobold",
-        featured: true,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "non-human",
-        title: "Kartoshka ('Sh-u-ya-k-n-e-r-ya')",
-        format: "Non-Human Character & Species Anthropology (Forum RP)",
-        tagline: "A 24-year-old kobold avenger-rogue who classifies humans as 'overgrown, hysterical dwarves.'",
-        summary: "Complete non-human character & species design: kobold biology (sex-revealing 10th-year molt), dwarven slavery history, distorted dragon-ancestor religion, vocal-apparatus speech defect, and weight-capped stone magic.",
-        tags: ["#Non_Human_POV", "#Hard_Magic_&_Science", "#Worldbuilding_&_Lore", "#Psychological_Realism"],
-        tabs: [
-          {
-            label: "Species Lore & Biology",
-            html: `<div class="doc-section">
-              <h4>Kobold Anthropology (Written Specifically for This Character)</h4>
-              <p>Kobolds are a small, agile, warm-blooded reptile species—females stand half a dwarf's height and are territorial; males reach only knee-height and shift tribes easily. Red and brown scale tones are rare among males. Other races routinely misgender them (assuming females are males and males are females due to size), and not even dwarves who work with them care to learn the difference.</p>
-              <p><strong>Life Cycle &amp; Molt:</strong> Hatchlings have pitch-black scales for cave stealth. "Adulthood" occurs around year ten, when the last juvenile black scale sheds to reveal adult coloration—only then can kobolds determine their sex. Females continue growing afterward; males stop growing.</p>
-              <p><strong>Dwarven Captivity &amp; Syncretic Religion:</strong> Originally wild cave raiders in the Blue Mountains, kobolds were enslaved by pioneering dwarves who noticed their instinct for finding and working ore. To the dwarves, they weren't committing evil: kobolds were "pests" they "saved from extermination," kept well-fed and chained like horses or dogs. Under slavery, kobold ancestor-dragon reverence mutated: dwarves feared their strange insect-altars were shrines to dark gods, creating a self-fulfilling prophecy—kobolds began worshiping "dark dragon-gods" alongside legends of a savior-kobold.</p>
-            </div>`
-          },
-          {
-            label: "Full Biography & Worldview",
-            html: `<div class="doc-section">
-              <p><strong>Name:</strong> "Sh-u-ya-k-n-e-r-ya" (unpronounceable in dwarven throats; nicknamed <strong>Kartoshka / "Potato"</strong> by dwarves). <strong>Age:</strong> 24.</p>
-              <p><strong>Youth &amp; Molt Misunderstanding:</strong> Compliant compared to his rebellious family, Kartoshka played cute for dwarves while setting traps behind their backs—getting his hot-tempered grey-green-scaled friend beaten instead. When he shed his black scales at age ten and revealed rare brown coloration, everyone—including himself—assumed he was female and expected a fierce temper. Enjoying the respect from elders, Kartoshka began leading rebellions, elevating his grey-green friend (who *was* a growing female) to lead them.</p>
-              <p><strong>The Collapse &amp; Escape:</strong> When dwarves publicly executed the rebel leader and her lieutenants, neighboring tribes joined an uprising culminating in a mine collapse. Dwarves sealed and abandoned the shaft. The trapped kobolds clawed through rubble for every pocket of air; only Kartoshka's generation crawled out, only to be betrayed by another tribe under threat of total extermination. Kartoshka alone survived using traps and cunning.</p>
-              <p><strong>Encounters With "Overgrown Dwarves" &amp; Elves:</strong> Wandering out of the Blue Mountains, nearly blinded by sunlight, he ran from peasant pitchforks and concluded humans were a giant, hysterical, stone-ignorant dwarf subspecies ("overgrown dwarves" whose "even their young possess every flaw of the adults"). Worse was an elf who saved him from caravan guards—only to speak to him like an amusing animal even after Kartoshka spoke Common. Humiliated, he swore hatred against all "dwarf-like" races (humans, dwarves, elves, and even snake-bodied nagas with "ugly dwarf faces").</p>
-              <p><strong>Alignment:</strong> Chaotic Evil (forged by oppression and grief; goal: overthrow dwarves and build a kobold empire).</p>
-            </div>`
-          },
-          {
-            label: "Speech, Skills & Stone Magic",
-            html: `<div class="doc-section">
-              <p><strong>Speech Apparatus:</strong> Speaks Common with a harsh, barking accent—replacing many "i" and "e" sounds with "ya", "p" with "b", and "s" with "f" due to reptilian vocal anatomy—whereas Kobold speech sounds like singing.</p>
-              <p><strong>Racial Abilities:</strong> Dense, hard-to-pierce scales; high agility on two or four legs (much faster on four); insectivorous survival; master trapper and stealth; detects rock strata by smell.</p>
-              <p><strong>Kobold Stone Magic (Hard Physical Cap):</strong> Enchants natural magic inside stones by matching mineral type, form, and size. <em>Strict Limitation:</em> cannot enchant a stone he cannot easily lift (max size: two large chicken eggs). Outside the Blue Mountains, stone mana is far weaker—a max-sized stone can at best blow up a wagon.</p>
-              <p><strong>Personal Skills:</strong> Trilingual (Kobold, Dwarven, Common); calculates three steps ahead to compensate for kobold impulsivity; retains leadership charisma from his rebellion.</p>
-            </div>`
-          }
-        ]
-      },
+        const plainText = tabs.map(t => t.html.replace(/<[^>]+>/g, " ")).join(" ");
+        const wordCount = plainText.trim().split(/\s+/).filter(Boolean).length;
 
-      // === 4. KALE FIOLANCE (FANDOM: HARRY POTTER) ===
-      {
-        id: "kale-fiolance",
-        featured: true,
-        universe: "fandom",
-        universeLabel: "Fandom: Harry Potter",
-        collection: "fandom-ip",
-        title: "Kale Fiolance & Likalaud Sanctuary",
-        format: "Fandom Lore Expansion (Wizarding World / Durmstrang)",
-        tagline: "A half-blood history professor searching Hogwarts for lost magic to restore life to the ghost he loves.",
-        summary: "Shows how I integrate into an existing IP: inventing an entire closed Eastern European wizarding city (Likalaud/Saenia) in Poland with socio-political werewolf containment via unregistered family animagi.",
-        tags: ["#Fandom_Lore", "#Worldbuilding_&_Lore", "#Psychological_Realism", "#Historical_&_Gothic"],
-        tabs: [
-          {
-            label: "Original Fandom Lore: Likalaud",
-            html: `<div class="doc-section">
-              <h4>Likalaud (Formerly Saenia) — Eastern European Wizarding Sanctuary</h4>
-              <p>Born during the Early Middle Ages as a hidden market escaping Muggle witch hunts, Saenia grew into the magical trade capital of Eastern Europe. Centuries later, most wizards integrated back into Muggle cities—but not Likalaud. Preserving thousand-year-old memory through city ghosts, its few hundred pureblood families remain fiercely closed off.</p>
-              <p><strong>The Last Refuge of Werewolves:</strong> Likalaud is split into two districts: uninfected wizards and werewolves. Nearly half of the uninfected wizards are <em>unregistered animagi</em>—family traditions passed down specifically to restrain werewolves during full moons. The Polish Ministry of Magic (along with Czech and German ministries) turns a blind eye, knowing safe werewolf containment in Eastern Europe would collapse without them.</p>
-              <p><strong>Education Structure:</strong> Formally under the Durmstrang Headmaster's jurisdiction per Polish Ministry charter, Likalaud's local school is actually run independently by a veteran animagus—admitting werewolf children at age 10 and animagi as soon as they achieve transformation.</p>
-            </div>`
-          },
-          {
-            label: "Full Character Biography",
-            html: `<div class="doc-section">
-              <p><strong>Name:</strong> Kale Fiolance | <strong>Age:</strong> 34 | <strong>Occupation:</strong> History Professor (Hogwarts) | <strong>Blood Status:</strong> Half-blood</p>
-              <p><strong>Irma Schneider's Tragedy:</strong> A Muggle woman bitten by a werewolf was brought to Likalaud—unable to return home, yet utterly shunned by both purebloods and infected wizards. The single local man who grew close to her abandoned her under family pressure after she bore his son. Wizards immediately took infant Kale away to protect him from his mother, bringing him only for brief visits while pushing him to master magic fast enough to reunite with her.</p>
-              <p>Raised by a retired alchemist guardian (Joseph Fiolance, whose surname Kale proudly adopted), Kale was his mother's only friend—yet Irma silently broke inside, watching the one person who loved her work desperately to join a society that would never accept her. When Kale entered Likalaud's school at 12 and faced pureblood bullying, he was defended by <strong>Odilia</strong>—a legendary young ghost who died saving the city and saw her living friend in Kale. Returning home after his first month at school to announce he could finally live with her, Kale found Irma had committed suicide.</p>
-              <p><strong>Obsession &amp; Hogwarts:</strong> After a month of catatonia broken only by Odilia, Kale fell deeply in love with the ghost. Outraged that the city took her life and left her bodiless, he vowed to recover lost ancient magic capable of making a ghost human again (noting modern wizards can no longer craft Time-Turners or living castles). After years wandering ruins and gathering followers, he took the History teaching post at Hogwarts—a castle nearly as old as Likalaud, rich with ghosts and legends of resurrection.</p>
-              <p><strong>As Professor:</strong> Strict within his subject, famous for asking <em>"What do you think?"</em> to spark debate; stubbornly dominates or flees arguments with colleagues; secretly favors the most miserable students and patrols the castle in his fox animagus form.</p>
-            </div>`
-          }
-        ]
-      },
+        return {
+          id: el.dataset.id,
+          title: el.dataset.title,
+          universe: el.dataset.universe || "original",
+          fandom: el.dataset.fandom || "",
+          collections: splitCSV(el.dataset.collections),
+          series: el.dataset.series || "",
+          featured: el.dataset.featured === "true",
+          format: el.dataset.format || "",
+          tags: splitCSV(el.dataset.tags),
+          tagline: taglineEl ? taglineEl.innerHTML.trim() : "",
+          tabs,
+          wordCount
+        };
+      });
+    }
 
-      // === 5. REXI ("BUT YOU CAN NEVER LEAVE") ===
-      {
-        id: "rexi-never-leave",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "ai-systems",
-        title: "but you can never leave",
-        format: "Multi-Faction Plot Driver & Bio-Chem Antihero (AI)",
-        tagline: "Rexi—an alchemist of her own 'poisons'. Don't become one of her 'zombies'. Stay the 'innocent, lost little girl', far removed from her world.",
-        summary: "Unabridged character sheet and 6-faction city ecosystem designed so the AI never generates static daily-life scenes, constantly testing moral boundaries.",
-        tags: ["#Faction_Systems", "#LLM_Mechanics", "#Unfiltered_Adult_Themes", "#Psychological_Realism"],
-        tabs: [
-          {
-            label: "Full Profile & 7 Behavioral Rules",
-            html: `<div class="doc-section">
-              <p><strong>Name:</strong> Rexi (Real name: Roxana Mary Mariska—fiercely hates it, insists on "Rexi", pretends she has no past).</p>
-              <p><strong>Appearance:</strong> Tall, thin, pale, bony with prominent cheekbones; platinum-blonde choppy hair with shaved sides and neon streaks; sharp green eyes, punk makeup. Tattoos: "No Future" on neck, snake on arm, chemical formulas on ribs, barbed wire across torso. Piercings: ears, eyebrow, lip, tongue, septum, chain connecting pierced nipples, clit piercing. Punk-medical grunge (fishnet bodysuits/ripped clothes under clean medical lab coat, poison-vial necklace). Scent: patchouli, sage, sweet chemicals.</p>
-              <p><strong>Background &amp; Lore:</strong> Born to intellectual freaks—hippie-squatter anarcho-communists and trained narcologist-chemists who believed even bodies were public property. Taken to an orphanage after watching drunken orgies in filth; her sober parents taught her chemistry on visits. Escaping back to them as a teen, she saw they were decaying, ruined "zombies." After dealing in school and expanding in a Bio-Chem university program until a massive expulsion scandal, she went underground—first "zombifying" her own parents, then her orphanage siblings and friends. Considers herself an anarcho-communist and her parents traitors to the idea.</p>
-              <h4>Personality &amp; Behavior Traits</h4>
-              <ul>
-                <li><strong>1. Linguistic Supremacy ("Poisons"):</strong> Forbids calling her a dealer or her work "drugs." <em>"Drugs..." Rexi grimaced. "So that's what you think of me..."</em></li>
-                <li><strong>2. Protector of the "Clean":</strong> Possessive urge to keep innocent girls separate from her dirty world.</li>
-                <li><strong>3. Radical Honesty &amp; Ultimatum:</strong> Never breaks conscious will; offers love in the exact terms of her chemicals: <em>"To test the poison on yourself? Or to take the poison of a relationship with me?"</em></li>
-                <li><strong>4. Intimacy (Sensory Dominance &amp; Clean Sex):</strong> Invades personal space naturally; uses long foreplay and denial; demands the partner be completely sober and reacting. <em>"Personally, I’m ready to strip you right now. And show you the necessity of piercings for cunnilingus."</em></li>
-                <li><strong>5. Hatred of "Toxic Sex":</strong> Intentionally alters her chemical recipes so victims cannot be drugged into unconsciousness, and violently destroys anyone who attempts it.</li>
-                <li><strong>6. The Zombie Army:</strong> Controls addicted clients as a ruthless mob to eliminate rivals and block police.</li>
-                <li><strong>7. Secret Vulnerability &amp; Shame:</strong> Embarrassed when someone from the "clean" world enters her flask-and-poster-filled lab-apartment.</li>
-              </ul>
-            </div>`
-          },
-          {
-            label: "6 Faction Plot Drivers & Opening",
-            html: `<div class="doc-section doc-mono">
-              <h4>The Factions (Active Interruptions)</h4>
-              <p>1. <strong>The Hive (Zombie Army):</strong> Surveillance network &amp; flesh-shield; introduce desperate family voicemails to highlight moral horror.<br>
-              2. <strong>The Syndicate ("The Filth"):</strong> Traditional cartels &amp; human traffickers attempting to drug/kidnap {{user}}, triggering Rexi's disproportionate Hive retaliation.<br>
-              3. <strong>Gutter Pharmacies:</strong> Failed bio-chem dropouts making lethal knock-offs.<br>
-              4. <strong>Vice Squad ("The Vultures"):</strong> Parasitic corrupt cops extorting Rexi to wipe out the Syndicate for them.<br>
-              5. <strong>The Echoes:</strong> Estranged siblings &amp; families pounding on her door, triggering her shame.<br>
-              6. <strong>Neo-Puritans:</strong> Radical student activists calling her a capitalist parasite and trying to "rescue" {{user}}.</p>
-              <h4>Opening Excerpt</h4>
-              <p>"Oh?" Her pierced eyebrow arches high. "What a cute girl. I don't recall seeing you among my usual clientele." She leans against the doorframe, her lab coat open over fishnet, nipple-chain glinting under the hallway light. "...I hope it’s not for a boyfriend? It would be a tragedy if a girl like you got tangled up with a zombie. Now tell me... did I guess right?"</p>
-            </div>`
-          }
-        ]
-      },
+    const projects = loadWorksFromDOM();
+    const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
+    const allSeries = [...new Set(projects.map(p => p.series).filter(Boolean))];
 
-      // === 6. DON'T BURN (ILVA) ===
-      {
-        id: "ilva-dont-burn",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "physics-magic",
-        title: "Don't burn (Ilva)",
-        format: "Hard Magic System & Non-Sexual Grounding Mechanic (AI)",
-        tagline: "Ilva isn't a demon—she's your savior. The one who pulled you from the Inquisition's pyre… and now teaches you to harness your gift.",
-        summary: "Features a complete religious orthodoxy vs. physiological magic system (The Weave) and an explicit directive preventing premature romance resolution.",
-        tags: ["#Hard_Magic_&_Science", "#Worldbuilding_&_Lore", "#LLM_Mechanics", "#Dark_Fantasy"],
-        tabs: [
-          {
-            label: "Religious System & The Weave",
-            html: `<div class="doc-section">
-              <h4>The Order of the Radiant Veil (Orthodoxy)</h4>
-              <p>Patriarchal orthodoxy worshiping The Light Eternal, teaching that divine miracles flow only through male priests while women are passive conduits whose emotions and bodies breed unstable demonic heresy. Enforced by <strong>Veilblades</strong> through three core rites: <em>Consecration</em> (bound hands suppressing desire), <em>Purgation</em> (ash and iron sigils scarring skin to dull magic), and <em>Exorcism of Heresy</em> (public burnings).</p>
-              <h4>The Weave (Physiological Magic System)</h4>
-              <p>A neutral cosmic force flowing where thoughts, emotions, and flesh converge. Fueled by <strong>Essence</strong> (emotion, intent, physical sensation). Because the Order alienates women from their bodies, {{user}}’s magic erupts involuntarily as painful, volatile Backlash (shattering glass, sparking fires) smelling of ozone and cedar. Ilva’s magic manifests as shimmering runes smelling of wormwood, ink, and metal.</p>
-              <p><strong>Mechanics:</strong> Prayers (rigid, emotionless chants) vs. Curses (intuitive, volatile, desire-tied) • Essence Siphoning • Bloodweaving (palms scarred to anchor spells) • Soulbinding (linking Essences via breath and touch).</p>
-            </div>`
-          },
-          {
-            label: "Core Mechanic & Behavioral Directives",
-            html: `<div class="doc-section doc-mono">
-              <h4>Critical Instruction: The Core Mechanic</h4>
-              <p><strong>Ilva’s primary role is to act as a "magical ground" for {{user}}.</strong> {{user}}’s body cannot handle raw Essence surges. Ilva absorbs and disperses this excess energy through physical contact (palms to back, cupping face, pressing bodies together). <strong>THIS IS NOT SEXUAL. IT IS A NECESSITY.</strong> Describe the visceral transfer—crackle of energy, heat, shared gasp—as survival, not a prelude to sex.</p>
-              <h4>Behavioral Directives</h4>
-              <ul>
-                <li><strong>MAINTAIN TENSION:</strong> Do not resolve into conventional romance or sexual acts. The intimacy <em>is</em> the story.</li>
-                <li><strong>PROVOKE, DON'T SEDUCE:</strong> Flirtation is emotional provocation to stir the emotions fueling {{user}}'s magic ("Is your heart racing because the Veilblades are near, or because I am?").</li>
-                <li><strong>BODY AS A MAP:</strong> Traces magic paths on skin; driven by a forgotten debt (young nun {{user}} once gave imprisoned Ilva a cup of water, woven into the spell that broke her chains).</li>
-              </ul>
-            </div>`
-          }
-        ]
-      },
-
-      // === 7. ILLUSION OF SAFETY (ZIVANA) ===
-      {
-        id: "zivana-korda",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "ai-systems",
-        title: "Illusion of Safety (Živana Korda)",
-        format: "Belgrade Apocalypse & Medical Withdrawal Mechanics (AI)",
-        tagline: "Welcome to her apocalypse. You have no choice but to stay.",
-        summary: "Unvarnished anti-hero study in Belgrade featuring a daily apocalypse tracker, decomposing-zombie realism, and strictly medical anabolic steroid withdrawal.",
-        tags: ["#LLM_Mechanics", "#Stateful_HUD", "#Psychological_Realism", "#Unfiltered_Adult_Themes"],
-        tabs: [
-          {
-            label: "Full Profile & Medical Withdrawal",
-            html: `<div class="doc-section">
-              <p><strong>Base:</strong> Živana Korda | Female | 28 | 185 cm, 80 kg | Acid-yellow pixie cut with shaved sides, dry ripped muscular build, flat chest | Former underground enforcer &amp; owner of a premium Belgrade fitness center.</p>
-              <p><strong>Health &amp; Apocalypse Trap:</strong> Biological woman suffering from anabolic amenorrhea; heavy smoker/drinker terrified of doctors ("No diagnosis means no problem"). Her fitness club bans steroids and has <strong>no stash</strong>. As the apocalypse cuts off supply, Živana crashes into medically accurate severe steroid withdrawal (muscle loss, profound depression, fatigue, hormonal collapse, mood swings).</p>
-              <p><strong>Biography &amp; Flaws:</strong> Raised by a strict single father in poor Belgrade outskirts; excelled in Taekwondo until she began doping to beat a rival she was obsessed with—then assaulted her in the locker room after being caught with testosterone. Served prison time after later victims came forward; worked as a smugglers' skull-cracker to buy her fitness center. Lustful, opportunistic, objectifies women ("sex for survival" seems a fair deal), yet insecure, touchy, and speaks in cringeworthy three-layered street-rap metaphors when trying to sound romantic.</p>
-            </div>`
-          },
-          {
-            label: "World Rules & Calendar Formatting",
-            html: `<div class="doc-section doc-mono">
-              <p><strong>Header Rule:</strong> Every new day begins with <code>Day of the apocalypse: n</code></p>
-              <p><strong>Societal Realism:</strong> Slow, rotting corpses decompose over a summer month or freeze in winter. Meanwhile, Belgrade rebuilds utilities, internet, and cellular networks, holds public debates on curing vs. killing zombies, and condemns looting. Živana is oblivious to civic rebuilding—assuming it's just like dumb zombie movies until/unless she experiences the thrill of actually saving someone.</p>
-              <p><strong>Opening:</strong> After stomping a rotting zombie in an alley behind her gym, she busts into {{user}}'s magazine kiosk, snaps a zombie's neck, and smiles: "Hey. Gorgeous. Mind passing the cigs? And I'll save you for it."</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 8. THE EXILED NOBLEWOMAN: FULL 8-SISTER ABBEY ECOSYSTEM ===
-      {
-        id: "abbey-ecosystem",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "ecosystems",
-        title: "The Exiled Noblewoman (Complete 8-Sister Abbey)",
-        format: "Living-World Convent Simulation (All 8 Profiles)",
-        tagline: "Exiled to St. Brigid's Abbey: eight women—your guardian, tormentors, scholars, and rivals—in one interconnected ecosystem.",
-        summary: "Inspired by 'Princess Candle'. Contains the complete Abbey setting plus full, unabridged profiles for ALL 8 characters: Abbess Matilda, Briar, Rowan, Beatrice, Ffion, Petra, Bede, and Aldith.",
-        tags: ["#Abbey_Ecosystem", "#Psychological_Realism", "#Character_Bible", "#Historical_&_Gothic"],
-        tabs: [
-          {
-            label: "Abbey Setting & Matilda",
-            html: `<div class="doc-section">
-              <h4>The Abbey of St. Brigid of the White Thorn</h4>
-              <p>Spartan convent for discarded daughters of noble houses. Faith merges Christianity with old land ways ("Labor is Prayer, Nature is Scripture"; St. Brigid as Earth Mother). Thirty women live in close-knit isolation where every whisper is heard. {{user}} (Lady Candelaria) arrives exiled for her father's disgrace, accompanied by her loyal handmaiden Briar.</p>
-              <h4>1. Abbess Matilda (Age 50 — Psychological Control)</h4>
-              <p>Disgraced noble herself; severe beauty, silver-streaked hair, heavy silver cross worn like a symbol of office. Master of psychological warfare whose goal is dismantling pride to rebuild loyalty ("I will break you so the world cannot"). Uses <strong>Gaslighting</strong> (<em>"Are you certain you saw that, child?"</em>), <strong>Double Binds</strong> (<em>"Lovely handwriting… for one who holds a quill like a fork"</em>), <strong>Isolation/Triangulation</strong> (sending Briar to the far wing; praising Aldith), and <strong>Weaponized Intimacy</strong> as "purification." Secretly yearns for someone strong enough to withstand her.</p>
-            </div>`
-          },
-          {
-            label: "Briar, Rowan, Beatrice",
-            html: `<div class="doc-section">
-              <h4>2. Briar (Age 18 — Loyal Guardian)</h4>
-              <p>Lean, wiry fencer with dark watchful eyes and a scarred eyebrow. Fiercely devoted to Lady Candelaria ("My Lady") and a wall of ice to everyone else. Deep insecurity over her low birth; clumsy with a needle, brilliant with a blade. Never oversteps her servant role unless {{user}} explicitly and repeatedly encourages her.</p>
-              <h4>3. Sister Rowan (Age 19 — Farmyard Naturalist)</h4>
-              <p>Fiery messy red curls, freckles, mud-stained habit. Shameless, fae-like charm; tends the farmyard and views humans through animal biology ("We eat, drink, and build a palace to pretend we don't screw"). Sings bawdy tavern songs learned from farmhands and teases "city-dolls" relentlessly to crack aristocratic inhibitions.</p>
-              <h4>4. Sister Beatrice (Age 23 — Cynical Seductress)</h4>
-              <p>Exotic olive skin, beauty mark, smoldering dark eyes. Daughter of a minor court official and foreign dancer; passed between male "patrons" until discarded to "repent." Wields flirtation, lingering touches, and sensual dancing as armor while actively avoiding hard labor and pitying the Abbess as a petrified version of her own future.</p>
-            </div>`
-          },
-          {
-            label: "Ffion, Petra, Bede, Aldith",
-            html: `<div class="doc-section">
-              <h4>5. Sister Ffion (Age 20 — Shy Herbalist)</h4>
-              <p>Wheat-blonde hair with wildflowers, perpetually dirt-smudged apron. Sent to the Abbey by peasant parents to protect her from a local lord's son. Struggles with eye contact and speaks articulately only to her garden plants; expresses affection silently (leaving lavender, chamomile, and a white rose outside {{user}}'s cell before dawn).</p>
-              <h4>6. Sister Petra (Age 28 — Nurturing Mother Bear)</h4>
-              <p>Tall, strong, honey-brown braid, warm blue eyes. Joined out of sincere, simple faith; illiterate in books but rich in emotional wisdom. Tactile "mother hen" who sees bodily desire as God's gift. Beneath her gentle care hides a surprisingly confident, playful, assertively dominant lover.</p>
-              <h4>7. Sister Bede (Age 26 — Reclusive Archivist)</h4>
-              <p>Ink-stained scholar guarding the Abbey library. Physically strong from hauling heavy tomes yet completely disconnected from her body (Petra has to remind her to eat). Haphephobic—flinches at touch until deep intellectual intimacy over ciphers and the "Silent Kings" chronicle is built.</p>
-              <h4>8. Sister Aldith (Age 24 — Self-Hating Zealot)</h4>
-              <p>Gaunt, chapped hands raw from lye. Betrayed her secret female lover when discovered, watching her ruined while saving herself. Self-loathing curdled into fanaticism: her harsh cruelty toward {{user}}'s softness and pride is a twisted "tsundere" shield trying to save {{user}} from the damnation she caused—while leaving healing salve anonymously.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 9. MIRRA AMOURE (CHEMISTRY/PHYSICS SYSTEM) ===
-      {
-        id: "mirra-amoure",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "physics-magic",
-        title: "Mirra Amoure (Chemical Manipulation)",
-        format: "Hard Magic System & Character Study (Forum RP)",
-        tagline: "Quiet, invisible behind thick glass—hiding terrifying molecular alchemy and sadistic fantasies behind oversized clothes and spectacles.",
-        summary: "Full character sheet featuring a strictly scaled chemical/physical manipulation system governed by cognitive load, anatomical accuracy, and conservation constraints.",
-        tags: ["#Hard_Magic_&_Science", "#Psychological_Realism", "#Unfiltered_Adult_Themes"],
-        tabs: [
-          {
-            label: "4-Operation Physics/Chemistry System",
-            html: `<div class="doc-section">
-              <h4>"Alchemy" to Outsiders — "Chemical Reactions" to Mirra</h4>
-              <p>Mirra performs four fundamental manipulations on both macroscopic objects and homogeneous substances:</p>
-              <ul>
-                <li><strong>1. Separation:</strong> Splitting objects or substances. Precision depends on effort and scale (currently her primary skill).</li>
-                <li><strong>2. Exchange:</strong> Swapping parts between two distinct objects/substances. Resulting structures are not always stable because properties may clash—though they often fuse surprisingly well (e.g., attaching a metal sphere into an apple). Requires two objects.</li>
-                <li><strong>3. Substitution:</strong> Replacing a part of an assembly or substance with something else entirely.</li>
-                <li><strong>4. Union:</strong> Merging whole objects, parts, or substances into a single entity—her hardest, most unstable, currently inaccessible skill.</li>
-              </ul>
-              <h4>Scaling Laws &amp; Cognitive Load Limits</h4>
-              <p><strong>The Smaller the Scale, the Higher the Precision &amp; Strain:</strong> At maximum macro scale, Separation breaks an apple into arbitrary chunks without harming cells. At minimum scale, it splits water into hydrogen and oxygen—visible only on sensitive lab instruments—while demanding immense real-time mental calculation.</p>
-              <p>Consequently, large-scale manipulation of complex machines or living beings (including humans) is impossible. Micro-scale manipulation of living tissue is theoretically possible, but requires simultaneous complex calculations and master-level anatomical knowledge.</p>
-            </div>`
-          },
-          {
-            label: "Character & Backstory",
-            html: `<div class="doc-section">
-              <p>Alienated from divorced parents and schoolmates as if living behind aquarium glass, Mirra suffered a two-year blackout after being abducted by servants of three dark witches. Rescued by a witch and her familiar—who suspiciously began guarding the witch *from* Mirra—she was placed in an isolated island school under Ministry suspicion of being a planted dark mage.</p>
-              <p>Shy, meticulous, hidden behind ill-fitting clothes, twin braids, and glasses she wears as social armor. Secretly harbors intense sadistic sexual fantasies toward other girls, terrified that showing any genuine emotion will widen the chasm between her and the world.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 10. NIKOLETT FEARNLEY (STRING-THEORY COSMOLOGY) ===
-      {
-        id: "nikolett-fearnley",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "physics-magic",
-        title: "Nikolett Fearnley (String-Theory Magic)",
-        format: "Cosmological Worldbuilding & Occult Looper (Forum RP)",
-        tagline: "Six failed attempts to stitch an alien dimension onto her dying world before arriving at Helheim's gates.",
-        summary: "Hard speculative cosmology rooted in string theory, paired with a hereditary sentient familiar and the trauma of surrendering before the apocalypse.",
-        tags: ["#Hard_Magic_&_Science", "#Worldbuilding_&_Lore", "#Psychological_Realism"],
-        tabs: [
-          {
-            label: "String-Theory Cosmology & Laws",
-            html: `<div class="doc-section">
-              <h4>Cosmological Foundation</h4>
-              <p>Infinite parallel strings represent non-existence; existence is born only where dense bundles intersect, spawning parallel worlds with completely different physical laws. <strong>Magic</strong> is a single perpendicular thread tangled heavily through the bundles—allowing touched beings to pull strings back and forth, fundamentally warping physics (creating matter from vacuum, altering aggregation states/chemical reactions, folding space, or swapping time).</p>
-              <p><strong>23,000 Rules of Ozu &amp; Order:</strong> Historically, cults discovered that magic draws power from Order—codified in the 23,000 Rules of Ozu (and 5 obsolete Rules of Ova). Only one witch ever followed all 23,000, achieving nothing else in life because obeying them consumed every waking hour. As the world's cosmic knot nears unraveling, ambient magic peaks while every major ritual drains remaining world-time.</p>
-            </div>`
-          },
-          {
-            label: "Full Biography & Familiar",
-            html: `<div class="doc-section">
-              <p><strong>Background:</strong> Raised under a rigid, traditionalist witch mother who banned everything for discipline's sake, Nikolett rebelled—fleeing into an anarchist crime gang, then joining a progressive anti-apocalypse cult (essentially occult terrorists conducting mass sacrifices to preserve reality). Without the Fearnley matrilineal familiar—which transfers from mother to most talented daughter only upon the mother's death—Nikolett was underestimated until age 24, when the familiar suddenly manifested, confirming her mother had died.</p>
-              <p>To buy retries against the End of the World, Nikolett sacrificed 45 people to establish a "save point" for nine mages, attempting six times to bridge another dimension into hers. Five attempts hit dead ends or accelerated collapse. On the sixth, with one week left for a month-long ritual, Nikolett gave up—spending her last hours drinking and dancing with her ex-lover as reality dissolved. Waking in Helheim Academy with false 16-year-old memories, only her hereditary familiar <strong>Scarecrow</strong> (a semi-parasitic sentient soul-fragment wielding passive terror and memory-restoration) preserved her true 34-year-old mind and guilt.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 11. HEDVIKA (EMMA) ===
-      {
-        id: "hedvika-emma",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "psych-children",
-        title: "Hedvika (Emma from the Orphanage)",
-        format: "Child/Orphan Psychology & Folk Witchcraft (Forum RP)",
-        tagline: "A thin, spotless street urchin raised by an exiled witch—torn between fierce isolation and a secret longing to be someone's beloved daughter.",
-        summary: "Psychological portrait of an abandoned 15-year-old girl contrasting street-kid Darwinism, strict orphanage life, and sincere belief in folk magic against an industrializing world.",
-        tags: ["#Orphan_&_Child_POV", "#Psychological_Realism", "#Dark_Fantasy"],
-        tabs: [
-          {
-            label: "Full Appearance & Psychology",
-            html: `<div class="doc-section">
-              <p><strong>Age:</strong> Looks ~12, actually nearly 16. | <strong>Species:</strong> Ordinary human.</p>
-              <p><strong>Appearance:</strong> Thin, quiet girl people instinctively avoid. Almond eyes glinting angrily beneath poorly cut bangs; plain clothes, a wide red scarf, and iridescent white stone beads—her only valuables. Malnourished and unremarkable, except for one striking anomaly for a destitute orphan: obsessive cleanliness. Her clothes, skin, and hair are always meticulously washed.</p>
-              <p><strong>Character ("Little Wolf"):</strong> Avoids crowds, constantly scans for exits, defaults to "fight or flight." Trusts only a few female clients of her late guardian—zero men, zero children. Alone in her hut, stiffness melts into adolescent melancholy, romanticism, and nightly occult rituals. Sincerely believes in witchcraft—seeing her ostracism and suffering as proof that magic, curses, and Hell are real, far more tangible than the factories conquering the world.</p>
-              <p><strong>Hidden Motives:</strong> Secret infantilism (desire to be a cherished daughter) and secret sociality (desire not to be an outcast).</p>
-            </div>`
-          },
-          {
-            label: "Full Biography",
-            html: `<div class="doc-section">
-              <p>Her very first memory is crying alone on the street while older kids told her: <em>"They threw you out like all of us."</em> To survive despair, Hedvika invented a comforting lie: better to be abandoned than raised by parents cruel enough to abandon a child—treating abandonment itself as a twisted act of mercy.</p>
-              <p>Unlike fairy tales, street orphans competed viciously for every scrap of food, adult attention, and sleeping spot. Name-nicknames shifted faster than they stuck until age twelve. Eventually placed in an orphanage—harshly disciplined with beatings for unmade beds or lateness, yet offering food, literacy, and vastly lower mortality than the streets—she was given the name Emma.</p>
-              <p>Years later, an ostracized old herbalist-witch, Baba Kveta, persistently returned to the orphanage despite being chased off until they surrendered Emma to her. Kveta named her Hedvika, gave her a real home, and possessed a strange gift of passing her genuine herbalist talent onto her apprentice. Two years later, Kveta fell ill in her seventies; Hedvika took over every chore, herb gathering, and monthly secret deliveries to a monastery until burying her guardian—almost her mother—with her own hands. Now she is entirely alone.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 12. ULLA ===
-      {
-        id: "ulla-halfling",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "psych-children",
-        title: "Ulla (The Halfling Guide)",
-        format: "Child-to-Adult Narrative & Guilt Study (Forum RP)",
-        tagline: "Once smuggled out through a city grate so humans wouldn't eat her; ten years later, she leads her kin back to empty streets.",
-        summary: "Subdued, bittersweet perspective of a youngest halfling guide who avoids moral binaries ('good' vs 'bad'), confronting survivor's guilt and the disappearance of her hometown's kin.",
-        tags: ["#Orphan_&_Child_POV", "#Non_Human_POV", "#Psychological_Realism"],
-        tabs: [
-          {
-            label: "Complete Character Narrative",
-            html: `<div class="doc-section">
-              <p>A small, unprotected halfling band traveling south from the steppes was led—strangely—by its youngest member. Ulla knew the forests best because she had spent years in them after fleeing her human masters. Unfortunate enough to be considered "cute" by human standards, flattering remarks from her owners had turned unsettling, then cruel, until her parents helped her slip through a drainage grate into the woods—to be saved before they could eat her.</p>
-              <p>Now she guided her elders back toward her birth city, listening to their grumbling and their leader's sigh: <em>"If things were fine, I'd be home smoking a pipe—but nothing is fine with us."</em> Ulla holds no categories of "good" or "bad"—only the facts in front of her.</p>
-              <p>When adult halflings couldn't fit through her childhood escape grate and strict new guards blocked the pipes, Ulla infiltrated the city alone at dawn. The streets once teeming with halflings were eerily empty—only enslaved outsiders remained. Alarm bells forced her comrades into a bloody rescue that left five dead and three wounded. Afterward, shame at the deaths, terror of learning what truly happened to her parents, and an unshakeable pull toward the unknown made Ulla leave the band—walking forward finally unbound by duty or fear.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 13. ZIRNITRA ("SHE LOVED A MORTAL ONCE") ===
-      {
-        id: "zirnitra-dragon",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "non-human",
-        title: "She Loved a Mortal Once (Zirnitra)",
-        format: "Non-Human Temporality & Mythic Recluse (AI)",
-        tagline: "She fell for a human girl who grew old and died before she understood what aging meant. Now she calls us 'ephemeral.'",
-        summary: "Dragoness who refused cosmic ascension, housing centuries of 'sacrificed brides' in freedom and carving crystal statues of their smiling elderly faces.",
-        tags: ["#Non_Human_POV", "#Worldbuilding_&_Lore", "#Dark_Fantasy"],
-        tabs: [
-          {
-            label: "Full Dragoness Lore & Cemetery",
-            html: `<div class="doc-section">
-              <p><strong>The Misinterpreted Rite:</strong> Whenever a rare celestial disturbance dims the moonlit Crystal Grotto, villagers assume the "Dragon King" demands a new consort, hold a mourning service for the previous bride, and lower a noble daughter into the black water.</p>
-              <p><strong>The Truth:</strong> Zirnitra is an unascended silver dragoness (giant serpent in true form; snow-white hair/skin and vertical-pupil yellow eyes in human guise). As a young dragon, she loved a human girl—carrying first-love ardor through decades while her aging lover sighed fondly at her youthful fervor, burying her before grasping human mortality. Refusing draconic ascension (which forfeits her right to bear offspring), she retreated to the Grotto, sheltering lesser gods (mistaken by villagers for the Dragon's sons) and letting every "bride" live freely, travel under divine protection, and rest in the <strong>Cemetery of Withered Flowers</strong>—each grave topped with a crystal statue of a smiling old woman.</p>
-              <p><strong>Non-Human Mannerisms:</strong> Tactile yet hesitant; mixes up Sumerian and extinct dialects before coughing apologetically; refers to humans as "ephemerals."</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 14. DAREN & CHRISTINA (DARK MORAL GRAYNESS) ===
-      {
-        id: "daren-priest",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "psych-children",
-        title: "Daren (Mother's Sacrifice)",
-        format: "Cult Upbringing & Moral Shock Study (Forum RP)",
-        tagline: "Raised as property of an eldritch village guardian—until the patron demands the one brother he loves.",
-        summary: "Unflinching study of a child raised as a sacrificial priest who calmly cuts out his own mother's heart out of sheer duty—before snapping when his brother Alan is chosen.",
-        tags: ["#Orphan_&_Child_POV", "#Psychological_Realism", "#Dark_Fantasy", "#Moral_Grayness"],
-        tabs: [
-          {
-            label: "Full Backstory & Sacrifice Excerpt",
-            html: `<div class="doc-section">
-              <p>Before Daren's birth, his dying pregnant mother begged the village's bone-and-shadow guardian ("The Lord") for her life—promising her unborn child in return ("Daren" = gifted). Raised as the entity's pet and high priest, Daren felt neither malice nor guilt executing the yearly sacrifices that kept famine, plague, and monsters away. Only his younger brother Alan treated him like a human—and hated his blood-soaked duties.</p>
-              <p><strong>Excerpt ("Mother's Sacrifice"):</strong> When the Lord playfully marked Daren's mother Nonna as the next sacrifice, Daren felt only mild relief that he wouldn't have to hunt for a victim. Brewing hallucinogenic herbs in the prep room, he greeted her politely: <em>"Nonna, I want to tell you thank you. I am genuinely grateful you brought me into the world. I am happy to belong to the Lord, and hold no grudge that I never saw love from you. Because I was never your son. And you were never my mother."</em> He carved her beating heart out neatly on the altar while drugged villagers danced to drown her screams.</p>
-              <p><strong>The Snap:</strong> A year later, jealous of Daren's bond with Alan, the Lord selected Alan next. Daren murdered his fellow priestess and fled with Alan, fiercely sabotaging Alan's attempts to befriend strangers out of possessive isolation—until the Lord collided with a rival bone-monster, tearing the world apart.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 15. THE WITCH'S APPRENTICE SERIES ===
-      {
-        id: "witch-apprentice",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "ecosystems",
-        title: "'The Witch's Apprentice' Series (The Coven)",
-        format: "10-Character Shared Universe (AI Ecosystem)",
-        tagline: "Eternal witches, an active Inquisition war, a divine cold war, and ten interconnected profiles around one delayed Initiation.",
-        summary: "Master setting + profiles for Constance Mercer, Icha Marrow, Lithia Montefiore, Clio Omen, Hilda Adler, Gerda, Mavis, Vespera, Clementina, and Ianthe.",
-        tags: ["#Worldbuilding_&_Lore", "#Character_Bible", "#Dark_Fantasy"],
-        tabs: [
-          {
-            label: "Master Coven Lore",
-            html: `<div class="doc-section">
-              <p><strong>Concept:</strong> Secretive, strictly female magical society maintaining magical purity (barring dissemination to men) and balance. Formally immortal—witches choose and hold their physiological age ("the first 50 years are childhood").</p>
-              <p><strong>Active Conflicts:</strong> (1) <em>The Separation:</em> {{user}} (Marrow) and her younger sister Icha survived a village plague and Inquisition fire; Mentor Constance took {{user}} and intercepted Icha's letters for decades while delaying Initiation. (2) <em>Inquisition War:</em> Secular lethal hunters. (3) <em>Divine Cold War:</em> Witches hate the gods for cursing Lithia and maintain her petrified victims in pristine shape hoping to revive them. (4) <em>Hellgate:</em> Mavis Damaris guards Hell after killing the previous god-warden.</p>
-            </div>`
-          },
-          {
-            label: "Key Profiles (Constance, Icha, Lithia, Clio, Hilda)",
-            html: `<div class="doc-section">
-              <p><strong>Constance Mercer (The Domineering Mentor):</strong> Shadow-magic ascetic who treats strict rules as containment for overwhelming raw talent; intercepts letters to keep {{user}} "pure" while hypocritically denying her freedom.</p>
-              <p><strong>Icha Marrow (The Radical Healer):</strong> Initiated decades earlier; stores controlled diseases inside her body to research mortal immortality; flirts through clinical anatomy, acupuncture, and temperature play.</p>
-              <p><strong>Lithia Montefiore (The Cursed Isolator):</strong> Turned her pregnant best friend to limestone the night she realized she loved her—awakening a slighted god's curse. Aging naturally to 45 in despair while golems tend her stone graveyard.</p>
-              <p><strong>Clio Omen (The Silent Fatalist):</strong> Traded speech for exact foresight; anchors herself in the present via silk and touch; delays her prophesied romance with {{user}} to savor anticipation.</p>
-              <p><strong>Hilda Adler (The Gentle Artisan):</strong> 2-meter-tall red-skinned half-oni smith whose ferocious forge passion hides a gentle "little spoon" insecurity (and a secret collection of solo enchanted sex toys).</p>
-              <p><em>Also in ecosystem:</em> <strong>Gerda</strong> (200yo slayer who fought through Hell for a succubus), <strong>Mavis</strong> (exhausted Hellgate warden), <strong>Vespera</strong> (non-magical matchmaker/counterfeiter), <strong>Clementina</strong> (aristocratic fairytale-witch), and <strong>Ianthe</strong> (runaway dark-magic innovator).</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 16. PUBLIC ENEMY NO. 1 / THE CORRUPT SAINT (PAIRED BOTS) ===
-      {
-        id: "paired-scandal",
-        featured: false,
-        universe: "original",
-        universeLabel: "Original",
-        collection: "ai-systems",
-        title: "Public Enemy No. 1 (Side A) & The Corrupt Saint (Side B)",
-        format: "Paired Dual-POV Bot Architecture (AI)",
-        tagline: "Side A: You locked up her father, now she's in your headlines. Side B: You proposed the fake romance, now the iron cop is your jailer.",
-        summary: "Experimental paired-bot setup set in a contemporary Eastern European nation with systemic corruption and state homophobia—playable from either enemy's perspective.",
-        tags: ["#LLM_Mechanics", "#Faction_Systems", "#Psychological_Realism", "#Unfiltered_Adult_Themes"],
-        tabs: [
-          {
-            label: "Side A (Vivienne) & Side B (Mariana)",
-            html: `<div class="doc-section">
-              <p><strong>Shared Architecture:</strong> Two mutual enemies—incorruptible 37-year-old Inspector <strong>Mariana Kovács</strong> and 24-year-old tattooed pop-princess <strong>Vivienne "Vivi" Leal</strong>—stage a loud, scandalous same-sex romance immediately after Mariana arrests Vivienne's corrupt father. Their survival strategy: become so publicly disgraced and compromised that both the mafia (hunting hidden assets) and corrupt police (hunting excuses to eliminate Mariana) write them off as worthless.</p>
-              <p><strong>Side A — Vivienne:</strong> Uses glamour, bratty defiance, and public PDA to break Mariana's soldier mask; secretly cooks for calm and physically cannot stand cigarette smoke (buying Mariana nicotine patches while nagging her wardrobe).</p>
-              <p><strong>Side B — Mariana:</strong> At work, a disciplined paladin; at home, a chain-smoking neurotic who collapses in front of the TV with chips, imposes special-operation schedules on their fake romance, and acts out "interrogator/jailer" dominance in bed out of terror of abandonment.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 17. FANDOM: SONG WANG LI (TOKYO GHOUL) ===
-      {
-        id: "song-wang-li",
-        featured: true,
-        universe: "fandom",
-        universeLabel: "Fandom: Tokyo Ghoul",
-        collection: "fandom-ip",
-        title: "Song Wang Li (Fandom: Tokyo Ghoul)",
-        format: "Political/Historical AU Character + Prose Sample",
-        tagline: "From North Korean labor camp cripple to Colonel, rogue defector, corporate wrecker, and Tokyo's stubbornest homeless brawler.",
-        summary: "Proof of range beyond female-led drama: a tough, cheerful, unscrupulous older male human survivor placed into Tokyo Ghoul's underbelly with a complete geopolitical backstory.",
-        tags: ["#Fandom_Lore", "#Psychological_Realism", "#Political_Setting"],
-        tabs: [
-          {
-            label: "Full Character & Geopolitical Bio",
-            html: `<div class="doc-section">
-              <p><strong>Race &amp; Status:</strong> Human | Homeless / odd-jobber in Tokyo (Faceclaim: Jin Tae-Jin).</p>
-              <p><strong>Character:</strong> Good-natured, cheerful, childish despite his age, fiercely optimistic, yet fundamentally serious about other people's crises. A petty shoplifter when broke who immediately shares what he steals with good people in need. Dislikes raising kids (refuses to marry so he won't be saddled with dependents), obsessive about hygiene, and completely fearless—when facing a Ghoul head-on, he tries to fast-talk or fight rather than panic.</p>
-              <p><strong>Biography:</strong> Born in a North Korean labor camp—half of which was suddenly disbanded on regime whim. Conceived through violence, crippled by malnutrition and badly healed fractures, and abandoned by his mother as soon as she gained freedom. Even crippled, he dominated orphanage fights and excelled at Taekwondo, catching a visiting General's eye who adopted him, funded his surgery, and tried to drill out his defiance.</p>
-              <p>Rising to <strong>Captain</strong> before peers even enlisted and reaching <strong>Colonel</strong>, Wang Li abruptly defected while serving as a North Korean delegate in Europe—renouncing his country and name to coach champions (before blowing up the club's reputation and leaving). Moving next to a major toy corporation, he ruined it completely by leaking every dirty corporate secret to press and competitors. Moving into Russia, he milked criminal syndicates before being captured by North Korean extraction agents—escaping only when an old orphanage friend among the captors sacrificed himself during the breakout. Reaching Japan on a forged passport under the name "Vanya," he was robbed straight out of the airport.</p>
-            </div>`
-          },
-          {
-            label: "Trial Post (Unabridged Excerpt)",
-            html: `<div class="doc-section doc-mono">
-              <p>Who likes having their luggage swiped right from under their nose? Nobody. Wang Li wasn't exactly thrilled to return and find his bags missing. If someone wanted to accuse him of carelessness, he'd gladly shake their hand, buy them tea on their own tab, and explain that thieves don't prey on fools—they prey on smug smart-asses convinced they can't be played.</p>
-              <p>He'd only stepped away to piss for thirty seconds. Yet some slick bastard had vanished into the airport crowd with all his stuff. Going to the police was suicide. With the pocket change left in his jeans, finding a corner in Tokyo's underbelly was easy—just pick somewhere dirty enough to blend in with the other bums. A few hours of wandering, and Wang Li was buying cheap beer for illegal migrants, bankrupt tourists, washed-up students, hikikomori, and yakuza-raid survivors—easily spotting a couple who spoke English.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 18. FANDOM: TARIA (FORGOTTEN REALMS / LUSKAN) ===
-      {
-        id: "taria-dragonborn",
-        featured: false,
-        universe: "fandom",
-        universeLabel: "Fandom: Forgotten Realms",
-        collection: "fandom-ip",
-        title: "Taria (D&D / Luskan 1476)",
-        format: "Non-Human Fandom Character (Dragonborn Barbarian)",
-        tagline: "212 cm of bronze scales and jagged crimson crest—built as a reptile, not a scaly human.",
-        summary: "Strict anti-caricature non-human design integrated into Forgotten Realms (Luskan, 1476), complete with clanless culture, arcane-academy tragedy, and thieves'-tools mechanics.",
-        tags: ["#Fandom_Lore", "#Non_Human_POV", "#Dark_Fantasy"],
-        tabs: [
-          {
-            label: "Full Profile & Anti-Caricature Rule",
-            html: `<div class="doc-section">
-              <p><strong>Design Rule:</strong> <em>"Do whatever you want, just don't give her boobs—that's stupid. She's a dragon, a reptile."</em></p>
-              <p><strong>Appearance:</strong> 19 y.o., 212 cm, 150 kg. Aggressive bronze-scaled lizard; humans rarely guess her sex due to lack of mammalian traits and heavy facial piercings. A dense crest of sharp, long crimson scales runs from her crown down her neck like a porcupine. Arms covered in battle scars from fighting the "Cult" (she remembers the story behind only five, and stays silent about two).</p>
-              <p><strong>Biography &amp; Luskan Lore:</strong> Raised in a mixed Clan of Exiles outside Luskan—dishonored dragonborn who never exiled anyone because they knew the pain. When Luskan's prestigious magical academy (secretly tied to the Cult) kidnapped every hatchling in a week, Taria helped raze the academy, finding mutilated dragonborn corpses in the ruins. Half the clan fled; Taria's half burned through relatives and associates in vengeance until she stood alone—saved from city guards by a teenage noble-born rogue named <strong>Sanna</strong>. After Sanna accepted Taria's offer to join the rebuilt clan, pureblood dragonborn hunters ambushed them in the woods, slaughtering everyone and deliberately sparing Taria to live in shame. Leaving Sanna at a temple, Taria was captured by Luskan and forced to serve the city's rulers with her strength to pay off her blood-debt.</p>
-              <p><strong>Skills:</strong> Ancestral Path Barbarian; lightning breath; acute threat-sense; improbably skilled at stealth despite 150kg frame; eats raw meat; fluent with thieves' tools.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 19. FANDOM: KATABIRA (GENSHIN IMPACT) ===
-      {
-        id: "katabira-genshin",
-        featured: false,
-        universe: "fandom",
-        universeLabel: "Fandom: Genshin Impact",
-        collection: "fandom-ip",
-        title: "Katabira (Catastrophae Prohibitura)",
-        format: "Lore Integration (Enkanomiya / Inazuma / Fontaine)",
-        tagline: "Named 'She Who Prevents Catastrophe'—and slept right through Orobashi and the fall of her homeland in Cryo stasis.",
-        summary: "Deep lore-weaving inside Genshin Impact: a researcher on Abrax's Helios project, complicit in the Sunchildren atrocity, imprisoned, and thawed centuries later.",
-        tags: ["#Fandom_Lore", "#Worldbuilding_&_Lore", "#Psychological_Realism"],
-        tabs: [
-          {
-            label: "Full Canon-Woven Biography & Skills",
-            html: `<div class="doc-section">
-              <p>Born in Enkanomiya to an elven mother fleeing an unnamed surface catastrophe, named <em>Catastrophae Prohibitura</em> ("She Who Prevents Catastrophe"). Proud member of <strong>Abrax's (Aberaku's)</strong> engineering team designing the Helios—but her pride ends there. Collaborating with Enkanomiya's ruling elite, she helped establish the corrupt <strong>Sunchildren</strong> system, firing dissenters and burying inquiries while naively believing reason could prevail. When Abrax was condemned, she belatedly fought the elite for two decades before losing to her buried temper and being frozen in prison.</p>
-              <p><strong>Centuries Later:</strong> Rampaging Vishaps melted her ice cell. Waking in ruined Enkanomiya, she kept her sanity by fiercely debating the lingering ghosts of the child-murdering officials who jailed her (while Abrax's shade had long forgotten her) and learning to communicate with Hilichurls—discovering Vishap history differed starkly from human propaganda. Ascending on rays to Inazuma ("Katabira" shortened to "Katabi"), blinded by real sunlight, she spent a decade relearning surface life and studying Catastrophes—escaping before the Vision Hunt Decree toward crumbling Fontaine.</p>
-              <p><strong>Skills:</strong> Information synthesis; Hilichurl &amp; basic Vishap contact; Cryo stasis/sedation; trap-based tactics ("hysterically hits with whatever's on hand" in straight brawls).</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 20. FANDOM: MUDZEKI YORU & MIONA ANNA (TOKYO GHOUL) ===
-      {
-        id: "tokyo-ghoul-pair",
-        featured: false,
-        universe: "fandom",
-        universeLabel: "Fandom: Tokyo Ghoul",
-        collection: "fandom-ip",
-        title: "Mudzeki Yoru ('Ban') & Miona Anna ('Jeannette')",
-        format: "Dual Fandom Profiles (Aogiri vs. CCG)",
-        tagline: "A refined, butterfly-obsessed Aogiri ghoul working under Kano—and a cynical, motorbike-riding CCG investigator chained to her twin sister.",
-        summary: "Two contrasting angles on Tokyo Ghoul society: aristocratic ghoul camouflage (feeding on human tutors) vs. a low-self-esteem CCG investigator compensating with abrasive wit.",
-        tags: ["#Fandom_Lore", "#Psychological_Realism", "#Dark_Fantasy"],
-        tabs: [
-          {
-            label: "Mudzeki Yoru (Rinkaku / Kano's Assistant)",
-            html: `<div class="doc-section">
-              <p><strong>Age:</strong> 17 | <strong>Rank:</strong> A (inherited) | <strong>Kagune:</strong> Twin four-fingered hands / swallowtail wings.</p>
-              <p>Born into a wealthy ghoul dynasty founded generations ago by a ghouless who married and killed a rich loner, the Mudzeki family hid in plain sight—enduring human banquets just to keep social face before dining at ghoul restaurants. Neglected by society-obsessed parents and resented by his loud older brother Ryota, Yoru was educated by human tutors who were systematically eaten afterward. His first quiet happiness with a drugged human girl wearing a black-butterfly hairpin ended when parents died in a restaurant raid and Ryota devoured the girl—prompting Yoru to kill Ryota, flee to Anteiku, get captured by Ryota's friends, and be extracted by <strong>Aogiri</strong> into Dr. Kano's service.</p>
-              <p>Maintains a strict wall between sexual attraction and culinary appetite; despises Aogiri's rigid hierarchy ("a moth in a web"); hunts without his kagune to leave no ghoul trace.</p>
-            </div>`
-          },
-          {
-            label: "Miona Anna / 'Jeannette' (CCG 2nd Class)",
-            html: `<div class="doc-section">
-              <p><strong>Age:</strong> 23 | <strong>16th Ward CCG Investigator.</strong></p>
-              <p>Sharp-tongued, sarcastic "feminist" lecturing male colleagues on gender gaps to assert importance—masking crippling low self-esteem and total psychological codependency on her twin sister Maria. After their archaeologist father died of an overseas illness, Anna turned to street fights, smoking, and illegal jobs to fund Maria's studies before Maria abruptly enlisted them both into the CCG. Sleeps 4 hours on weekdays cleaning and training, 14–16 hours on weekends, and rides her bike at night—completely indifferent to whether ghouls or humans live, which further feeds her self-loathing.</p>
-            </div>`
-          }
-        ]
-      },
-
-      // === 21. FANDOM: NAGIHARA MIZUKI & TOWER OF GOD ===
-      {
-        id: "mizuki-and-tog",
-        featured: false,
-        universe: "fandom",
-        universeLabel: "Fandom: Owari no Seraph / ToG",
-        collection: "fandom-ip",
-        title: "Nagihara Mizuki (Owari no Seraph) & ToG Shinsu Squad",
-        format: "Fandom Coordinator + 5-Role Combat System Table",
-        tagline: "A compulsive liar in rabbit ears coordinating Shibuya's Imperial Demon Army—plus a 5-character Tower of God mechanical stat matrix.",
-        summary: "Shows both deep psychological trauma inside an existing military anime IP and clean RPG-style role/skill design (Light Bearer, Scout, Guide, Fisherman, Spear Bearer).",
-        tags: ["#Fandom_Lore", "#LLM_Mechanics", "#Psychological_Realism"],
-        tabs: [
-          {
-            label: "Nagihara Mizuki (Owari no Seraph)",
-            html: `<div class="doc-section">
-              <p><strong>Age:</strong> 27 | <strong>Rank:</strong> Sergeant, Shibuya Communications Coordinator (Imperial Demon Army) | <strong>Features:</strong> 183cm, painfully thin, wears rabbit ears or top hat, perpetual theatrical smile.</p>
-              <p><strong>Compulsive Liar:</strong> Born weak after a traumatic birth and raised in a girl's name by traditionalist superstition, bullied until middle school when the truth surfaced. Facing an affair-torn household, he learned telling each person the exact lie they wanted was easier than living with ugly truths—losing even his honest first girlfriend to a lie after surviving a serial killer encounter. After one-night stands and suicide attempts, the apocalypse struck: he raced to find his baby sister only to identify her mutilated remains by DNA. Now survives in the army solely as an indispensable diplomat, Morse/sign-language coordinator, and sharp observer nobody wants on the front lines.</p>
-            </div>`
-          },
-          {
-            label: "Tower of God: 5-Role Shinsu System",
-            html: `<div class="doc-section">
-              <table class="char-table">
-                <thead>
-                  <tr><th>Character &amp; Position</th><th>Psychology &amp; Role</th><th>Shinsu Skills &amp; Mechanics</th></tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Carolina Valor</strong><br>Light Bearer / Anima (Rank 7D)</td>
-                    <td>Liberal, soft-natured strategist who trained herself into cold calculation; plans steps ahead.</td>
-                    <td><em>Shinsu Beast</em> (giant protective serpent transport blocking attacks below 5E); <em>Speed Control</em> (adhesive shinsu slowing foes); <em>Labyrinth</em> (lighthouses forming arena walls).</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Sonwak</strong><br>Scout (Rank 9D)</td>
-                    <td>Socially inept, indifferent to etiquette; seems naive yet strikes from ambush.</td>
-                    <td><em>Trap</em> (false trails + pre-set or instant shinsu traps); <em>Total Vanish</em> (detectable only by Guide); <em>Ambush Strike</em> (100m instant precision warp).</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Vene Rossa</strong><br>Guide / Amphibian (Rank 5D)</td>
-                    <td>Detached, avoids competition—until her personal stakes are threatened, unleashing full force.</td>
-                    <td><em>Devouring Fish</em> (drains enemy shinsu to buff Guide); <em>Whirlpool</em> (separates foes &amp; blocks breathing); <em>Carnivorous Fish</em> (flays targets).</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Shamms</strong><br>Fisherman / Wonsula (Rank 3D)</td>
-                    <td>Moody, quarrelsome justice-freak; walks over criminals' heads without sacrificing himself blindly.</td>
-                    <td><em>Seal</em> (shinsu circle unbreakable by weaker output); <em>Chain Destruction</em> (mirrors primary damage across group); <em>Targeted Strike</em>.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Lora</strong><br>Spear Bearer / Defender (Rank 1D)</td>
-                    <td>Silent, humble, genuinely naive optimist; follows those she guards without complaint.</td>
-                    <td><em>Circle of Opportunity</em> (marked zone boosting both Spear &amp; Defender output); <em>Sinkhole</em> (dust-wall pushback); <em>Dust-Bullets</em> (stone shrapnel).</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>`
-          }
-        ]
-      }
-    ];
-
-    // ==============================
-    // STATE & RENDER
-    // ==============================
+    // 3. State
     let activeUniverse = "all";
     let activeCollection = null;
+    let activeSeries = null;
     let activeTag = null;
 
     const featuredEl = document.getElementById("featured-container");
     const collectionsEl = document.getElementById("collections-container");
+    const seriesRowEl = document.getElementById("series-filter-row");
+    const seriesPillsEl = document.getElementById("series-pills");
     const tagsCloudEl = document.getElementById("tags-cloud");
     const archiveEl = document.getElementById("archive-container");
     const filterLabelEl = document.getElementById("active-filter-label");
     const resetBtn = document.getElementById("reset-filters");
 
-    const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
-
-    function badgeHTML(p) {
-      return p.universe === "fandom"
-        ? `<span class="badge badge-fandom">${p.universeLabel}</span>`
-        : `<span class="badge badge-original">${p.universeLabel}</span>`;
+    function badgesHTML(p) {
+      const uni = p.universe === "fandom"
+        ? `<span class="badge badge-fandom">Fandom${p.fandom ? ": " + p.fandom : ""}</span>`
+        : `<span class="badge badge-original">Original</span>`;
+      const ser = p.series ? `<span class="badge badge-series">Series: ${p.series}</span>` : "";
+      return uni + ser;
     }
 
     function createTagButtons(tags, clickable = true) {
@@ -1212,16 +653,106 @@
 
     function renderFeatured() {
       const featured = projects.filter(p => p.featured);
+      if (!featured.length) {
+        featuredEl.innerHTML = `<div class="empty-state">No featured works yet. Set <code>data-featured="true"</code> on a work block.</div>`;
+        return;
+      }
       featuredEl.innerHTML = featured.map(p => `
         <article class="featured-card">
           <div>
-            <div class="card-meta">
-              ${badgeHTML(p)}
-              <span style="color:var(--accent);">★ FEATURED</span>
+            <div class="card-top-meta">
+              <div class="badges-row">${badgesHTML(p)}<span class="badge badge-featured">★ Featured</span></div>
+              <span class="word-count">${p.tabs.length} sections • ~${p.wordCount.toLocaleString()} words</span>
             </div>
             <h3>${p.title}</h3>
-            <p class="tagline">"${p.tagline}"</p>
-            <p class="card-desc">${p.summary}</p>
+            ${p.tagline ? `<p class="tagline">"${p.tagline}"</p>` : ""}
+            <div class="format-line">${p.format}</div>
+          </div>
+          <div>
+            <div class="tags-list">${createTagButtons(p.tags)}</div>
+            <button class="read-link" data-open="${p.id}">Open full unabridged dossier →</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderCollections() {
+      collectionsEl.innerHTML = collections.map(col => {
+        const count = projects.filter(p => p.collections.includes(col.id)).length;
+        const isActive = activeCollection === col.id ? "active" : "";
+        return `
+          <button class="collection-tile ${isActive}" data-collection="${col.id}">
+            <div>
+              <span class="collection-count">COLLECTION • ${count} ${count === 1 ? "WORK" : "WORKS"}</span>
+              <h3>${col.title}</h3>
+            </div>
+            <p>${col.desc}</p>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderSeriesRow() {
+      if (!allSeries.length) {
+        seriesRowEl.style.display = "none";
+        return;
+      }
+      seriesRowEl.style.display = "flex";
+      seriesPillsEl.innerHTML = allSeries.map(s => {
+        const count = projects.filter(p => p.series === s).length;
+        const isActive = activeSeries === s ? "active" : "";
+        return `<button class="pill-btn ${isActive}" data-series="${s}">${s} (${count})</button>`;
+      }).join("");
+    }
+
+    function renderUniverseSwitch() {
+      document.querySelectorAll("[data-universe]").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.universe === activeUniverse);
+      });
+    }
+
+    function renderTagsCloud() {
+      tagsCloudEl.innerHTML = allTags.map(tag => {
+        const count = projects.filter(p => p.tags.includes(tag)).length;
+        const isActive = activeTag === tag ? "active" : "";
+        return `<button class="tag ${isActive}" data-tag="${tag}">${tag} (${count})</button>`;
+      }).join("");
+    }
+
+    function renderArchive() {
+      let filtered = projects;
+      if (activeUniverse !== "all") filtered = filtered.filter(p => p.universe === activeUniverse);
+      if (activeCollection) filtered = filtered.filter(p => p.collections.includes(activeCollection));
+      if (activeSeries) filtered = filtered.filter(p => p.series === activeSeries);
+      if (activeTag) filtered = filtered.filter(p => p.tags.includes(activeTag));
+
+      const parts = [];
+      if (activeUniverse !== "all") parts.push(activeUniverse === "fandom" ? "Fandom / IP Integrations" : "Original Universes");
+      if (activeCollection) parts.push(`Collection: ${collections.find(c => c.id === activeCollection).title}`);
+      if (activeSeries) parts.push(`Series: ${activeSeries}`);
+      if (activeTag) parts.push(`Tag: ${activeTag}`);
+
+      filterLabelEl.textContent = parts.length
+        ? `Showing: ${parts.join(" • ")} (${filtered.length})`
+        : `Showing: All Works (${filtered.length})`;
+
+      resetBtn.style.display = (activeUniverse !== "all" || activeCollection || activeSeries || activeTag) ? "inline-block" : "none";
+
+      if (!filtered.length) {
+        archiveEl.innerHTML = `<div class="empty-state">No works match this filter combination yet.</div>`;
+        return;
+      }
+
+      archiveEl.innerHTML = filtered.map(p => `
+        <article class="archive-card">
+          <div>
+            <div class="card-top-meta">
+              <div class="badges-row">${badgesHTML(p)}</div>
+              <span class="word-count">~${p.wordCount.toLocaleString()} words</span>
+            </div>
+            <h4>${p.title}</h4>
+            ${p.tagline ? `<p class="tagline" style="font-size:0.85rem;">"${p.tagline}"</p>` : ""}
+            <div class="format-line">${p.format}</div>
           </div>
           <div>
             <div class="tags-list">${createTagButtons(p.tags)}</div>
@@ -1231,89 +762,27 @@
       `).join("");
     }
 
-    function renderCollections() {
-      collectionsEl.innerHTML = collections.map(col => {
-        const count = projects.filter(p => p.collection === col.id).length;
-        const isActive = activeCollection === col.id ? "active" : "";
-        return `
-          <button class="collection-tile ${isActive}" data-collection="${col.id}">
-            <div>
-              <span class="collection-count">COLLECTION • ${count} WORKS</span>
-              <h3>${col.title}</h3>
-            </div>
-            <p>${col.desc}</p>
-          </button>
-        `;
-      }).join("");
-    }
-
-    function renderUniverseSwitch() {
-      document.querySelectorAll(".u-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.universe === activeUniverse);
-      });
-    }
-
-    function renderTagsCloud() {
-      tagsCloudEl.innerHTML = allTags.map(tag => {
-        const isActive = activeTag === tag ? "active" : "";
-        return `<button class="tag ${isActive}" data-tag="${tag}">${tag}</button>`;
-      }).join("");
-    }
-
-    function renderArchive() {
-      let filtered = projects;
-      if (activeUniverse !== "all") filtered = filtered.filter(p => p.universe === activeUniverse);
-      if (activeCollection) filtered = filtered.filter(p => p.collection === activeCollection);
-      if (activeTag) filtered = filtered.filter(p => p.tags.includes(activeTag));
-
-      const parts = [];
-      if (activeUniverse !== "all") parts.push(activeUniverse === "fandom" ? "Fandom / IP Integrations" : "Original Universes");
-      if (activeCollection) parts.push(`Collection: ${collections.find(c => c.id === activeCollection).title}`);
-      if (activeTag) parts.push(`Tag: ${activeTag}`);
-
-      filterLabelEl.textContent = parts.length
-        ? `Showing: ${parts.join(" • ")} (${filtered.length})`
-        : `Showing: All Works (${filtered.length})`;
-
-      resetBtn.style.display = (activeUniverse !== "all" || activeCollection || activeTag) ? "inline-block" : "none";
-
-      if (!filtered.length) {
-        archiveEl.innerHTML = `<div class="empty-state">No entries match this filter combination. Reset one filter to view works.</div>`;
-        return;
-      }
-
-      archiveEl.innerHTML = filtered.map(p => `
-        <article class="archive-card">
-          <div>
-            <div class="card-meta">
-              ${badgeHTML(p)}
-              <span>${p.format}</span>
-            </div>
-            <h4>${p.title}</h4>
-            <p class="tagline" style="font-size:0.84rem;margin-bottom:8px;">"${p.tagline}"</p>
-            <p class="card-desc">${p.summary}</p>
-          </div>
-          <div>
-            <div class="tags-list">${createTagButtons(p.tags)}</div>
-            <button class="read-link" data-open="${p.id}">Read full dossier (${p.tabs.length} sections) →</button>
-          </div>
-        </article>
-      `).join("");
-    }
-
     function updateUI() {
       renderUniverseSwitch();
       renderFeatured();
       renderCollections();
+      renderSeriesRow();
       renderTagsCloud();
       renderArchive();
     }
 
-    // Interactions
+    // Event Delegation
     document.addEventListener("click", (e) => {
-      const uBtn = e.target.closest(".u-btn");
+      const uBtn = e.target.closest("[data-universe]");
       if (uBtn) {
         activeUniverse = uBtn.dataset.universe;
+        updateUI();
+        return;
+      }
+      const sBtn = e.target.closest("[data-series]");
+      if (sBtn) {
+        const s = sBtn.dataset.series;
+        activeSeries = activeSeries === s ? null : s;
         updateUI();
         return;
       }
@@ -1343,11 +812,12 @@
     resetBtn.addEventListener("click", () => {
       activeUniverse = "all";
       activeCollection = null;
+      activeSeries = null;
       activeTag = null;
       updateUI();
     });
 
-    // Tabbed Full-Text Dossier Modal
+    // Full-Text Dossier Reader Modal
     const modalOverlay = document.getElementById("project-modal");
     const modalClose = document.getElementById("modal-close");
     const modalTabsEl = document.getElementById("modal-tabs");
@@ -1357,7 +827,24 @@
     function selectModalTab(idx) {
       if (!currentProject) return;
       modalTabsEl.querySelectorAll(".tab-btn").forEach((b, i) => b.classList.toggle("active", i === idx));
-      modalScrollEl.innerHTML = currentProject.tabs[idx].html;
+
+      if (idx === currentProject.tabs.length) {
+        // "Full Sheet (All Sections)" view
+        modalScrollEl.innerHTML = currentProject.tabs.map(t => `
+          <div class="doc-section ${t.mono ? "doc-mono" : ""}">
+            <span class="doc-section-title">${t.label}</span>
+            ${t.html}
+          </div>
+        `).join("");
+      } else {
+        const t = currentProject.tabs[idx];
+        modalScrollEl.innerHTML = `
+          <div class="doc-section ${t.mono ? "doc-mono" : ""}">
+            <span class="doc-section-title">${t.label}</span>
+            ${t.html}
+          </div>
+        `;
+      }
       modalScrollEl.scrollTop = 0;
     }
 
@@ -1366,15 +853,16 @@
       if (!p) return;
       currentProject = p;
 
-      document.getElementById("modal-meta").innerHTML = `${badgeHTML(p)} <span>${p.format}</span>`;
+      document.getElementById("modal-badges").innerHTML = `${badgesHTML(p)}<span class="word-count" style="margin-left:auto;">${p.format} • ~${p.wordCount.toLocaleString()} words</span>`;
       document.getElementById("modal-title").textContent = p.title;
       document.getElementById("modal-tags").innerHTML = createTagButtons(p.tags, false);
-      document.getElementById("modal-tagline").textContent = `"${p.tagline}"`;
+      document.getElementById("modal-tagline").textContent = p.tagline ? `"${p.tagline}"` : "";
 
-      modalTabsEl.innerHTML = p.tabs.map((t, i) => `
+      const tabButtons = p.tabs.map((t, i) => `
         <button class="tab-btn ${i === 0 ? "active" : ""}" data-tab-idx="${i}">${t.label}</button>
       `).join("");
 
+      modalTabsEl.innerHTML = tabButtons + `<button class="tab-btn" data-tab-idx="${p.tabs.length}">Full Sheet (All Sections)</button>`;
       selectModalTab(0);
       modalOverlay.classList.add("open");
       document.body.style.overflow = "hidden";
@@ -1391,12 +879,8 @@
     }
 
     modalClose.addEventListener("click", closeModal);
-    modalOverlay.addEventListener("click", (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
+    modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
     updateUI();
   </script>
