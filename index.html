@@ -565,7 +565,179 @@
         </div>
       </article>
     -->
+<!-- WORK 2: TOWER OF GOD — DICE-FREE COMBAT SYSTEM & 5-CHARACTER TEST SQUAD -->
+    <article class="work-entry"
+      data-id="tog-shinsu-system"
+      data-title="Tower of God: Dice-Free Combat System & Shinsu Squad"
+      data-universe="fandom"
+      data-fandom="Tower of God"
+      data-collections="fandom-ip, hard-systems, ai-systems"
+      data-series="Tower of God RPG System"
+      data-featured="true"
+      data-format="Game System Design • Non-RNG Tactical Mechanics + 5-Character Prototype Roster"
+      data-tags="#Fandom_Lore, #System_Design, #Dice_Free_Combat, #Hard_Magic_&_Science, #Ludonarrative_Harmony, #Game_Math">
 
+      <p class="entry-tagline">A dice-free forum RPG combat architecture built to eliminate player luck RNG, solve the "strategist" problem via Light Bearers, and turn Shinsu physics and team betrayal into hard math.</p>
+
+      <div class="entry-tab" data-tab="Design Intent & Author's Notes">
+        <h4>Why This System &amp; Squad Were Created</h4>
+        <p>This five-character squad was created for an untested combat-system prototype in which I aimed to <strong>eliminate dice rolls (player luck RNG)</strong> while preserving the original roles of <em>Tower of God</em>, the tactical significance of the Light Bearer, and the spirit of the source material.</p>
+        <p>Unfortunately, the system was never live-tested, though I still love the underlying design. It demonstrates how I work inside an existing canon under self-imposed constraints—specifically:</p>
+        <ul>
+          <li><strong>Solving the "Strategist" Problem:</strong> Giving Light Bearers genuine mechanical leverage (controlling Lighthouse-assisted Baangs, battlefield geometry, and team coordination) rather than leaving intelligence/strategy purely up to out-of-character player wit or abstract dice checks.</li>
+          <li><strong>Working With Whimsical Yet Sharp Early Canon:</strong> Translating SIU's mix of rigid Shinsu physics and chaotic comedy (such as Paracule's "REVOLUTION!") directly into mechanical variables like <em>Protest Potential vs. Loyalty</em> and slice-of-life <em>Luck</em> generation.</li>
+          <li><strong>Deterministic Resolution Over Arbitrary Damage Numbers:</strong> Every ability has a concrete narrative/physical action rather than generic HP damage, scaling instead through Shinsu Baang/Myun/Su parameters and weapon properties.</li>
+        </ul>
+      </div>
+
+      <div class="entry-tab" data-tab="Stats, Canon Ranks & Conversion Math">
+        <h4>Breaking Down What SIU Came Up With xD</h4>
+        <p>Canonical character power cards (from the translators' wiki) establish concrete Rank tiers across individual stats and Overall Rank:</p>
+        <table>
+          <thead>
+            <tr><th>Tier</th><th>Canon Characters &amp; Official Ranks</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>High Rankers</strong></td>
+              <td><strong>Yu Han-Sung</strong> (Overall — 8A | Intelligence — 2A | Shinsu Control — 7A | Shinsu Resistance — 4C | Physical Ability — 8E)</td>
+            </tr>
+            <tr>
+              <td><strong>Rankers</strong></td>
+              <td><strong>Lero Ro</strong> (Overall — 10B) • <strong>Lo Po Bia Ren</strong> (Overall — 10B) • <strong>Mule Love</strong> (Overall — 2C) • <strong>Quant</strong> (Overall — 5C)</td>
+            </tr>
+            <tr>
+              <td><strong>Regulars</strong></td>
+              <td><strong>Androssi Zahard</strong> (6E) • <strong>Anak Zahard</strong> (10E) • <strong>Khun Aguero Agnis</strong> (3F) • <strong>Fonsekal Laure</strong> (5F) • <strong>Hatsu</strong> (7F) • <strong>Rak Wraithraiser</strong> (7F) • <strong>Hong Chunhwa</strong> (7F) • <strong>Shibisu</strong> (8F) • <strong>Aleksai Amigochaz</strong> (8F) • <strong>Sunwoo Nare</strong> (9F) • <strong>Blarouse</strong> (9F) • <strong>Levin</strong> (10F) • <strong>Paracule</strong> (10F)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Numeric Rank Conversion Table</h4>
+        <table>
+          <thead>
+            <tr><th>Original Rank</th><th>Numeric Value</th><th>Original Rank</th><th>Numeric Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>F10 – F1</td><td>1 – 10</td><td>B10 – B1</td><td>41 – 50</td></tr>
+            <tr><td>E10 – E1</td><td>11 – 20</td><td>A10 – A1</td><td>51 – 60</td></tr>
+            <tr><td>D10 – D1</td><td>21 – 30</td><td>S10 – S1</td><td>61 – 70</td></tr>
+            <tr><td>C10 – C1</td><td>31 – 40</td><td>S+ / SS+</td><td>70~100 / 100+</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Stat Architecture &amp; Progression</h4>
+        <p>We have concrete ranks on the basis of which an Overall Rank is assigned—essentially an average across stats (to be recalculated cleanly per sheet). Each individual stat receives its own rank.</p>
+        <ul>
+          <li><strong>Stat Dynamics:</strong> Grow based on cleared Floors, latent potential, and trained abilities.</li>
+          <li><strong>Stat Distribution:</strong> Anchored around a baseline average with defined minimum and maximum bounds; the player distributes points so their average equals their Rank, skewed toward their Position specialization and taking the character's origin/bloodline into account (descendants of the 10 Great Families, living ignition weapons, etc.).</li>
+          <li><strong>Abilities &amp; Ranks:</strong> Abilities receive a Rank just like everything else. Abilities do <strong>NOT</strong> boost base stats beyond what training provides (except dedicated buffing skills). A character <em>can</em> learn an ability above their current level, but in that case must spend <strong>Luck</strong> for it to function properly. I do not assign numeric attack damage to abilities, because every ability in the Tower produces a specific, concrete action and outcome; attack output is measured via Shinsu Baangs or weapon properties. <strong>Skills always succeed automatically</strong> unless the character lacks the competence to use them.</li>
+        </ul>
+      </div>
+
+      <div class="entry-tab" data-tab="Shinsu Physics & Tendency Formulas">
+        <h4>Canonical Shinsu Theory (From Bidau Gustang's Writings / Translators' Reference)</h4>
+        <p><strong>1–2. Terminology:</strong> Controlling Shinsu to alter the environment or attack is Shinsu Control (also called <em>Suak</em> / Water Control or <em>Pungsal</em> / Wind Skills). The fundamental unit is the <strong>Room / Baang</strong> (Russian: <em>Дом</em>), its area is <strong>Surface / Myun</strong> (<em>Поверхность</em>), and the density of Shinsu inside a Baang is <strong>Mass / Su</strong> (<em>Масса</em>).</p>
+        <p><strong>3. Baang (Room):</strong> Basic unit of control. Controlling more Baangs simultaneously indicates higher skill, though higher Baang count does not automatically grant larger Surface or higher Mass. Forcing too many Baangs overloads body and mind, potentially fatally. <strong>With Lighthouse support from a Light Bearer, controlling already materialized Baangs becomes easier, though the maximum Baang count does not increase.</strong></p>
+        <p><strong>4. Surface (Myun):</strong> Area of spread inside a Baang, measured in <em>tsubo</em> (~3.3 sq. m), ignoring height because height varies wildly with context. Density normally drops from the center toward the edge, though exceptional manipulators can raise edge density or freely shape density across the Baang.</p>
+        <p><strong>5–6. Mass (Su):</strong> Peak Shinsu density inside a Baang, determining force and destructive power—measurable only via Lighthouses, Observers, and senses. A person's notation—e.g., <code>4 Baangs; 100 Surfaces; 30 Masses</code>—means: up to 4 simultaneous Baangs; up to 100 Surfaces in a single Baang; peak 30 Mass in a single Baang.</p>
+        <p><strong>7–8. Negative vs. Positive Tendency:</strong> Normally, as Baangs increase, Surface and Mass shrink (<em>Negative Tendency</em>—improvable via training/Lighthouses, never convertible to Positive). In rare cases (<em>Positive Tendency</em>), increasing Baangs also increases workable Surface and Mass. The highest recorded countable output belongs to Enryu (over 9,000 Baangs observed by a Light Bearer).</p>
+
+        <h4>System Math: Implementing Shinsu Control</h4>
+        <ul>
+          <li><strong>Negative Tendency:</strong> The "Shinsu Control" stat is simply the average of the three parameters (Baang, Surface, Mass).</li>
+          <li><strong>Positive Tendency:</strong> Base Baang–Surface–Mass values also start from the stat's average. For example, Shinsu Control = <strong>C4 (37)</strong>: baseline output can be structured (adding zeros for Surface/Mass scale pending sub-formulas) as <code>37–3700–370</code> or <code>44–3000–370</code> or any spread averaging to 37—without shifting load between parameters arbitrarily. Whenever Baangs increase by <strong>+3</strong>, Surface increases by <strong>+2</strong> and Mass by <strong>+1</strong> (e.g., <code>44+3 — 3000+2000 — 370+10</code>). Final Baang count cannot exceed <strong>twice the lowest baseline value</strong> (in this example, 60).</li>
+          <li><strong>Dependency:</strong> Without Shinsu access, the majority of skills become unusable.</li>
+        </ul>
+      </div>
+
+      <div class="entry-tab" data-tab="Social, Luck & Non-RNG Resolution Math">
+        <h4>Social-Tactical Parameters: PARACULE'S REVOLUTION!!!</h4>
+        <p>The overarching goal of the system is injecting a dynamic behavioral probability variable without relying on dice:</p>
+        <ul>
+          <li><strong>Protest Potential (1 to 10):</strong> Unique character stat measuring inclination toward rebellion/sabotage (1 = cooperative; 10 = eager to sabotage). Allows the character to "hoard" Luck percentages—especially during betrayal and sabotage—while subtracting that percentage during obedient cooperation.</li>
+          <li><strong>Loyalty (1 to 10):</strong> Unique character evaluation of attachment to a specific team (1 = disregards the team; 10 = deeply treasures the team).</li>
+          <li><strong>Dividend / Divisor Interaction:</strong> The two stats act against each other as dividend and divisor. During team cooperation and obeying the leader, Loyalty suppresses Protest (Loyalty acts as the divisor); during defection, ignoring orders, or hindering the mission, Protest outweighs Loyalty!</li>
+        </ul>
+
+        <h4>Luck, Resolution Formula &amp; XP Economy</h4>
+        <ul>
+          <li><strong>Luck (Dynamic Roleplay Variable):</strong> Earned through quests and episodes; roleplaying small realistic details (eating, going to the bathroom, catching a cold); quality of in-character portrayal; and out-of-character contests.</li>
+          <li><strong>Non-RNG Resolution Calculation:</strong> If a character has a skill matching their level, they use it with <strong>100% certainty of the intended outcome</strong>. Otherwise, involved stats, Luck, and team stance are calculated. <em>Example:</em> In a tournament, Character A must escape pursuit by Character B without an escape skill:<br>
+          <code>(Physical Ability + Intelligence + Willpower + Portion of Luck) × (Protest / Loyalty)</code><br>
+          (dropping Intelligence or Willpower depending on terrain, duration, class, and balancing tests). Character B calculates the matching formula, or the total is compared against a fixed target number.</li>
+          <li><strong>XP &amp; Training:</strong> XP is spent primarily on buying new skills (skills need not match one's Position; stronger skills are harder to master; players can teach skills to each other bypassing the shop and gaining mutual XP). Roleplaying training always grants minor XP plus <strong>+1 to the trained stat</strong> (carefully calibrated for episodic play across varying Floors).</li>
+          <li><strong>Skill Power Output:</strong> Even though flat attack numbers aren't used, Shinsu skill strength, spatial coverage, and the effort required for a target to survive an attack scale directly with <strong>Baang–Surface–Mass</strong> and <strong>Skill Rank</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="entry-tab" data-tab="5-Character Prototype Squad (Full)">
+        <table>
+          <thead>
+            <tr>
+              <th>Profile</th>
+              <th>Data (Personality &amp; Role)</th>
+              <th>Stat Template (Blank Test Sheet)</th>
+              <th>Skills (3 Concrete Actions Each)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Light Bearer; Anima</strong><br>Carolina Valor<br>Rank: <strong>7D</strong></td>
+              <td>Carolina values common sense and calculation above all else. Naturally soft-hearted and largely liberal, she trained herself to apply intellect to virtually every issue. Accustomed to thinking several steps ahead, she became notorious for her cunning—like many other Light Bearers.</td>
+              <td>Luck:<br>Physical Ability:<br>Weapon:<br>Weapon Mastery:<br>Intelligence:<br>Willpower:<br>Inventory:<br><strong>Shinsu Control:</strong> Baang / Surface / Mass<br><strong>Team Attitude:</strong> Loyalty / Protest</td>
+              <td>
+                <strong>Shinsu Beast:</strong> Shinsu takes the form of a giant serpent capable of carrying several people inside. Smooth scales aid fluid movement and protect against physical attacks as well as Shinsu attacks below Rank 5E. Transport ability.<br>
+                <strong>Speed Control:</strong> Shinsu turns viscous/adhesive around enemies, impeding movement.<br>
+                <strong>Labyrinth:</strong> Lighthouses form walls and arrange themselves into a labyrinth within the Light Bearer's space.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Scout</strong><br>Sonwak<br>Rank: <strong>9D</strong></td>
+              <td>Sonwak does not adapt well to society. Etiquette and rules of propriety are alien to him. Otherwise he appears friendly and spontaneous, yet he is quite secretive and always ready to strike from behind someone's back.</td>
+              <td>Luck:<br>Physical Ability:<br>Weapon:<br>Weapon Mastery:<br>Intelligence:<br>Willpower:<br>Inventory:<br><strong>Shinsu Control:</strong> Baang / Surface / Mass<br><strong>Team Attitude:</strong> Loyalty / Protest</td>
+              <td>
+                <strong>Trap:</strong> The Scout conceals his trail, lays a false one, and sets traps along both. Traps can be pre-prepared devices (supply declared at game start) or created on the spot using Shinsu.<br>
+                <strong>Total Vanish:</strong> The Scout conceals himself so thoroughly that only a Guide can detect him.<br>
+                <strong>Ambush Strike:</strong> Instantly traverses a large distance (up to 100 meters) for a single precise attack.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Guide</strong><br>Vene Rossa<br>Rank: <strong>5D</strong></td>
+              <td>In daily life Vene avoids competition, settling for the middle ground. Cold, nearly indifferent, she "goes with the flow." Yet when her own interests are at stake, she gives everything she has—often catching everyone completely off guard. Amphibian.</td>
+              <td>Luck:<br>Physical Ability:<br>Weapon:<br>Weapon Mastery:<br>Intelligence:<br>Willpower:<br>Inventory:<br><strong>Shinsu Control:</strong> Baang / Surface / Mass<br><strong>Team Attitude:</strong> Loyalty / Protest</td>
+              <td>
+                <strong>Devouring Fish:</strong> Shinsu shaped into fish surrounds an opponent, drains their Shinsu, and empowers the Guide.<br>
+                <strong>Whirlpool:</strong> Shinsu vortices surround and separate opponents, dealing damage and cutting off breathing.<br>
+                <strong>Carnivorous Fish:</strong> Fish overcharged with Shinsu swarm and tear at the enemy's skin.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Fisherman, Wonsula</strong><br>Shamms<br>Rank: <strong>3D</strong></td>
+              <td>Secretive, capricious, confrontational. Shamms starts a scandal everywhere, whether there is reason for it or not. At the same time, he is willing to walk over heads—strictly the heads of criminals. Suffers from a hyper-acute sense of justice, yet still knows not to take a fall for someone else.</td>
+              <td>Luck:<br>Physical Ability:<br>Weapon:<br>Weapon Mastery:<br>Intelligence:<br>Willpower:<br>Inventory:<br><strong>Shinsu Control:</strong> Baang / Surface / Mass<br><strong>Team Attitude:</strong> Loyalty / Protest</td>
+              <td>
+                <strong>Seal:</strong> A Shinsu circle used by the Wonsula as a seal, preventing anyone from opening the sealed object without breaking it using Shinsu power greater than Shamms's.<br>
+                <strong>Chain Destruction:</strong> The Fisherman channels Shinsu into enemies so that an attack hitting the nearest foe inflicts equal damage on the rest.<br>
+                <strong>Targeted Attack:</strong> Strikes the most vulnerable spot of either a single enemy or a group.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Spear Bearer, Defender</strong><br>Lora<br>Rank: <strong>1D</strong></td>
+              <td>Lora speaks little, simply following those she is sworn to protect. She is humble and rarely voices complaints. Enjoys simple pastimes and stays quite optimistic. Genuinely naive and guileless.</td>
+              <td>Luck:<br>Physical Ability:<br>Weapon:<br>Weapon Mastery:<br>Intelligence:<br>Willpower:<br>Inventory:<br><strong>Shinsu Control:</strong> Baang / Surface / Mass<br><strong>Team Attitude:</strong> Loyalty / Protest</td>
+              <td>
+                <strong>Circle of Opportunity:</strong> A designated stance where both Defender and Spear Bearer abilities perform at peak efficiency. A specifically marked zone from which Lora hurls spears and bars enemies from entering; while marked, both positions gain a noticeable boost.<br>
+                <strong>Sinkhole:</strong> Lifts a massive volume of earth, knocking enemies back and blinding their field of vision with dust.<br>
+                <strong>Dust-Bullets:</strong> Airborne stones are fired as buckshot and projectiles at the nearest foes.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    
     <!-- ========== ADD NEW WORK BLOCKS ABOVE THIS LINE ========== -->
   </div>
 
